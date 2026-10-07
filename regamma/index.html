@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>REGAMMA GROUP: ремонт квартир в Москве под ключ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --gold:#d3b981;--gold2:#c7a96a;--goldSoft:#f3ecdd;
+  --ink:#303030;--ink2:#000;--mute:#7a7468;--line:#e4dfd4;
+  --bg:#f7f5f0;--card:#fbfaf7;--white:#fff;
+  --ok:#3fae6a;
+  --f:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --serif:"Playfair Display",Georgia,serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.5;overflow-x:hidden}
+button,input{font:inherit;color:inherit}
+a{color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+
+/* ===== first screen ===== */
+.hero-wrap{position:relative;width:100%;min-height:100vh;min-height:100svh;overflow:hidden;padding-top:24px;padding-bottom:40px}
+.hero-bg{position:absolute;inset:0;background:url("https://static.tildacdn.com/tild3030-3037-4235-b830-333235633566/V-Bitoe0c8M_1.jpg") center/cover no-repeat;animation:zoom 30s ease-in-out infinite alternate;filter:saturate(.9)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:rgba(247,245,240,.35)}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.12)}}
+.wrap{position:relative;max-width:1170px;margin:0 auto;padding-left:16px;padding-right:16px}
+.panel{width:100%;background:rgba(250,248,243,.93);border-radius:32px;box-shadow:0 30px 60px rgba(60,50,30,.12);padding-left:clamp(18px,3vw,40px);padding-right:clamp(18px,3vw,40px);padding-top:28px;padding-bottom:40px}
+.top{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.logo img{height:34px;width:auto}
+.tag{font-size:13.5px;font-weight:500;color:var(--ink2)}
+.dp{display:flex;align-items:center;gap:8px;font-size:13px;text-decoration:underline;color:var(--ink2);margin-left:auto}
+.dp i{width:30px;height:30px;border-radius:6px;background:url("https://static.tildacdn.com/tild3064-3838-4038-a262-353964393765/5.jpg") center/cover}
+.rate{font-size:13px;color:var(--ink2);line-height:1.25}.rate u{display:block}
+.contacts{text-align:right;font-size:13px;color:var(--ink2);line-height:1.35}
+.contacts b{display:block;font-size:15.5px;font-weight:600}
+.menu-row{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:18px}
+.menu{display:flex;gap:clamp(18px,3.2vw,48px);font-size:16.5px;font-weight:500;color:var(--ink2)}
+.menu span{cursor:default}
+.menu .dd::after{content:"";display:inline-block;margin-left:6px;border:4px solid transparent;border-top-color:currentColor;vertical-align:-1px}
+.btn-o{border:1px solid var(--ink2);background:transparent;border-radius:999px;padding:12px 24px;font-size:13.5px;cursor:pointer;color:var(--ink2);white-space:nowrap}
+.btn-o:hover{background:var(--ink2);color:#fff}
+.hero{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;margin-top:26px}
+.hero h1{margin:0;font-weight:400;font-size:clamp(28px,2.6vw,34px);line-height:1.2;color:var(--ink);letter-spacing:-.005em}
+.hero h1 em{font-family:var(--serif);font-weight:700;font-style:italic;color:var(--ink2)}
+.hero .sub{margin:16px 0 0;font-size:16px;color:var(--mute)}
+.cta-row{display:flex;align-items:center;gap:36px;margin-top:34px;flex-wrap:wrap}
+.btn-g{border:0;border-radius:999px;background:var(--gold);color:var(--ink);font-weight:700;font-size:15px;padding:22px 34px;cursor:pointer;box-shadow:0 10px 24px rgba(211,185,129,.35);transition:transform .15s}
+.btn-g:hover{transform:translateY(-1px);background:var(--gold2)}
+.msgr{font-size:12.5px;font-weight:700;color:var(--ink2);line-height:1.2}
+.msgr .ic{display:flex;gap:16px;margin-top:10px}
+.msgr a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center}
+.msgr .wa{background:#25d366}.msgr .tg{background:#2aa1da}
+.msgr svg{width:22px;height:22px;fill:#fff}
+.photo{border-radius:16px;overflow:hidden;aspect-ratio:16/10;background:#e9e4da}
+.photo img{width:100%;height:100%;object-fit:cover}
+@media (max-width:1060px){.menu{display:none}.dp,.rate{display:none}.menu-row{justify-content:flex-end;margin-top:12px}}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.photo{order:-1;aspect-ratio:16/9}.tag{display:none}}
+@media (max-width:560px){
+  .hero-wrap{padding-top:12px;padding-bottom:24px}
+  .panel{border-radius:22px;padding-top:18px;padding-bottom:26px}
+  .logo img{height:28px}
+  .contacts{margin-left:auto}.contacts span{display:none}.contacts b{font-size:14px}
+  .menu-row{display:none}
+  .btn-g{width:100%;padding:19px 20px}
+  .cta-row{gap:18px;margin-top:24px}
+}
+
+/* ===== chat ===== */
+.launch{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:40;width:68px;height:68px;border-radius:50%;border:3px solid #fff;padding:0;cursor:pointer;background:#ddd url("https://images.unsplash.com/photo-1580489944761-15a19d654956?w=240&h=240&fit=crop&crop=faces") center 30%/cover;box-shadow:0 12px 28px rgba(60,50,30,.3)}
+.launch::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--gold);animation:ring 1.8s infinite}
+.launch::after{content:"";position:absolute;right:1px;bottom:3px;width:13px;height:13px;border-radius:50%;background:var(--ok);border:2px solid #fff}
+@keyframes ring{0%{transform:scale(.92);opacity:.8}100%{transform:scale(1.25);opacity:0}}
+.teaser{position:fixed;right:102px;bottom:calc(36px + env(safe-area-inset-bottom,0px));z-index:40;background:#fff;color:var(--ink);border-radius:16px 16px 4px 16px;padding:11px 15px;font-size:14px;box-shadow:0 12px 30px rgba(60,50,30,.2);max-width:250px;cursor:pointer;animation:in .4s ease-out}
+.widget{position:fixed;right:22px;bottom:calc(104px + env(safe-area-inset-bottom,0px));z-index:45;width:min(390px,calc(100vw - 32px));height:min(640px,calc(100vh - 130px));background:var(--white);border:1px solid var(--line);border-radius:22px;box-shadow:0 24px 60px rgba(60,50,30,.25);display:flex;flex-direction:column;overflow:hidden;animation:in .3s ease-out}
+@media (max-width:560px){.widget{right:12px;left:12px;width:auto;height:calc(100vh - 116px);height:calc(100svh - 116px);bottom:calc(98px + env(safe-area-inset-bottom,0px))}.teaser{right:96px;max-width:200px}}
+.wh{background:var(--goldSoft);padding:13px 16px;display:flex;gap:11px;align-items:center;border-bottom:1px solid var(--line)}
+.av{width:42px;height:42px;border-radius:50%;flex:none;position:relative;background:#ddd url("https://images.unsplash.com/photo-1580489944761-15a19d654956?w=160&h=160&fit=crop&crop=faces") center 30%/cover}
+.wh .av::after{content:"";position:absolute;right:0;bottom:0;width:11px;height:11px;border-radius:50%;background:var(--ok);border:2px solid var(--goldSoft)}
+.wh b{display:block;font-size:15px;color:var(--ink2)}.wh small{color:var(--mute);font-size:12.5px}
+.wh .x{margin-left:auto;background:none;border:0;color:var(--mute);font-size:26px;cursor:pointer;line-height:1;padding:4px}
+.msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:9px;background:var(--card)}
+.b{max-width:88%;padding:10px 13px;border-radius:16px;font-size:14.5px;line-height:1.45;animation:in .3s ease-out}
+.b.bot{background:#fff;border:1px solid var(--line);border-bottom-left-radius:5px;align-self:flex-start}
+.b.me{background:var(--gold);color:var(--ink2);border-bottom-right-radius:5px;align-self:flex-end}
+.b .t{display:block;font-size:11px;opacity:.5;margin-top:3px;text-align:right}
+.b.file{display:flex;gap:10px;align-items:center}
+.b.file .ic{width:30px;height:36px;border-radius:5px;background:rgba(255,255,255,.55);display:grid;place-items:center;font-size:10px;font-weight:800}
+.price{display:block;margin:6px 0 4px;font-size:18px;font-weight:800;color:var(--ink2)}
+.note{display:block;font-size:12.5px;color:var(--mute)}
+.msgs>*{flex-shrink:0}
+.proj{align-self:flex-start;width:88%;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;animation:in .3s ease-out}
+.proj img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.proj div{padding:10px 13px 12px;font-size:13.5px}
+.proj b{display:block;font-size:15px;color:var(--ink2)}
+.proj span{display:block;color:var(--mute)}
+.proj a{display:inline-block;margin-top:8px;color:var(--ink2);font-weight:700;text-decoration:none;border-bottom:2px solid var(--gold)}
+.typing{align-self:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:11px 13px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#b9ae98;animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{50%{opacity:.25}}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.qr{display:flex;flex-wrap:wrap;gap:7px;padding:10px 14px;border-top:1px solid var(--line);min-height:56px;max-height:46%;overflow-y:auto;background:#fff}
+.qr button{border:1px solid var(--gold2);color:var(--ink2);background:#fff;border-radius:999px;padding:8px 13px;font-size:13.5px;cursor:pointer;text-align:left}
+.qr button:hover{background:var(--gold);border-color:var(--gold)}
+.qr.cards{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.qr.cards button{border-radius:12px;padding:0;overflow:hidden;display:flex;flex-direction:column}
+.qr.cards button i{display:block;width:100%;aspect-ratio:16/10;background:#eee center/cover}
+.qr.cards button span{display:block;padding:7px 9px;font-size:13px;font-weight:600;line-height:1.25}
+.qr.cards button.wide{grid-column:1/-1;border-radius:999px;padding:9px 13px}
+.inp{display:flex;gap:8px;padding:0 14px 14px;background:#fff}
+.inp input{flex:1;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:10px 14px;font-size:14px}
+.inp button{border:0;border-radius:50%;width:40px;height:40px;background:var(--gold);cursor:pointer;font-weight:800}
+.end{align-self:stretch;background:var(--goldSoft);border:1px solid #e7dcc4;border-radius:14px;padding:12px 14px;font-size:14px;text-align:center;animation:in .3s ease-out}
+.end button{margin-top:9px;border:0;border-radius:999px;background:var(--ink);color:#fff;padding:10px 18px;font-weight:700;cursor:pointer}
+
+/* ===== manager view ===== */
+.mgr{position:fixed;inset:0;z-index:60;background:rgba(30,27,22,.93);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;overflow-y:auto;animation:in .3s ease-out;color:#f4f0e8}
+.mbox{display:grid;grid-template-columns:auto minmax(0,360px);gap:32px;align-items:center;max-width:840px;width:100%}
+@media (max-width:760px){.mbox{grid-template-columns:1fr;gap:20px}.mside{order:-1}}
+.phone{background:#0d0d0d;border-radius:34px;padding:9px;width:min(340px,100%);margin:0 auto;box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.scr{background:#dce6ee;border-radius:26px;display:flex;flex-direction:column;overflow:hidden;color:#16202a;font-family:"Helvetica Neue",Arial,sans-serif}
+.th{background:#fff;padding:11px 14px;display:flex;gap:10px;align-items:center;font-size:13.5px;border-bottom:1px solid #d5dee6}
+.th .tav{width:32px;height:32px;border-radius:50%;background:var(--gold);color:var(--ink2);display:grid;place-items:center;font-weight:800;font-size:13px}
+.th small{display:block;color:#76766e;font-size:11.5px}
+.chat{padding:22px 10px 12px;display:flex;flex-direction:column;gap:8px}
+.m{background:#fff;border-radius:14px 14px 14px 4px;padding:10px 12px;font-size:12.5px;line-height:1.4;border-left:4px solid var(--gold2);animation:in .35s ease-out}
+.m .tm{float:right;color:#76766e;font-size:11px;margin-left:8px}
+.m .kv{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin-top:6px}
+.m .kv span:nth-child(odd){color:#76766e}
+.m .open{margin-top:8px;width:100%;border:0;border-radius:10px;padding:9px;background:var(--gold);color:var(--ink2);font-weight:700}
+.mside h3{margin:0;font-size:clamp(22px,3vw,30px);line-height:1.15}
+.mside p{color:#d9d3c8;margin:12px 0 0;font-size:15.5px}
+.mside ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px}
+.mside li{padding-left:18px;position:relative}.mside li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.mside .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.mside .btns button{border-radius:999px;padding:12px 20px;cursor:pointer;font-weight:700}
+.btn-k{border:0;background:var(--gold);color:var(--ink2)}
+.btn-back{border:1px solid rgba(255,255,255,.3);background:transparent;color:#f4f0e8}
+
+/* ===== offer below first screen ===== */
+.offer{background:#fff;padding-top:clamp(48px,7vw,90px);padding-bottom:40px;border-top:1px solid var(--line)}
+.offer h2{margin:0 0 22px;font-size:clamp(24px,3vw,36px);line-height:1.15;color:var(--ink2);font-weight:700}
+.offer h2 em{font-family:var(--serif);font-style:italic}
+.offer .lead{max-width:62ch;color:var(--mute);margin:-8px 0 26px}
+.loss{display:grid;gap:12px;margin-bottom:64px}
+.lrow{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.lrow div{padding:18px 20px}
+.lrow div:first-child{background:#faf8f4}
+.lrow div:last-child{background:var(--goldSoft)}
+.lrow small{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+@media (max-width:700px){.lrow{grid-template-columns:1fr}}
+.why{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:start;margin-bottom:64px}
+@media (max-width:860px){.why{grid-template-columns:1fr}}
+.reasons{margin:0;padding:0;list-style:none;counter-reset:r;display:grid;gap:16px}
+.reasons li{counter-increment:r;display:grid;grid-template-columns:40px 1fr;gap:12px}
+.reasons li::before{content:counter(r);width:36px;height:36px;border-radius:50%;background:var(--gold);display:grid;place-items:center;font-weight:800;color:var(--ink2)}
+.reasons b{display:block;color:var(--ink2)}
+.reasons span{color:var(--mute);font-size:15px}
+.sample{background:#dce6ee;border-radius:22px;padding:16px}
+.sample .m{animation:none}
+.final{background:var(--goldSoft);border-radius:26px;padding:clamp(24px,4vw,44px);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.final h2{margin:0}
+.final p{margin:8px 0 0;color:var(--mute);max-width:52ch}
+.foot{font-size:12px;color:var(--mute);text-align:center;padding:30px 16px 110px}
+
+/* email modal */
+.modal{position:fixed;inset:0;z-index:80;background:rgba(30,27,22,.6);display:grid;place-items:center;padding:16px;animation:in .25s ease-out}
+.mcard{background:#fff;border-radius:22px;padding:28px;max-width:420px;width:100%;text-align:center;position:relative}
+.mcard .x{position:absolute;right:12px;top:8px;background:none;border:0;font-size:26px;cursor:pointer;color:var(--mute)}
+.mcard small{color:var(--mute)}
+.mail{display:block;font-size:clamp(20px,5vw,26px);font-weight:800;color:var(--ink2);margin:8px 0 20px;word-break:break-all;user-select:all}
+.mcard .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.mcard .row a,.mcard .row button{border-radius:999px;padding:12px 18px;font-weight:700;cursor:pointer;text-decoration:none;font-size:14.5px}
+.mcard .row a{background:var(--gold);color:var(--ink2)}
+.mcard .row button{border:1px solid var(--ink);background:#fff}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="hero-wrap">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="panel">
+      <div class="top">
+        <span class="logo"><img src="https://static.tildacdn.com/tild3061-3632-4866-b237-343035386333/logo4.png" alt="REGAMMA GROUP" referrerpolicy="no-referrer"></span>
+        <span class="tag">Делаем премиальность доступнее</span>
+        <span class="dp"><i aria-hidden="true"></i>Есть дизайн<br>проект?</span>
+        <span class="rate">Рейтинг 4,9 на основании<u>94 отзывов на Yell</u></span>
+        <span class="contacts"><span>Ежедневно с 10:00 до 20:00</span><b>+7 (499) 490-61-84</b></span>
+      </div>
+      <div class="menu-row">
+        <nav class="menu" aria-label="Меню"><span>О компании</span><span class="dd">Ремонт</span><span>Дизайн-проект</span><span>Наши работы</span><span>Отзывы</span><span>Блог</span><span>Контакты</span></nav>
+        <button class="btn-o" type="button" data-open>Обсудить ремонт</button>
+      </div>
+      <section class="hero">
+        <div>
+          <h1>Реализация интерьеров <em>в Москве</em> под ключ по фиксированной цене <em>с гарантийным обслуживанием 3 года</em></h1>
+          <div class="cta-row">
+            <button class="btn-g" type="button" id="mainBtn" data-open>Узнать стоимость ремонта</button>
+            <div class="msgr">Или напишите нам<br>в мессенджерах
+              <div class="ic">
+                <a class="wa" href="#" data-open aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.8-1.1-4.6-4-4.8-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.1z"/></svg></a>
+                <a class="tg" href="#" data-open aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.5 4.2 18.4 19c-.2 1-.8 1.3-1.7.8l-4.6-3.4-2.2 2.1c-.2.2-.5.4-1 .4l.3-4.7 8.6-7.8c.4-.3-.1-.5-.6-.2L6.6 12.9 2.1 11.5c-1-.3-1-1 .2-1.5L20.2 3.1c.8-.3 1.6.2 1.3 1.1z"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="photo"><img src="https://static.tildacdn.com/tild3634-3963-4631-b263-343337353635/14.jpg" alt="Интерьер гостиной" referrerpolicy="no-referrer"></div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- предложение ниже первого экрана -->
+<section class="offer">
+  <div class="wrap">
+    <h2>Где сайт сейчас <em>теряет клиентов</em></h2>
+    <p class="lead">Только то, что видно на regamma.ru сегодня.</p>
+    <div class="loss">
+      <div class="lrow"><div><small>Сейчас</small>На главной нет цены за метр. Тарифы от 9 440, 18 450 и 28 300 ₽/м² есть только на внутренней странице «Ремонт квартир под ключ».</div><div><small>С Алиной</small>Клиент прямо на главной получает вилку по вашим тарифам и срок по вашей таблице для своей площади.</div></div>
+      <div class="lrow"><div><small>Сейчас</small>Квиз из 9 шагов заканчивается полем для телефона. Цену клиент не видит, а подробную смету обещают прислать в течение 48 часов после замера.</div><div><small>С Алиной</small>Цена и срок сразу в чате. На замер клиент едет, уже понимая бюджет.</div></div>
+      <div class="lrow"><div><small>Сейчас</small>Работаете ежедневно с 10:00 до 20:00. На сайте нет онлайн-чата, вечером клиент оставляет телефон и ждёт.</div><div><small>С Алиной</small>Ответ в 23:41 так же, как в 11:00. Утром менеджер получает готовую карточку клиента.</div></div>
+    </div>
+
+    <div class="why">
+      <div>
+        <h2>5 причин, почему это приведёт вам клиентов</h2>
+        <ol class="reasons">
+          <li><div><b>Ответ сразу, в любое время</b><span>Клиент, который выбирает подрядчика вечером, не уходит к тем, кто ответил первым.</span></div></li>
+          <li><div><b>Цена по вашим тарифам</b><span>Черновой, Комфорт, Премиум и сроки из вашей таблицы. Никаких чужих цифр.</span></div></li>
+          <li><div><b>Ваши проекты в разговоре</b><span>ЖК Наследие, ЖК Аэробус, ЖК Воронцовский парк с фото и рум-туром.</span></div></li>
+          <li><div><b>Запись на замер или экскурсию</b><span>Бесплатный замер и экскурсия на текущий объект с прорабом, как у вас на сайте.</span></div></li>
+          <li><div><b>Менеджер не начинает с нуля</b><span>Площадь, тариф, стиль, бюджет, время замера и удобный мессенджер уже в карточке.</span></div></li>
+        </ol>
+      </div>
+      <div class="sample" aria-label="Пример карточки для менеджера">
+        <div class="m"><span class="tm">09:00</span><b>Новый клиент от Алины</b><div class="kv">
+          <span>Клиент</span><span>Анна, WhatsApp</span><span>Объект</span><span>новостройка, ключи получены</span><span>Площадь</span><span>2-комнатная, 45-75 м²</span><span>Ремонт</span><span>Комфорт</span><span>Стиль</span><span>Модерн</span><span>Бюджет</span><span>от 830 тыс. до 1,38 млн ₽</span><span>Замер</span><span>завтра 11:00</span></div></div>
+      </div>
+    </div>
+
+    <div class="final">
+      <div>
+        <h2>Поставим Алину на regamma.ru</h2>
+        <p>С вашими тарифами, сроками, проектами и квизом. Покажу, как это работает, за 15 минут.</p>
+      </div>
+      <button class="btn-g" type="button" data-mail>Написать Екатерине</button>
+    </div>
+  </div>
+  <div class="foot">Демо подготовлено AI Room Studio. Это не сайт компании REGAMMA GROUP: логотип, фото и цены взяты с regamma.ru для примера.</div>
+</section>
+
+<!-- чат -->
+<div class="teaser" id="teaser" hidden>Добрый вечер! Подсказать стоимость ремонта по вашей площади?</div>
+<button class="launch" id="launch" type="button" aria-label="Открыть чат с Алиной"></button>
+
+<div class="widget" id="widget" hidden aria-live="polite">
+  <div class="wh"><div class="av" aria-hidden="true"></div><div><b>Алина, Regamma Group</b><small>ИИ-консультант, онлайн 24/7</small></div><button class="x" type="button" id="close" aria-label="Свернуть чат">×</button></div>
+  <div class="msgs" id="msgs"></div>
+  <div class="qr" id="qr"></div>
+  <div class="inp"><input id="txt" placeholder="Напишите сообщение" autocomplete="off" aria-label="Сообщение"><button type="button" id="sendTxt" aria-label="Отправить">→</button></div>
+</div>
+
+<!-- экран менеджера -->
+<div class="mgr" id="mgr" hidden>
+  <div class="mbox">
+    <div class="phone"><div class="scr">
+      <div class="th"><div class="tav">R</div><div><b>Заявки Regamma Group</b><small>Telegram, менеджер</small></div></div>
+      <div class="chat" id="mchat"></div>
+    </div></div>
+    <div class="mside">
+      <h3>А утром менеджер видит готового клиента</h3>
+      <p id="mtext">Клиент написал ночью, когда офис был закрыт. Алина ответила сразу, назвала цену по вашим тарифам и записала на замер.</p>
+      <ul><li>Не нужно перезванивать и выяснять площадь и бюджет</li><li>Клиент уже видел ваши проекты и знает порядок цены</li><li>Клиент не ушёл к конкурентам, пока ждал ответа</li></ul>
+      <div class="btns"><button type="button" class="btn-k" data-mail>Обсудить с Екатериной</button><button type="button" class="btn-back" id="closeMgr">Вернуться к сайту</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- окно с почтой -->
+<div class="modal" id="mailBox" hidden role="dialog" aria-modal="true" aria-label="Связаться с Екатериной">
+  <div class="mcard">
+    <button class="x" type="button" id="mailClose" aria-label="Закрыть">×</button>
+    <small>Екатерина Бокова, AI Room Studio</small>
+    <span class="mail" id="mailAddr">katerina@lacifra.co</span>
+    <div class="row">
+      <a href="mailto:katerina@lacifra.co?subject=%D0%98%D0%98-%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D0%BD%D1%82%20%D0%B4%D0%BB%D1%8F%20Regamma%20Group">Написать на почту</a>
+      <button type="button" id="copyMail">Скопировать адрес</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var IMG="https://static.tildacdn.com/";
+  var CO="Regamma Group";
+  /* тарифы с regamma.ru/remont */
+  var TARIFFS=[["Черновой",9440],["Комфорт",18450],["Премиум",28300]];
+  /* сроки (дней) с regamma.ru/remont: Черновой, Комфорт, Премиум */
+  var AREAS={
+    flat:[
+      {l:"1-комнатная, 35-50 м²",a:35,b:50,d:["25-30","90-105","125-140"]},
+      {l:"2-комнатная, 45-75 м²",a:45,b:75,d:["35-45","130-140","140-160"]},
+      {l:"3-комнатная, 70-120 м²",a:70,b:120,d:["45-60","140-160","160-180"]},
+      {l:"4-комнатная, 110-150 м²",a:110,b:150,d:["60-75","150-170","180-210"]}],
+    house:[
+      {l:"Таунхаус, 100-300 м²",a:100,b:300,d:["60-80","150-210","170-240"]},
+      {l:"Коттедж, 150-400 м²",a:150,b:400,d:["70-80","140-180","180-240"]}],
+    office:[
+      {l:"до 50 м²",a:30,b:50},{l:"50-120 м²",a:50,b:120},{l:"120-250 м²",a:120,b:250}]
+  };
+  var OBJ=[
+    {l:"Новостройка",img:IMG+"tild6537-3634-4534-b734-393733386462/orig.jpeg",k:"flat"},
+    {l:"Вторичное жилье",img:IMG+"tild3738-3765-4334-b331-383235316562/scale_1200.jpeg",k:"flat"},
+    {l:"Дом",img:IMG+"tild6237-6261-4636-a263-393636316137/i_13.webp",k:"house"},
+    {l:"Коммерческое помещение / Офис",img:IMG+"tild3935-3739-4237-b832-333436373839/XXL_height_5.webp",k:"office"}];
+  var STYLES=[
+    {l:"Классика",img:IMG+"tild6464-3133-4764-b231-386462303462/orig_1.jpeg",
+     d:"Классика: симметрия, молдинги, светлые стены и тёплые металлы. Вот наш проект в стиле современной классики:",
+     p:{n:"ЖК Наследие",img:IMG+"tild3739-3865-4239-b562-633133643632/1.jpg",r:"кухня и гостиная",s:"101 м²",t:"182 дня",x:"Задача: ремонт в стиле современной классики с итальянскими материалами и сантехникой без затягивания сроков",u:"https://regamma.ru/portfolio/"}},
+    {l:"Арт-деко",img:IMG+"tild3934-3231-4134-b061-363264623163/6cd8da866365595d9f4f.jpg",
+     d:"Арт-деко: контрастные материалы, геометрия, латунь и глянец. Дизайнер подберёт решения под вашу квартиру."},
+    {l:"Хай-тек",img:IMG+"tild6139-6164-4035-a232-376566656464/135240-4.jpeg",
+     d:"Хай-тек: чистые линии, скрытое хранение, встроенный свет и техника. Дизайнер подберёт решения под вашу квартиру."},
+    {l:"Модерн",img:IMG+"tild3362-3030-4565-b734-613433346237/73779ec8_569a_11ed_8.jpeg",
+     d:"Современный стиль: спокойные цвета, дерево, треки света и продуманное хранение. Вот наш проект в современном стиле:",
+     p:{n:"ЖК Аэробус",img:IMG+"tild6564-6464-4632-b638-653362666664/1.jpg",r:"кухня и гостиная, гардеробные, постирочная, кабинет",s:"124 м²",t:"270 дней",x:"Есть видеообзор: рум-тур квартиры 124 м²",u:"https://rutube.ru/video/21142d12a0eb6af76109a8ae30c7793b/",ul:"Смотреть рум-тур"}},
+    {l:"Лофт",img:IMG+"tild6266-3339-4637-b239-613639383733/1679437809_design-pi.jpg",
+     d:"Лофт: фактурные стены, металл, открытые пространства. Дизайнер подберёт решения под вашу квартиру."},
+    {l:"Нужна помощь дизайнера",img:IMG+"tild3865-3663-4464-a361-393830366635/priority-promotion.png",
+     d:"Поможем определиться. Получите планировочное решение до заключения договора. Вот проект, где дизайн делали с нуля:",
+     p:{n:"ЖК Воронцовский парк",img:IMG+"tild3839-3534-4365-a131-336431643465/2.jpg",r:"кухня и гостиная",s:"103 м²",t:"122 дня",x:"Задача: дизайн-проект и современный ремонт для семьи с двумя детьми в минимальные сроки",u:"https://regamma.ru/portfolio/"}}];
+
+  var msgs=$("msgs"),qr=$("qr"),clock=[23,41],started=false,done=false,L={},cur=null,nMe=0;
+  function t(adv){if(adv)clock[1]++;if(clock[1]>59){clock[1]=0;clock[0]=(clock[0]+1)%24}return ("0"+clock[0]).slice(-2)+":"+("0"+clock[1]).slice(-2)}
+  function scroll(){msgs.scrollTop=msgs.scrollHeight}
+  function fmt(n){return n.toLocaleString("ru-RU")}
+  function money(v){return v>=1e6?(v/1e6).toLocaleString("ru-RU",{maximumFractionDigits:2})+" млн ₽":Math.round(v/1000).toLocaleString("ru-RU")+" тыс. ₽"}
+  function range(a,b){var A=money(a).replace(" ₽","");if(a<1e6&&b<1e6)A=A.replace(" тыс.","");return "от "+A+" до "+money(b)}
+  function me(text,file){var d=document.createElement("div");d.className="b me"+(file?" file":"");d.innerHTML=file?"<span class='ic'>PDF</span><span>"+text+"</span>":text+"<span class='t'>"+t((++nMe)%2===0)+"</span>";msgs.appendChild(d);scroll()}
+  function opts(list,next,cards){qr.innerHTML="";qr.className="qr"+(cards?" cards":"");
+    list.forEach(function(o){var bt=document.createElement("button");bt.type="button";
+      if(cards&&o.img){bt.innerHTML="<i style=\"background-image:url('"+o.img+"')\"></i><span>"+o.l+"</span>"}else{bt.textContent=o.l||o;if(cards)bt.className="wide"}
+      bt.onclick=function(){answer(o.l||o,next)};qr.appendChild(bt)});cur=next}
+  function bot(text,list,next,cards,extra){qr.innerHTML="";qr.className="qr";cur=null;var ty=document.createElement("div");ty.className="typing";ty.innerHTML="<i></i><i></i><i></i>";msgs.appendChild(ty);scroll();
+    setTimeout(function(){ty.remove();var d=document.createElement("div");d.className="b bot";d.innerHTML=text+"<span class='t'>"+t()+"</span>";msgs.appendChild(d);
+      if(extra)msgs.appendChild(extra);scroll();if(list&&list.length)opts(list,next,cards);else cur=next},850)}
+  function answer(o,next){qr.innerHTML="";cur=null;me(o);if(next)setTimeout(function(){next(o)},350)}
+  $("sendTxt").onclick=function(){var v=$("txt").value.trim();if(!v||!cur)return;$("txt").value="";answer(v,cur)};
+  $("txt").addEventListener("keydown",function(e){if(e.key==="Enter")$("sendTxt").click()});
+  function projCard(p){var c=document.createElement("div");c.className="proj";
+    c.innerHTML="<img src='"+p.img+"' alt='"+p.n+"' referrerpolicy='no-referrer'><div><b>"+p.n+"</b><span>"+p.s+", "+p.r+"</span><span>Срок ремонта: "+p.t+"</span><span>"+p.x+"</span><a href='"+p.u+"' target='_blank' rel='noopener'>"+(p.ul||"Смотреть проект")+"</a></div>";return c}
+
+  /* 1. тип объекта (вопрос и картинки из их квиза) */
+  function s1(){bot("Добрый вечер! Я Алина, консультант «"+CO+"». Помогу рассчитать стоимость ремонта. Где нужно делать ремонт?",OBJ,s2,true)}
+  /* 2. ключи (их квиз) */
+  function s2(v){L.obj=v;L.k=(OBJ.filter(function(o){return o.l===v})[0]||OBJ[0]).k;
+    bot("Ваш объект уже введен в эксплуатацию?",["Ключи получены / Дом построен","Ключи еще не получили / Дом достраивается"],s3)}
+  /* 3. площадь (диапазоны из их таблицы сроков) */
+  function s3(v){L.keys=v;bot("Какая площадь?",AREAS[L.k].map(function(x){return x.l}),s4)}
+  /* 4. тариф */
+  function s4(v){L.area=AREAS[L.k].filter(function(x){return x.l===v})[0]||AREAS[L.k][0];
+    bot("Какой ремонт нужен? Цены за м² по нашим тарифам:",TARIFFS.map(function(x){return x[0]+", от "+fmt(x[1])+" ₽/м²"}).concat(["Не знаю, нужна консультация"]),s5)}
+  /* 5. стиль */
+  function s5(v){var i=-1;TARIFFS.forEach(function(x,j){if(v.indexOf(x[0])===0)i=j});L.ti=i;L.tier=i<0?"нужна консультация":TARIFFS[i][0];
+    bot("Какие стили интерьера вам нравятся?",STYLES,s6,true)}
+  /* 6. описание стиля + проект, затем цена */
+  function s6(v){var st=STYLES.filter(function(x){return x.l===v})[0]||STYLES[5];L.style=st.l;
+    bot(st.d,[],null,false,st.p?projCard(st.p):null);setTimeout(s7,1900)}
+  function s7(){var A=L.area,txt;
+    if(L.ti>=0){var r=TARIFFS[L.ti][1];L.lo=A.a*r;L.hi=A.b*r;
+      txt="Для площади "+A.a+"-"+A.b+" м² по тарифу «"+L.tier+"» (от "+fmt(r)+" ₽/м²):<span class='price'>"+range(L.lo,L.hi)+"</span>"+(A.d?"Срок ремонта по нашей таблице: "+A.d[L.ti]+" дней.":"")+"<span class='note'>Точную стоимость назовём после бесплатного замера.</span>"}
+    else{L.lo=A.a*TARIFFS[0][1];L.hi=A.b*TARIFFS[2][1];
+      txt="Для площади "+A.a+"-"+A.b+" м² по нашим тарифам:<br>"+TARIFFS.map(function(x){return "«"+x[0]+"»: <b>"+range(A.a*x[1],A.b*x[1])+"</b>"}).join("<br>")+"<span class='note'>Тариф поможет выбрать специалист на бесплатном замере, там же назовём точную стоимость.</span>"}
+    bot(txt+"<br>Есть ли у вас дизайн-проект?",["Дизайн проект есть","Еще нет дизайн проекта"],s8)}
+  /* 7. дизайн-проект */
+  function s8(v){L.design=v;var pre=v.indexOf("есть")>0?"Отлично, посчитаем по вашему проекту. ":"Можем разработать: проект делаем за 25-35 дней, учитываем всё вплоть до цвета штор и розеток. ";
+    bot(pre+"Как удобнее начать?",["Бесплатный замер","Экскурсия на текущий объект с прорабом","Сначала пришлю планировку"],s9)}
+  /* 8. замер */
+  function s9(v){L.visit=v;
+    if(v==="Сначала пришлю планировку"){L.plan=true;L.visit="замер после планировки";qr.innerHTML="";me("планировка_квартиры.pdf",true);
+      setTimeout(function(){bot("Получила планировку, утром передам специалисту. Выберите время замера, он приедет с примерами работ:",["Завтра 11:00","Завтра 16:00","Послезавтра 12:00"],s10)},350)}
+    else if(v.indexOf("Экскурсия")===0){bot("Покажем текущий объект, качество работ увидите своими глазами. Когда удобно?",["Завтра 11:00","Завтра 16:00","Послезавтра 12:00"],s10)}
+    else{bot("Специалист приедет на бесплатный замер с примерами работ. Выберите время:",["Завтра 11:00","Завтра 16:00","Послезавтра 12:00"],s10)}}
+  /* 9. контакт (их варианты: WhatsApp, Telegram, телефон) */
+  function s10(v){L.slot=v;bot("Как к вам обращаться и как удобно получить ответ?",["Анна, в WhatsApp","Анна, в Telegram","Анна, консультация по телефону"],s11)}
+  function s11(v){L.contact=v.replace("Анна, ","");
+    bot("Готово, Анна! "+(L.visit.indexOf("Экскурсия")===0?"Экскурсия":"Замер")+": <b>"+L.slot.toLowerCase()+"</b>. Менеджер подтвердит "+(L.contact.indexOf("телефон")>=0?"по телефону":L.contact)+". После замера пришлём подробную смету со всеми материалами в течение 48 часов. Если появятся вопросы, пишите сюда в любое время.",[],null);
+    done=true;setTimeout(function(){var e=document.createElement("div");e.className="end";e.innerHTML="Конец демо. Так Алина может работать на вашем сайте круглосуточно<br><button type='button' id='toMgr'>Что увидит менеджер</button>";msgs.appendChild(e);scroll();$("toMgr").onclick=showMgr;
+      setTimeout(function(){if($("mgr").hidden&&!mgrShown)showMgr()},3000)},1400)}
+  var mgrShown=false;
+  function card(){var c=$("mchat");c.innerHTML="";var m=document.createElement("div");m.className="m";
+    var mins=Math.max(2,(clock[0]*60+clock[1])-(23*60+41));
+    m.innerHTML="<span class='tm'>09:00</span><b>Новый клиент от Алины</b><div class='kv'>"+
+    "<span>Клиент</span><span>Анна, "+L.contact+"</span><span>Объект</span><span>"+L.obj.toLowerCase()+"</span><span>Готовность</span><span>"+L.keys.toLowerCase()+"</span>"+
+    "<span>Площадь</span><span>"+L.area.l+"</span><span>Ремонт</span><span>"+L.tier+"</span><span>Стиль</span><span>"+L.style+"</span>"+
+    "<span>Бюджет</span><span>"+range(L.lo,L.hi)+"</span><span>Дизайн</span><span>"+L.design.toLowerCase()+"</span>"+
+    "<span>Визит</span><span>"+L.visit.toLowerCase()+", "+L.slot.toLowerCase()+"</span><span>Планировка</span><span>"+(L.plan?"приложена (PDF)":"нет")+"</span>"+
+    "<span>Итог</span><span>написала в 23:41, когда офис был закрыт, диалог "+mins+" мин</span></div><button type='button' class='open'>Открыть диалог</button>";c.appendChild(m)}
+  function showMgr(){mgrShown=true;
+    if(!done){var A=AREAS.flat[1];L={obj:"Новостройка",keys:"Ключи получены / Дом построен",area:A,tier:"Комфорт",style:"Модерн",design:"Еще нет дизайн проекта",visit:"Бесплатный замер",slot:"Завтра 11:00",contact:"в WhatsApp",plan:false,lo:A.a*18450,hi:A.b*18450};
+      $("mtext").textContent="Так выглядит карточка клиента после разговора с Алиной. Пройдите диалог в чате справа внизу, чтобы увидеть, как она её собирает."}
+    else{$("mtext").textContent="Анна написала в 23:41, когда офис был закрыт. Алина ответила сразу, назвала цену по вашим тарифам, показала ваш проект и записала на замер."}
+    card();$("mgr").hidden=false}
+  function open(e){if(e&&e.preventDefault)e.preventDefault();$("teaser").hidden=true;$("widget").hidden=false;if(!started){started=true;s1()}}
+  $("launch").onclick=function(){if($("widget").hidden)open();else $("widget").hidden=true};
+  $("teaser").onclick=open;$("close").onclick=function(){$("widget").hidden=true};
+  document.querySelectorAll("[data-open]").forEach(function(b){b.onclick=open});
+  $("closeMgr").onclick=function(){$("mgr").hidden=true};
+  /* окно с почтой */
+  document.querySelectorAll("[data-mail]").forEach(function(b){b.onclick=function(){$("mailBox").hidden=false}});
+  $("mailClose").onclick=function(){$("mailBox").hidden=true};
+  $("mailBox").onclick=function(e){if(e.target===this)this.hidden=true};
+  $("copyMail").onclick=function(){var b=this,a="katerina@lacifra.co";
+    function ok(){b.textContent="Адрес скопирован"}
+    try{navigator.clipboard.writeText(a).then(ok,function(){fallback()})}catch(e){fallback()}
+    function fallback(){var r=document.createRange();r.selectNodeContents($("mailAddr"));var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand("copy");ok()}catch(e){}}};
+  setTimeout(function(){if(!started)$("teaser").hidden=false},matchMedia("(max-width:560px)").matches?4000:2000);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Петришин Строй: Ремонт квартир и дизайн интерьера</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+<style>
+@font-face{font-family:"Grotesk";src:url("https://static.tildacdn.com/tild6363-6338-4665-b363-353962313233/Typedepot_-_Corsa_Gr.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}
+:root{
+  color-scheme:dark;
+  --bg:#100c0a;--panel:#1a1614;--panel2:#241f1c;--text:#fff;--mute:rgba(255,255,255,.58);--line:rgba(255,255,255,.12);
+  --gold:#AF8853;--gold2:#a57e49;--light:#f6f7f8;--ink:#1a1a1a;--ok:#4CC38A;
+  --f:"Inter",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --h:"Grotesk","Inter","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text);font-family:var(--f);font-size:16px;line-height:1.5;overflow-x:hidden}
+button,input{font:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* ===== first screen (как на landing.petrishin.ru) ===== */
+.hero{position:relative;width:100%;min-height:100vh;min-height:100svh;overflow:hidden;display:flex;flex-direction:column;background:var(--bg)}
+.hero .bg{position:absolute;inset:0;background:url("https://static.tildacdn.com/tild3261-3864-4834-b638-363539623335/960_643.jpg") center/cover no-repeat;animation:zoom 28s ease-in-out infinite alternate;filter:saturate(.9)}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,12,10,.92) 0%,rgba(16,12,10,.72) 45%,rgba(16,12,10,.35) 100%),linear-gradient(0deg,rgba(16,12,10,.85) 0%,rgba(16,12,10,0) 40%)}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.12)}}
+.wrap{position:relative;padding-left:clamp(16px,3.2vw,46px);padding-right:clamp(16px,3.2vw,46px)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:14px;padding-bottom:14px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{width:62px;height:auto;display:block}
+.logo span{font-weight:300;font-size:18px;line-height:1.05;letter-spacing:.01em}
+.tright{display:flex;align-items:center;gap:clamp(18px,3.4vw,48px)}
+.stat{font-size:14px;line-height:1.1;text-align:right;font-weight:300}
+.phone{font-size:15px;font-weight:500;text-decoration:none;white-space:nowrap}
+.brk{position:relative;background:none;border:0;color:#fff;cursor:pointer;padding:6px 26px;font-weight:500;font-size:14px;letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.brk::before,.brk::after{content:"";position:absolute;top:0;bottom:0;width:6px;border:2px solid #fff}
+.brk::before{left:0;border-right:0}.brk::after{right:0;border-left:0}
+.brk:hover{color:var(--gold)}
+.brk svg,.cta svg{width:13px;height:13px}
+.heroin{flex:1;display:flex;flex-direction:column;justify-content:flex-end;width:100%;padding-top:60px;padding-bottom:clamp(60px,12vh,130px)}
+.h1wrap{position:relative;max-width:900px;padding-left:clamp(0px,4.6vw,68px)}
+h1{margin:0;font-family:var(--h);font-weight:400;font-size:clamp(46px,6.6vw,96px);line-height:.86;letter-spacing:-.035em}
+h1 span{display:block}
+h1 .i2{padding-left:.38em}
+.script{position:absolute;left:clamp(380px,33vw,480px);bottom:-30px;width:clamp(120px,13vw,190px);pointer-events:none}
+.cta{margin-top:26px;display:inline-flex;align-items:center;gap:60px;background:var(--gold);color:#fff;border:0;border-radius:8px;padding:16px 22px;text-align:left;font-size:15px;line-height:1.2;cursor:pointer;transition:background .25s}
+.cta:hover{background:var(--gold2)}
+@media (max-width:900px){.stat{display:none}}
+@media (max-width:600px){
+  .phone{display:none}
+  .logo img{width:48px}.logo span{font-size:15px}
+  .brk{padding:5px 18px;font-size:13px}
+  .h1wrap{padding-left:0}
+  h1{font-size:clamp(40px,12vw,56px)}
+  .script{display:none}
+  .cta{gap:22px;width:100%;justify-content:space-between}
+}
+
+/* ===== chat widget ===== */
+.launch{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:40;width:66px;height:66px;border-radius:50%;border:2px solid var(--gold);padding:0;cursor:pointer;background:#2a2320 url("https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=240&h=240&fit=crop&crop=faces&facepad=3") center/cover;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.launch::before{content:"";position:absolute;inset:-7px;border-radius:50%;border:2px solid var(--gold);opacity:.6;animation:ring 1.8s infinite}
+.launch::after{content:"";position:absolute;right:2px;bottom:2px;width:13px;height:13px;border-radius:50%;background:var(--ok);border:2px solid var(--bg)}
+@keyframes ring{0%{transform:scale(.92);opacity:.7}100%{transform:scale(1.25);opacity:0}}
+.teaser{position:fixed;right:100px;bottom:calc(36px + env(safe-area-inset-bottom,0px));z-index:40;background:#fff;color:#1a1a1a;border-radius:14px 14px 4px 14px;padding:11px 14px;font-size:14px;line-height:1.35;box-shadow:0 10px 30px rgba(0,0,0,.35);max-width:250px;cursor:pointer;animation:in .4s ease-out}
+.teaser b{display:block;font-size:12.5px;color:var(--gold2);margin-bottom:2px}
+.widget{position:fixed;right:22px;bottom:calc(100px + env(safe-area-inset-bottom,0px));z-index:45;width:min(390px,calc(100vw - 32px));height:min(620px,calc(100vh - 140px));height:min(620px,calc(100svh - 140px));background:var(--panel);border:1px solid rgba(175,136,83,.35);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.6);display:flex;flex-direction:column;overflow:hidden;animation:in .3s ease-out}
+@media (max-width:560px){.widget{right:16px;left:16px;width:auto;bottom:calc(96px + env(safe-area-inset-bottom,0px))}.teaser{right:96px;max-width:210px}}
+.wh{background:linear-gradient(135deg,#2a2320,#16110f);padding:13px 16px;display:flex;gap:11px;align-items:center;border-bottom:1px solid var(--line)}
+.av{width:42px;height:42px;border-radius:50%;background:#2a2320 url("https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=160&h=160&fit=crop&crop=faces&facepad=3") center/cover;position:relative;flex:none}
+.wh .av::after{content:"";position:absolute;right:0;bottom:0;width:11px;height:11px;border-radius:50%;background:var(--ok);border:2px solid #1f1a17}
+.wh b{display:block;font-size:15px;font-weight:600}.wh small{color:var(--mute);font-size:12.5px}
+.wh .x{margin-left:auto;background:none;border:0;color:var(--mute);font-size:24px;cursor:pointer;line-height:1}
+.msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:9px}
+.msgs>*{flex-shrink:0}
+.b{max-width:88%;padding:10px 13px;border-radius:14px;font-size:14.5px;line-height:1.45;animation:in .3s ease-out}
+.b.bot{background:var(--panel2);border:1px solid rgba(255,255,255,.06);border-bottom-left-radius:4px;align-self:flex-start}
+.b.me{background:var(--gold);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.b b{color:#d9b27c;font-weight:600}.b.me b{color:#fff}
+.b a{color:#d9b27c}
+.b .t{display:block;font-size:11px;opacity:.55;margin-top:3px;text-align:right}
+.b.file{display:flex;gap:10px;align-items:center}
+.b.file .ic{width:30px;height:36px;border-radius:5px;background:rgba(255,255,255,.25);display:grid;place-items:center;font-size:10px;font-weight:800}
+.proj{align-self:flex-start;width:88%;background:var(--panel2);border:1px solid rgba(175,136,83,.3);border-radius:14px;overflow:hidden;animation:in .3s ease-out}
+.proj img{display:block;width:100%;height:170px;object-fit:cover}
+.proj div{padding:10px 13px;font-size:13.5px}
+.proj b{display:block;font-size:15px;margin-bottom:4px}
+.proj dl{display:grid;grid-template-columns:auto 1fr;gap:1px 10px;margin:0;color:var(--mute)}
+.proj dd{margin:0;color:#fff}
+.endplate{align-self:stretch;background:#f6f1ea;color:#1a1a1a;border-radius:12px;padding:12px 14px;font-size:14px;animation:in .3s ease-out}
+.endplate button{margin-top:9px;width:100%;border:0;border-radius:8px;padding:10px;background:var(--gold);color:#fff;font-weight:600;cursor:pointer}
+.typing{align-self:flex-start;background:var(--panel2);border-radius:14px;padding:11px 13px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#8d8680;animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{50%{opacity:.25}}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.qr{display:flex;flex-wrap:wrap;gap:7px;padding:10px 14px;border-top:1px solid var(--line);max-height:42%;overflow-y:auto}
+.qr:empty{display:none}
+.qr button{border:1px solid var(--gold);color:#e2c191;background:transparent;border-radius:8px;padding:8px 12px;font-size:13.5px;cursor:pointer;text-align:left}
+.qr button:hover{background:var(--gold);color:#fff}
+.inp{display:flex;gap:8px;padding:10px 14px 14px}
+.inp input{flex:1;min-width:0;background:#0f0b09;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:10px 12px;font-size:14px}
+.inp button{border:0;border-radius:8px;width:42px;background:var(--gold);color:#fff;cursor:pointer;font-weight:700}
+
+/* ===== manager screen ===== */
+.mgr{position:fixed;inset:0;z-index:60;background:rgba(12,9,8,.95);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;overflow-y:auto;animation:in .3s ease-out}
+.mbox{display:grid;grid-template-columns:auto minmax(0,360px);gap:32px;align-items:center;max-width:840px;width:100%}
+@media (max-width:760px){.mbox{grid-template-columns:1fr;gap:20px}.mside{order:-1}}
+.tel{background:#0d0d0d;border-radius:34px;padding:9px;width:min(340px,100%);margin:0 auto;box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.scr{background:#DCE6EE;border-radius:26px;overflow:hidden;color:#16202A;font-family:"Helvetica Neue",Arial,sans-serif}
+.th{background:#fff;padding:11px 14px;display:flex;gap:10px;align-items:center;font-size:13.5px;border-bottom:1px solid #D5DEE6}
+.th .lg{width:32px;height:32px;border-radius:50%;background:#100c0a url("https://static.tildacdn.com/tild3033-3662-4436-b764-613565386237/Frame_291.svg") center/70% no-repeat}
+.th small{display:block;color:#76766E;font-size:11.5px}
+.chat{padding:22px 12px 14px;display:flex;flex-direction:column;gap:8px}
+.m{background:#fff;border-radius:14px 14px 14px 4px;padding:10px 12px;font-size:13px;line-height:1.4;border-left:4px solid var(--gold);animation:in .35s ease-out}
+.m .tm{float:right;color:#76766E;font-size:11px;margin-left:8px}
+.m .kv{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin-top:6px}
+.m .kv span:nth-child(odd){color:#76766E}
+.m .mb{margin-top:8px;width:100%;border:0;border-radius:10px;padding:9px;background:var(--gold);color:#fff;font-weight:600;text-align:center}
+.mside h3{margin:0;font-family:var(--h);font-weight:400;font-size:clamp(26px,3.4vw,36px);line-height:1;letter-spacing:-.02em}
+.mside p{color:#d9d2cb;margin:12px 0 0;font-size:15.5px}
+.mside ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px}
+.mside li{display:flex;gap:10px}.mside li::before{content:"";width:7px;height:7px;background:var(--gold);margin-top:9px;flex:none}
+.mbtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.mbtns button{border-radius:8px;padding:11px 18px;cursor:pointer;font-weight:600}
+.btn-g{border:0;background:var(--gold);color:#fff}
+.btn-l{border:1px solid var(--line);background:transparent;color:#fff}
+
+/* ===== offer below first screen ===== */
+.offer{background:var(--light);color:var(--ink);width:100%;padding-top:clamp(56px,8vw,96px);padding-bottom:40px}
+.offer .in{max-width:1080px;margin:0 auto}
+.offer h2{font-family:var(--h);font-weight:400;font-size:clamp(32px,4.6vw,54px);line-height:.95;letter-spacing:-.03em;margin:0 0 26px}
+.offer .sub{color:#5b5550;max-width:62ch;margin:-12px 0 28px}
+.loss{display:grid;gap:12px;margin-bottom:clamp(56px,8vw,90px)}
+.lrow{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #e8e8e8}
+.lrow>div{padding:18px 20px}
+.lrow small{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;font-weight:600}
+.lrow .now small{color:#a0574a}.lrow .ai{background:#fbf6ef}.lrow .ai small{color:var(--gold2)}
+@media (max-width:700px){.lrow{grid-template-columns:1fr}}
+.why{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,56px);align-items:start;margin-bottom:clamp(56px,8vw,90px)}
+@media (max-width:860px){.why{grid-template-columns:1fr}}
+.reasons{display:grid;gap:14px;counter-reset:r}
+.reason{display:grid;grid-template-columns:44px 1fr;gap:14px;background:#fff;border:1px solid #e8e8e8;border-radius:10px;padding:16px 18px}
+.reason::before{counter-increment:r;content:counter(r);width:36px;height:36px;border-radius:8px;background:var(--gold);color:#fff;display:grid;place-items:center;font-weight:600}
+.reason b{display:block;margin-bottom:2px}
+.reason span{color:#5b5550;font-size:15px}
+.sample{background:#DCE6EE;border-radius:16px;padding:18px 14px;position:sticky;top:20px}
+.sample .cap{font-size:13px;color:#5b6773;margin:0 4px 10px}
+.final{background:#100c0a;color:#fff;border-radius:14px;padding:clamp(26px,4vw,44px);display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap}
+.final h3{font-family:var(--h);font-weight:400;font-size:clamp(26px,3.4vw,38px);line-height:1;margin:0 0 10px;letter-spacing:-.02em}
+.final p{margin:0;color:var(--mute);max-width:52ch}
+.final button{border:0;background:var(--gold);color:#fff;border-radius:8px;padding:16px 26px;font-weight:600;cursor:pointer;font-size:16px}
+.fine{max-width:1080px;margin:28px auto 0;font-size:12px;color:#8a837d;line-height:1.5}
+
+.modal{position:fixed;inset:0;z-index:70;background:rgba(12,9,8,.7);display:grid;place-items:center;padding:16px}
+.mcard{background:#fff;color:var(--ink);border-radius:14px;padding:26px;max-width:420px;width:100%;position:relative;animation:in .25s ease-out}
+.mcard h4{margin:0 0 6px;font-size:18px}
+.mcard p{margin:0 0 14px;color:#5b5550;font-size:14.5px}
+.mail{font-size:clamp(20px,5.4vw,26px);font-weight:600;word-break:break-all;margin-bottom:18px}
+.mcard .row{display:flex;gap:10px;flex-wrap:wrap}
+.mcard a,.mcard .cp{flex:1;min-width:150px;text-align:center;border-radius:8px;padding:12px 14px;font-weight:600;text-decoration:none;cursor:pointer;font-size:15px}
+.mcard a{background:var(--gold);color:#fff}
+.mcard .cp{border:1px solid #d9d9d9;background:#fff;color:var(--ink)}
+.mcard .cl{position:absolute;right:12px;top:8px;border:0;background:none;font-size:24px;cursor:pointer;color:#8a837d}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="bg" aria-hidden="true"></div><div class="shade" aria-hidden="true"></div>
+  <div class="wrap top">
+    <a class="logo" href="#" aria-label="Петришин Строй"><img src="https://static.tildacdn.com/tild3033-3662-4436-b764-613565386237/Frame_291.svg" alt="" referrerpolicy="no-referrer"><span>Петришин<br>Строй</span></a>
+    <div class="tright">
+      <div class="stat">За 18 лет выполнили<br>ремонт в 930 квартирах</div>
+      <a class="phone" href="tel:+74951059524">+7 495 105 95 24</a>
+      <button class="brk" type="button" data-open>Связаться <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10 10 2M4 2h6v6"/></svg></button>
+    </div>
+  </div>
+  <div class="wrap heroin">
+    <div class="h1wrap">
+      <h1><span>Ремонт квартир</span><span class="i2">и дизайн</span><span>интерьера</span></h1>
+      <img class="script" src="https://static.tildacdn.com/tild3464-6266-4438-b161-663337613365/svg_1772189966125.svg" alt="" referrerpolicy="no-referrer">
+      <button class="cta" type="button" data-open><span>Получить бесплатный замер<br>и точную смету</span><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10 10 2M4 2h6v6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<section class="offer">
+  <div class="wrap"><div class="in">
+    <h2>Где сайт сейчас теряет клиентов</h2>
+    <p class="sub">Всё ниже проверено на landing.petrishin.ru. Слева то, что видит клиент сейчас. Справа то, что он получит с Алиной.</p>
+    <div class="loss">
+      <div class="lrow"><div class="now"><small>Сейчас</small>Расчёта на сайте нет. Все кнопки ведут в одну форму «Имя и телефон»: клиент записывается на замер и ждёт звонка, чтобы узнать цену.</div><div class="ai"><small>С Алиной</small>Клиент сразу видит вилку для своей площади по вашим тарифам Базовый от 25 000, Оптимальный от 30 000 и Премиум от 50 000 ₽/м².</div></div>
+      <div class="lrow"><div class="now"><small>Сейчас</small>Форма обещает «Ответим в течение 15 минут», но часов работы на сайте нет. Вечером клиент не знает, позвонят ли ему сегодня.</div><div class="ai"><small>С Алиной</small>Ответ приходит за секунды в 23:41 так же, как в 11:00. Утром менеджер получает готовую заявку.</div></div>
+      <div class="lrow"><div class="now"><small>Сейчас</small>Портфолио и ролики про цены есть, но клиент сам ищет проект своей площади и сам сравнивает его с тарифами.</div><div class="ai"><small>С Алиной</small>Алина показывает похожий проект, например ЖК Ривер Парк, 44 м², 1 400 000 ₽, и даёт ролик «Сколько реально стоит ремонт квартиры».</div></div>
+    </div>
+
+    <div class="why">
+      <div>
+        <h2>5 причин, почему это приведёт вам клиентов</h2>
+        <div class="reasons">
+          <div class="reason"><div><b>Цена без звонка</b><span>Клиент ремонта сравнивает нескольких подрядчиков. Кто первым назвал понятную цифру, тот и получает замер.</span></div></div>
+          <div class="reason"><div><b>Работает ночью и в выходные</b><span>Алина отвечает в любое время и записывает на замер, пока офис закрыт.</span></div></div>
+          <div class="reason"><div><b>Продаёт вашими аргументами</b><span>Без аванса и оплата по этапам, цена и сроки в договоре, 3 тыс. рублей за каждый день просрочки, гарантия до 5 лет.</span></div></div>
+          <div class="reason"><div><b>Показывает ваши работы</b><span>Подбирает проект из портфолио под площадь клиента и даёт ссылки на ваши ролики в VK Видео.</span></div></div>
+          <div class="reason"><div><b>Менеджер получает готового клиента</b><span>Площадь, тариф, бюджет, сроки, планировка и время замера уже в карточке. Не нужно перезванивать и выяснять.</span></div></div>
+        </div>
+      </div>
+      <div class="sample"><p class="cap">Так выглядит заявка в Telegram менеджера</p><div class="m" id="sampleCard"></div></div>
+    </div>
+
+    <div class="final">
+      <div><h3>Алина на вашем сайте</h3><p>Настрою консультанта по вашим тарифам, портфолио и роликам и покажу, как заявки приходят менеджеру. Ответьте на письмо или напишите мне.</p></div>
+      <button type="button" data-mail>Написать Екатерине</button>
+    </div>
+  </div></div>
+  <p class="fine wrap">Демо подготовлено AI Room Studio (Екатерина Бокова). Это не сайт компании «Петришин Строй»: логотип, фото, тарифы, проекты и тексты взяты с сайта petrishin.ru только для демонстрации. Заявки из демо никуда не отправляются.</p>
+</section>
+
+<div class="teaser" id="teaser" hidden><b>Алина, Петришин Строй</b>Добрый вечер! Подсказать стоимость ремонта вашей квартиры?</div>
+<button class="launch" id="launch" type="button" aria-label="Открыть чат с консультантом"></button>
+
+<div class="widget" id="widget" hidden aria-live="polite">
+  <div class="wh"><div class="av"></div><div><b>Алина, Петришин Строй</b><small>ИИ-консультант, онлайн 24/7</small></div><button class="x" type="button" id="close" aria-label="Свернуть чат">×</button></div>
+  <div class="msgs" id="msgs"></div>
+  <div class="qr" id="qr"></div>
+  <div class="inp"><input id="txt" placeholder="Напишите сообщение" autocomplete="off"><button type="button" id="sendTxt" aria-label="Отправить">→</button></div>
+</div>
+
+<div class="mgr" id="mgr" hidden>
+  <div class="mbox">
+    <div class="tel"><div class="scr">
+      <div class="th"><div class="lg"></div><div><b>Заявки Петришин Строй</b><small>бот в Telegram, для менеджера</small></div></div>
+      <div class="chat"><div class="m" id="mcard"></div></div>
+    </div></div>
+    <div class="mside">
+      <h3>Утром менеджер видит готового клиента</h3>
+      <p id="mtext">Анна написала в 23:41. Алина сразу ответила, посчитала ремонт по вашим тарифам, показала проект из портфолио и записала на замер.</p>
+      <ul><li>Не нужно перезванивать и выяснять площадь и бюджет</li><li>Планировка уже у инженера-сметчика</li><li>Клиент не ушёл к другим подрядчикам, пока ждал звонка</li></ul>
+      <div class="mbtns"><button type="button" class="btn-g" data-mail>Написать Екатерине</button><button type="button" class="btn-l" id="closeMgr">Вернуться к сайту</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="mcard" role="dialog" aria-label="Контакт Екатерины">
+    <button class="cl" type="button" id="mclose" aria-label="Закрыть">×</button>
+    <h4>Екатерина Бокова, AI Room Studio</h4>
+    <p>Напишите, и я покажу, как Алина будет работать на сайте «Петришин Строй».</p>
+    <div class="mail">katerina@lacifra.co</div>
+    <div class="row"><a href="mailto:katerina@lacifra.co?subject=%D0%90%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D0%9F%D0%B5%D1%82%D1%80%D0%B8%D1%88%D0%B8%D0%BD%20%D0%A1%D1%82%D1%80%D0%BE%D0%B9">Написать на почту</a><button class="cp" type="button" id="copy">Скопировать адрес</button></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var NAME="Петришин Строй";
+  // тарифы капитального ремонта с landing.petrishin.ru
+  var TAR=[
+    {n:"Базовый",p:25000,d:"без демонтажа и перепланировок: натяжные потолки, выравнивание стен и обои, пол из кварц-винила или ламината, стандартная электрика, гарантия на работы 2 года"},
+    {n:"Оптимальный",p:30000,d:"демонтаж и перепланировка, выравнивание стен под 90 градусов, звукоизоляция, крупноформатная плитка в санузле, сантехника NEPTUN со скрытыми коммуникациями и гарантией 5 лет"},
+    {n:"Премиум",p:50000,d:"всё из Оптимального плюс авторский дизайн-проект с 3D-визуализацией, умный дом и климат-контроль, прораб ведёт проект лично, вопросы с УК и ТСЖ решаем сами"}
+  ];
+  // портфолио с landing.petrishin.ru
+  var P={
+    river:{t:"ЖК Ривер Парк",a:"44 м²",r:"2-х комнатная квартира",c:"1 400 000 ₽",s:"6 месяцев",img:"https://static.tildacdn.com/tild3635-3735-4530-b565-383537336537/Rectangle_83-4.jpg"},
+    presnya:{t:"ул. Пресненский Вал",a:"54 м²",r:"2-х комнатная квартира",c:"2 300 000 ₽",s:"6 месяцев",img:"https://static.tildacdn.com/tild3835-3338-4031-b665-353538633862/Rectangle_83-2.jpg"},
+    fili:{t:"ЖК Фили Град",a:"59 м²",r:"3-х комнатная квартира",c:"3 000 000 ₽",s:"6 месяцев",img:"https://static.tildacdn.com/tild6431-3266-4635-b639-343265646366/Rectangle_832.jpg"},
+    mih:{t:"ЖК Михайлова",a:"80 м²",r:"3-х комнатная квартира",c:"2 100 000 ₽",s:"6 месяцев",img:"https://static.tildacdn.com/tild6530-6233-4635-b961-623935323734/Rectangle_83-1.jpg"}
+  };
+  var AREAS=[["до 40 м²",30,40,"river"],["40-60 м²",40,60,"presnya"],["60-80 м²",60,80,"fili"],["80-100 м²",80,100,"mih"],["больше 100 м²",100,0,"mih"]];
+  var VIDEO='<a href="https://vkvideo.ru/video-224959465_456239287" target="_blank" rel="noopener">«Сколько реально стоит ремонт квартиры и почему?»</a>';
+
+  function rub(v){return Math.round(v).toLocaleString("ru-RU").replace(/ | /g," ")+" ₽"}
+  var msgs=$("msgs"),qr=$("qr"),clock=[23,41],started=false,done=false,L={},cur=null,nMe=0;
+  function t(adv){if(adv)clock[1]++;if(clock[1]>59){clock[1]=0;clock[0]=(clock[0]+1)%24}return ("0"+clock[0]).slice(-2)+":"+("0"+clock[1]).slice(-2)}
+  function scroll(){msgs.scrollTop=msgs.scrollHeight}
+  function add(el){msgs.appendChild(el);scroll()}
+  function me(text,file){var d=document.createElement("div");d.className="b me"+(file?" file":"");d.innerHTML=file?"<span class='ic'>PDF</span><span>"+text+"</span>":text+"<span class='t'>"+t((++nMe)%2===0)+"</span>";add(d)}
+  function typing(cb){var ty=document.createElement("div");ty.className="typing";ty.innerHTML="<i></i><i></i><i></i>";add(ty);setTimeout(function(){ty.remove();cb()},800)}
+  // items: строки (сообщения) или объекты {proj:key}; opts: варианты; next: обработчик
+  function bot(items,opts,next){qr.innerHTML="";cur=null;if(typeof items==="string")items=[items];var i=0;
+    (function step(){if(i>=items.length){(opts||[]).forEach(function(o){var bt=document.createElement("button");bt.type="button";bt.textContent=o;bt.onclick=function(){answer(o,next)};qr.appendChild(bt)});cur=next;scroll();return}
+      var it=items[i++];typing(function(){
+        if(typeof it==="string"){var d=document.createElement("div");d.className="b bot";d.innerHTML=it+"<span class='t'>"+t()+"</span>";add(d)}
+        else if(it.proj){var p=P[it.proj],c=document.createElement("div");c.className="proj";
+          c.innerHTML="<img src='"+p.img+"' alt='"+p.t+"' referrerpolicy='no-referrer'><div><b>"+p.t+", "+p.a+"</b><dl><dt>Квартира</dt><dd>"+p.r+"</dd><dt>Стоимость</dt><dd>"+p.c+"</dd><dt>Срок</dt><dd>"+p.s+"</dd></dl></div>";
+          var im=c.querySelector("img");im.onload=scroll;add(c)}
+        else if(it.end){var e=document.createElement("div");e.className="endplate";e.innerHTML="<b>Конец демо.</b> Так Алина может работать на вашем сайте круглосуточно.<button type='button' id='toMgr'>Что увидит менеджер</button>";add(e);$("toMgr").onclick=showMgr}
+        step()})})()}
+  function answer(o,next){qr.innerHTML="";me(o);if(next)setTimeout(function(){next(o)},350)}
+  $("sendTxt").onclick=function(){var v=$("txt").value.trim();if(!v||!cur)return;$("txt").value="";answer(v,cur)};
+  $("txt").addEventListener("keydown",function(e){if(e.key==="Enter")$("sendTxt").click()});
+
+  function s1(){bot("Добрый вечер! Я Алина, консультант «"+NAME+"». Помогу рассчитать стоимость ремонта. Ремонт какой квартиры вас интересует?",["Новостройка","Вторичное жильё"],s2)}
+  function s2(v){L.house=v;bot("Какая площадь квартиры?",AREAS.map(function(a){return a[0]}),s3)}
+  function s3(v){var a=AREAS.filter(function(x){return x[0]===v})[0]||AREAS[1];L.areaTxt=a[0];L.a=a;
+    bot("Какой ремонт рассматриваете? Вот наши тарифы капитального ремонта:",TAR.map(function(x){return x.n+", от "+rub(x.p).replace(" ₽","")+" ₽/м²"}).concat(["Не знаю, нужна консультация"]),s4)}
+  function s4(v){var a=L.a,tr=TAR.filter(function(x){return v.indexOf(x.n)===0})[0],items=[];
+    if(tr){L.tier=tr.n;L.lo=a[1]*tr.p;L.hi=a[2]?a[2]*tr.p:0;
+      items.push("<b>"+tr.n+"</b>: "+tr.d+".");}
+    else{L.tier="нужна консультация";L.lo=a[1]*TAR[0].p;L.hi=a[2]?a[2]*TAR[2].p:0;
+      items.push("Подскажу. <b>Базовый</b> подходит, если не нужны демонтаж и перепланировка. <b>Оптимальный</b> включает перепланировку, выравнивание стен под 90 градусов и сантехнику NEPTUN. <b>Премиум</b> добавляет авторский дизайн-проект с 3D-визуализацией и умный дом.")}
+    L.price=L.hi?"от "+rub(L.lo).replace(" ₽","")+" до "+rub(L.hi):"от "+rub(L.lo);
+    items.push("Для квартиры "+L.areaTxt+(tr?" по тарифу «"+tr.n+"»":" от Базового до Премиума")+" это <b>"+L.price+"</b> за работы.<br>Точную стоимость назовём после бесплатного замера и сметы. Её фиксируем в договоре, реальные расходы соответствуют смете на 95%.");
+    items.push("Вот наш проект похожей площади:");
+    items.push({proj:a[3]});L.proj=P[a[3]].t+", "+P[a[3]].a;
+    items.push("Как формируется цена, мы подробно разбираем в ролике "+VIDEO+". Нужен ли вам дизайн-проект?");
+    bot(items,["Да, нужен","Есть свой проект","Пока не знаю"],s5)}
+  function s5(v){L.design=v;var txt=v==="Есть свой проект"?"Отлично, инженер-сметчик посчитает смету по вашему проекту.":
+      "В тарифе Премиум авторский дизайн-проект с 3D-визуализацией уже входит. Можно начать со встречи с дизайнером: проработаете варианты ремонта и узнаете стоимость материалов, мебели и работ ещё до начала ремонта.";
+    bot([txt,"Когда планируете начать ремонт?"],["Ключи уже есть","Через 1-3 месяца","Пока присматриваюсь"],s6)}
+  function s6(v){L.when=v;bot(["Замер и точная смета у нас бесплатно. Аванса нет: вы платите только за выполненные этапы после приёмки.","Как вам удобнее начать?"],["Выезд инженера-замерщика","Встреча в офисе у м. Южная","Сначала пришлю планировку"],s7)}
+  var SLOTS=["Чт 8 октября, 10:00","Чт 8 октября, 15:00","Пт 9 октября, 11:00"];
+  function s7(v){L.how=v;
+    if(v==="Сначала пришлю планировку"){L.plan=true;qr.innerHTML="";setTimeout(function(){me("планировка_квартиры.pdf",true);setTimeout(function(){bot(["Получила планировку, утром передам инженеру-сметчику.","Когда удобно встретиться с инженером на объекте?"],SLOTS,s8)},350)},300)}
+    else if(v.indexOf("офисе")>0){L.plan=false;bot("Офис в центре «Глобал-Сити» на ул. Днепропетровская, 2, в 5 минутах от метро «Южная». Выберите время встречи:",SLOTS,s8)}
+    else{L.plan=false;bot("Выберите удобное время замера:",SLOTS,s8)}}
+  function s8(v){L.slot=v;bot("Как к вам обращаться и куда прислать подтверждение?",["Анна, в Telegram","Анна, в MAX","Анна, позвоните"],s9)}
+  function s9(v){L.contact=v;done=true;
+    bot(["Готово, Анна! "+(L.how.indexOf("офисе")>0?"Встреча в офисе":"Замер")+": <b>"+L.slot+"</b>. Менеджер подтвердит утром"+(v.indexOf("позвоните")>0?" звонком":" в "+v.replace("Анна, в ",""))+"."+(L.plan?" Планировку уже передаю инженеру.":"")+" Если появятся вопросы, пишите сюда в любое время.",{end:1}],[],null);
+    setTimeout(function(){if($("mgr").hidden)showMgr()},800*2+3000)}
+
+  function cardHTML(d){return "<span class='tm'>23:"+(d.min||"47")+"</span><b>Новый клиент от Алины</b><div class='kv'>"+
+    "<span>Клиент</span><span>"+d.contact+"</span><span>Объект</span><span>"+d.house.toLowerCase()+", "+d.areaTxt+"</span><span>Тариф</span><span>"+d.tier+"</span>"+
+    "<span>Расчёт</span><span>"+d.price+"</span><span>Показан</span><span>"+d.proj+"</span><span>Дизайн</span><span>"+d.design.toLowerCase()+"</span><span>Старт</span><span>"+d.when.toLowerCase()+"</span>"+
+    "<span>Планировка</span><span>"+(d.plan?"приложена, PDF":"нет")+"</span><span>"+(d.how&&d.how.indexOf("офисе")>0?"Встреча":"Замер")+"</span><span>"+d.slot+"</span></div><div class='mb'>Открыть диалог</div>"}
+  var DEMO={house:"Новостройка",areaTxt:"40-60 м²",tier:"Оптимальный",price:"от 1 200 000 до 1 800 000 ₽",proj:"ул. Пресненский Вал, 54 м²",design:"Пока не знаю",when:"Ключи уже есть",plan:true,how:"Сначала пришлю планировку",slot:"Чт 8 октября, 10:00",contact:"Анна, Telegram"};
+  $("sampleCard").innerHTML=cardHTML(DEMO);
+  function showMgr(){var d;
+    if(!done){d=DEMO;$("mtext").textContent="Так выглядит карточка клиента после разговора с Алиной. Пройдите диалог в чате справа внизу, чтобы увидеть, как она её собирает."}
+    else{d={};for(var k in L)d[k]=L[k];d.contact="Анна, "+L.contact.replace("Анна, в ","").replace("Анна, позвоните","просит позвонить");d.min=("0"+clock[1]).slice(-2);
+      $("mtext").textContent="Анна написала в 23:41, когда офис был закрыт. Алина сразу ответила, посчитала ремонт по вашим тарифам, показала проект из портфолио и записала на "+(L.how.indexOf("офисе")>0?"встречу":"замер")+"."}
+    $("mcard").innerHTML=cardHTML(d);$("mgr").hidden=false}
+  function open(){$("teaser").hidden=true;$("widget").hidden=false;if(!started){started=true;s1()}}
+  $("launch").onclick=function(){if($("widget").hidden)open();else $("widget").hidden=true};
+  $("teaser").onclick=open;$("close").onclick=function(){$("widget").hidden=true};
+  document.querySelectorAll("[data-open]").forEach(function(b){b.onclick=open});
+  $("closeMgr").onclick=function(){$("mgr").hidden=true};
+  document.querySelectorAll("[data-mail]").forEach(function(b){b.onclick=function(){$("modal").hidden=false}});
+  $("mclose").onclick=function(){$("modal").hidden=true};
+  $("modal").onclick=function(e){if(e.target===this)this.hidden=true};
+  $("copy").onclick=function(){var b=this;function ok(){b.textContent="Скопировано"}
+    try{navigator.clipboard.writeText("katerina@lacifra.co").then(ok,fb)}catch(e){fb()}
+    function fb(){var i=document.createElement("input");i.value="katerina@lacifra.co";document.body.appendChild(i);i.select();try{document.execCommand("copy");ok()}catch(e){}i.remove()}};
+  setTimeout(function(){if(!started)$("teaser").hidden=false},window.innerWidth<600?4000:2000);
+})();
+</script>
+</body>
+</html>

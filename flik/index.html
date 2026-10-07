@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>FLIK: дизайн и ремонт квартир под ключ в Москве</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --blue:#185ba8;--blue2:#2a74c9;--ink:#1b1b1d;--mute:#6f7277;--line:#e4e6ea;--soft:#f3f5f8;
+  --f:"Montserrat","GothamPro","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:#fff;color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.5;overflow-x:hidden}
+button,input{font:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--blue2);outline-offset:2px}
+img{max-width:100%}
+
+/* ---------- first screen (as on flik.ru) ---------- */
+.hero{position:relative;width:100%;min-height:100vh;min-height:100svh;overflow:hidden;color:#fff;background:#2a2624}
+.hero .bg{position:absolute;inset:0;background:url("https://static.tildacdn.com/tild6266-3636-4165-b636-653261643964/image.png") center/cover no-repeat;animation:zoom 30s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.28) 60%,rgba(0,0,0,.18) 100%)}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.09)}}
+.wrap{position:relative;z-index:2;padding-left:clamp(16px,3.5vw,50px);padding-right:clamp(16px,3.5vw,60px)}
+.head{display:flex;align-items:center;gap:24px;padding-top:30px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.85)}
+.logo img{display:block;width:53px;height:auto}
+.menu{display:flex;gap:clamp(14px,1.9vw,26px);font-size:14px;text-transform:uppercase;letter-spacing:.02em;margin-left:clamp(10px,2.5vw,48px)}
+.menu span{cursor:default;white-space:nowrap}
+.right{margin-left:auto;display:flex;align-items:center;gap:12px}
+.right .ms{width:35px;height:35px;display:block}
+.right .ms img{width:35px;height:35px;display:block}
+.phone{font-size:16px;margin:0 4px 0 6px;white-space:nowrap;text-decoration:none}
+.ask{border:1px solid #fff;background:transparent;color:#fff;border-radius:6px;width:170px;height:40px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;cursor:pointer}
+.ask:hover{background:#fff;color:var(--blue)}
+.burger{display:none;width:30px;height:22px;background:none;border:0;padding:0;cursor:pointer;flex-direction:column;justify-content:space-between}
+.burger i{display:block;height:2px;background:var(--blue2);border-radius:2px}
+.first{width:100%;padding-top:clamp(18px,3vh,30px);padding-bottom:120px;max-width:980px}
+.first h1{margin:0;font-weight:400;font-size:clamp(26px,3.6vw,51px);line-height:1.27;letter-spacing:.005em}
+.first h1 b{font-weight:700}
+.calc{margin-top:22px;width:300px;height:70px;border:0;border-radius:10px;background:#fff;color:var(--blue);font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.18);transition:transform .2s}
+.calc:hover{transform:translateY(-2px)}
+@media (max-width:1180px){.menu{display:none}}
+@media (max-width:760px){
+  .head{padding-top:18px;padding-bottom:18px;gap:12px;flex-wrap:wrap}
+  .logo img{width:40px}
+  .right .ms,.ask{display:none}
+  .phone{font-size:14px}
+  .burger{display:flex}
+  .first{padding-top:36px}
+  .first h1{font-size:22px;line-height:1.4;color:rgba(255,255,255,.92)}
+  .calc{width:100%;margin-top:40px;height:64px}
+}
+
+/* ---------- chat ---------- */
+.launch{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:40;width:66px;height:66px;border-radius:50%;border:3px solid #fff;padding:0;cursor:pointer;background:#ddd url("https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=faces") center 30%/cover;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.launch::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--blue2);opacity:.7;animation:ring 1.8s infinite}
+.launch::after{content:"";position:absolute;right:1px;bottom:3px;width:13px;height:13px;border-radius:50%;background:#2fbf71;border:2px solid #fff}
+@keyframes ring{0%{transform:scale(.92);opacity:.7}100%{transform:scale(1.25);opacity:0}}
+.teaser{position:fixed;right:100px;bottom:calc(36px + env(safe-area-inset-bottom,0px));z-index:40;background:#fff;color:var(--ink);border-radius:14px 14px 4px 14px;padding:11px 15px;font-size:14px;line-height:1.4;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:250px;cursor:pointer;animation:in .4s ease-out}
+.teaser b{display:block;font-size:13px;color:var(--blue)}
+.widget{position:fixed;right:22px;bottom:calc(100px + env(safe-area-inset-bottom,0px));z-index:45;width:min(392px,calc(100vw - 32px));height:min(640px,calc(100vh - 130px));background:#fff;border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.35);display:flex;flex-direction:column;overflow:hidden;animation:in .3s ease-out}
+@media (max-width:560px){.widget{right:16px;left:16px;width:auto;bottom:calc(96px + env(safe-area-inset-bottom,0px));height:calc(100svh - 120px)}.teaser{right:96px;max-width:200px}}
+.wh{background:var(--blue);color:#fff;padding:13px 16px;display:flex;gap:11px;align-items:center}
+.wh .av{width:42px;height:42px;border-radius:50%;background:#ccc url("https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=faces") center 30%/cover;position:relative;flex:none;border:2px solid rgba(255,255,255,.7)}
+.wh .av::after{content:"";position:absolute;right:-2px;bottom:-1px;width:11px;height:11px;border-radius:50%;background:#2fbf71;border:2px solid var(--blue)}
+.wh b{display:block;font-size:15px;line-height:1.25}.wh small{opacity:.8;font-size:12.5px}
+.wh .x{margin-left:auto;background:none;border:0;color:#fff;font-size:26px;cursor:pointer;line-height:1;opacity:.85}
+.msgs{flex:1;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:9px;background:var(--soft)}
+.b{max-width:88%;padding:10px 13px;border-radius:16px;font-size:14px;line-height:1.45;animation:in .3s ease-out}
+.b.bot{background:#fff;border:1px solid var(--line);border-bottom-left-radius:5px;align-self:flex-start}
+.b.me{background:var(--blue);color:#fff;border-bottom-right-radius:5px;align-self:flex-end}
+.b .t{display:block;font-size:10.5px;opacity:.5;margin-top:3px;text-align:right}
+.b b{color:var(--blue)}.b.me b{color:#fff}
+.b small{display:block;color:var(--mute);font-size:12.5px;margin-top:6px;line-height:1.4}
+.price{display:block;font-size:19px;font-weight:700;color:var(--blue);margin:4px 0 2px}
+.b.file{display:flex;gap:10px;align-items:center}
+.b.file .ic{width:30px;height:36px;border-radius:5px;background:rgba(255,255,255,.25);display:grid;place-items:center;font-size:10px;font-weight:800;flex:none}
+.msgs>*{flex-shrink:0}
+.proj{align-self:flex-start;width:88%;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;animation:in .3s ease-out}
+.proj .ph{height:150px;background:#ddd center/cover no-repeat}
+.proj .in{padding:10px 12px 12px;font-size:13px}
+.proj .in b{display:block;font-size:14px;margin-bottom:4px}
+.proj .kv{display:grid;grid-template-columns:auto 1fr;gap:1px 10px;color:var(--ink)}
+.proj .kv span:nth-child(odd){color:var(--mute)}
+.proj .vid{display:inline-block;margin-top:7px;font-size:12px;background:#eaf1fa;color:var(--blue);border-radius:999px;padding:2px 9px}
+.proj a{display:block;margin-top:9px;text-align:center;border:1px solid var(--blue);color:var(--blue);border-radius:8px;padding:7px;text-decoration:none;font-weight:600;font-size:13px}
+.typing{align-self:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:11px 13px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#9aa0a8;animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{50%{opacity:.25}}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.qr{display:flex;flex-wrap:wrap;gap:7px;padding:10px 12px;border-top:1px solid var(--line);max-height:46%;overflow-y:auto;background:#fff}
+.qr:empty{display:none}
+.qr button.o{border:1px solid var(--blue);color:var(--blue);background:#fff;border-radius:999px;padding:8px 13px;font-size:13px;cursor:pointer;line-height:1.3;text-align:left}
+.qr button.o:hover{background:var(--blue);color:#fff}
+.qr .cards{display:grid;grid-template-columns:1fr 1fr;gap:7px;width:100%}
+.qr button.c{border:1px solid var(--line);background:#fff;border-radius:12px;padding:0;overflow:hidden;cursor:pointer;text-align:left;font-size:12.5px;line-height:1.3;color:var(--ink)}
+.qr button.c:hover{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue)}
+.qr button.c .im{display:block;height:78px;background:#e8eaee center/cover no-repeat}
+.qr button.c .im.ct{background-size:contain;background-color:#f1f2f4}
+.qr button.c span.l{display:block;padding:7px 9px 8px;font-weight:600}
+.qr button.c span.l em{display:block;font-style:normal;font-weight:400;color:var(--mute);font-size:11.5px;margin-top:2px}
+.qr button.c.wide{grid-column:1/-1}
+.inp{display:flex;gap:8px;padding:8px 12px 12px;background:#fff}
+.inp input{flex:1;min-width:0;background:var(--soft);border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:10px 14px;font-size:14px}
+.inp button{border:0;border-radius:50%;width:42px;height:42px;background:var(--blue);color:#fff;cursor:pointer;font-weight:800;flex:none}
+.end{align-self:stretch;background:#eaf1fa;border:1px solid #cfe0f3;border-radius:14px;padding:12px 14px;font-size:13.5px;text-align:center;animation:in .3s ease-out}
+.end button{margin-top:9px;border:0;border-radius:999px;background:var(--blue);color:#fff;padding:9px 18px;font-weight:600;cursor:pointer;font-size:13.5px}
+
+/* ---------- manager screen ---------- */
+.mgr{position:fixed;inset:0;z-index:60;background:rgba(14,22,34,.94);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;overflow-y:auto;animation:in .3s ease-out;color:#fff}
+.mbox{display:grid;grid-template-columns:auto minmax(0,360px);gap:36px;align-items:center;max-width:860px;width:100%}
+@media (max-width:760px){.mgr{place-items:start center;padding-top:20px;padding-bottom:20px}.mbox{grid-template-columns:1fr;gap:22px}}
+.tg{background:#0d0d0d;border-radius:34px;padding:9px;width:min(340px,100%);margin:0 auto;box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.scr{background:#cfdde9;border-radius:26px;display:flex;flex-direction:column;overflow:hidden;color:#16202A;font-family:"Helvetica Neue",Arial,sans-serif}
+.th{background:#fff;padding:11px 14px;display:flex;gap:10px;align-items:center;font-size:13.5px;border-bottom:1px solid #D5DEE6}
+.th .av{width:32px;height:32px;border-radius:50%;background:var(--blue) url("https://static.tildacdn.com/tild3739-3631-4263-a261-336130373664/142dde47-5706-4c76-a.svg") center/52% no-repeat;flex:none}
+.th small{display:block;color:#76766E;font-size:11.5px}
+.mchat{padding:22px 12px 14px;display:flex;flex-direction:column;gap:8px}
+.m{background:#fff;border-radius:14px 14px 14px 4px;padding:10px 12px;font-size:12.8px;line-height:1.4;border-left:4px solid var(--blue);animation:in .35s ease-out}
+.m .tm{float:right;color:#76766E;font-size:11px;margin-left:8px}
+.m .kv{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin-top:6px}
+.m .kv span:nth-child(odd){color:#76766E}
+.m .mb{margin-top:8px;width:100%;border:0;border-radius:10px;padding:9px;background:var(--blue);color:#fff;font-weight:600}
+.mside h3{margin:0;font-size:clamp(22px,3vw,30px);line-height:1.2}
+.mside p{color:#d3dbe5;margin:12px 0 0;font-size:15px}
+.mside ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:14.5px;color:#e6ecf2}
+.mside li{padding-left:16px;position:relative}.mside li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:#6fa8e8}
+.mside .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn-p{border:0;border-radius:999px;background:#fff;color:var(--blue);padding:12px 20px;font-weight:700;cursor:pointer}
+.btn-g{border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;border-radius:999px;padding:11px 18px;cursor:pointer}
+
+/* ---------- offer below first screen ---------- */
+.offer{background:#f6f7f9;color:var(--ink);padding:clamp(48px,8vw,96px) 0}
+.ow{max-width:1080px;margin:0 auto;padding-left:16px;padding-right:16px}
+.offer h2{font-size:clamp(24px,3.2vw,36px);line-height:1.2;margin:0 0 10px}
+.offer .sub{color:var(--mute);margin:0 0 30px;max-width:62ch}
+.loss{display:grid;gap:12px;margin-bottom:64px}
+.lr{display:grid;grid-template-columns:1fr 1fr;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.lr div{padding:18px 20px;font-size:15px}
+.lr div:first-child{border-right:1px solid var(--line)}
+.lr .k{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:6px}
+.lr div:first-child .k{color:#b5483a}.lr div:last-child .k{color:var(--blue)}
+@media (max-width:700px){.lr{grid-template-columns:1fr}.lr div:first-child{border-right:0;border-bottom:1px solid var(--line)}}
+.why{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:start;margin-bottom:64px}
+@media (max-width:860px){.why{grid-template-columns:1fr}}
+.why ol{margin:0;padding:0;list-style:none;display:grid;gap:14px;counter-reset:n}
+.why li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px 16px 58px;position:relative;counter-increment:n;font-size:15px}
+.why li::before{content:counter(n);position:absolute;left:16px;top:15px;width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px}
+.why li b{display:block;margin-bottom:2px}
+.sample{background:#cfdde9;border-radius:20px;padding:18px}
+.sample .cap{font-size:13px;color:#3d4b5a;margin:0 0 10px}
+.sample .m{box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.sample button.lnk{margin-top:12px;border:0;background:none;color:var(--blue);font-weight:600;cursor:pointer;padding:0;text-decoration:underline}
+.final{background:var(--blue);color:#fff;border-radius:22px;padding:clamp(26px,4vw,44px);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+@media (max-width:700px){.final{grid-template-columns:1fr}}
+.final h2{color:#fff;margin:0 0 8px}
+.final p{margin:0;color:#dbe7f5;max-width:56ch}
+.final .btn-p{padding:16px 26px;font-size:15px}
+.foot{font-size:12px;color:#8a8f96;text-align:center;padding:26px 16px 110px;background:#f6f7f9;border-top:1px solid var(--line)}
+
+/* email modal */
+.modal{position:fixed;inset:0;z-index:70;background:rgba(10,16,24,.6);display:grid;place-items:center;padding:16px}
+.mcard{background:#fff;color:var(--ink);border-radius:18px;padding:26px;width:min(420px,100%);text-align:center;position:relative;animation:in .25s ease-out}
+.mcard .mail{font-size:clamp(19px,5vw,24px);font-weight:700;color:var(--blue);margin:10px 0 18px;word-break:break-all}
+.mcard .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.mcard a.btn{background:var(--blue);color:#fff;text-decoration:none;border-radius:999px;padding:11px 18px;font-weight:600}
+.mcard button.cp{border:1px solid var(--blue);background:#fff;color:var(--blue);border-radius:999px;padding:11px 18px;font-weight:600;cursor:pointer}
+.mcard .cl{position:absolute;right:12px;top:8px;border:0;background:none;font-size:26px;cursor:pointer;color:var(--mute)}
+.mcard .ok{min-height:20px;font-size:13px;color:#2a8a55;margin-top:10px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<section class="hero" id="top">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <header class="head">
+      <a class="logo" href="#top" aria-label="FLIK"><img src="https://static.tildacdn.com/tild3739-3631-4263-a261-336130373664/142dde47-5706-4c76-a.svg" alt="FLIK" referrerpolicy="no-referrer"></a>
+      <nav class="menu"><span>О нас</span><span>Услуги</span><span>Проекты</span><span>Клиенту</span><span>Партнеру</span><span>Блог</span><span>Контакты</span></nav>
+      <div class="right">
+        <span class="ms"><img src="https://static.tildacdn.com/tild6463-3862-4461-b933-343561306664/photo.svg" alt="Telegram" referrerpolicy="no-referrer"></span>
+        <span class="ms"><img src="https://static.tildacdn.com/tild6662-3936-4836-b136-653235353062/photo.svg" alt="WhatsApp" referrerpolicy="no-referrer"></span>
+        <a class="phone" href="tel:+74956424216">+7 495 642-42-16</a>
+        <button class="ask" type="button" data-open>Задать вопрос</button>
+        <button class="burger" type="button" data-open aria-label="Меню"><i></i><i></i><i></i></button>
+      </div>
+    </header>
+    <div class="first">
+      <h1>Миссия <b>FLIK</b><br>превратить дизайнерский ремонт из хаоса и боли<br>в ясный, управляемый<br>и комфортный процесс<br>с предсказуемым результатом</h1>
+      <button class="calc" type="button" id="calcBtn" data-open>Рассчитать стоимость</button>
+    </div>
+  </div>
+</section>
+
+<section class="offer" id="offer">
+  <div class="ow">
+    <h2>Где сайт сейчас теряет клиентов</h2>
+    <p class="sub">Три места на flik.ru, где человек, который ищет дизайнерский ремонт, может уйти до разговора с менеджером.</p>
+    <div class="loss">
+      <div class="lr"><div><span class="k">Сейчас</span>Кнопка «Рассчитать стоимость» ведёт в опрос из 4 вопросов. В конце нужно оставить имя и телефон, нажать «Заказать расчёт» и ждать.</div><div><span class="k">С Алиной</span>Клиент сразу видит вилку по вашим ценам за м² на свою площадь и тут же записывается на встречу.</div></div>
+      <div class="lr"><div><span class="k">Сейчас</span>Цена «ремонт от 35.000 за м2, дизайн-проект от 5000 за м2» есть только в свёрнутом вопросе внизу главной. До неё долистывает не каждый.</div><div><span class="k">С Алиной</span>Цена звучит в первую минуту разговора, вместе с понятной оговоркой: материалы отдельно, точная сумма по смете.</div></div>
+      <div class="lr"><div><span class="k">Сейчас</span>То, что вы работаете только по дизайн-проекту и только под ключ, тоже спрятано в вопросах внизу страницы. Клиент узнаёт это уже на звонке.</div><div><span class="k">С Алиной</span>Алина объясняет это заранее и предлагает дизайн-проект FLIK или проект другого бюро. На звонок приходят клиенты, которые уже согласны с форматом.</div></div>
+    </div>
+
+    <div class="why">
+      <div>
+        <h2>5 причин, почему это приведёт вам клиентов</h2>
+        <p class="sub">Алина работает на ваших данных: цены, сроки, проекты и правила работы взяты с flik.ru.</p>
+        <ol>
+          <li><b>Отвечает ночью и в выходные</b>Человек выбирает студию вечером. Ответ в 23:41 вместо «перезвоним утром».</li>
+          <li><b>Называет цену сразу</b>Считает работы по вашим ценам за м² и площади клиента, без формы и ожидания.</li>
+          <li><b>Показывает ваши проекты</b>Под выбранный стиль: Наследие, Прайм Тайм, Марксистская, LIFE-Кутузовский, Юшуньская.</li>
+          <li><b>Отсеивает неподходящих</b>Сразу говорит, что вы работаете под ключ и по дизайн-проекту, и не тратит время менеджера.</li>
+          <li><b>Передаёт готового клиента</b>Менеджер получает объект, площадь, бюджет, стиль и удобное время встречи в Telegram.</li>
+        </ol>
+      </div>
+      <div class="sample">
+        <p class="cap">Так выглядит заявка, которую утром получает менеджер</p>
+        <div class="m"><span class="tm">23:47</span><b>Новый клиент от Алины</b><div class="kv"><span>Клиент</span><span>Анна, в Telegram</span><span>Объект</span><span>квартира, новостройка, 50-100 м2</span><span>Услуга</span><span>комплекс</span><span>Стиль</span><span>современный</span><span>Бюджет</span><span>от 2 до 4 млн ₽ за дизайн и работы</span><span>Встреча</span><span>Чт 11:00, на объекте</span></div></div>
+        <button class="lnk" type="button" id="sampleMgr">Открыть экран менеджера</button>
+      </div>
+    </div>
+
+    <div class="final">
+      <div><h2>Поставим Алину на flik.ru</h2><p>Подключим консультанта к вашему сайту, Telegram и WhatsApp, обучим на ваших ценах и проектах. Заявки будут приходить менеджеру в Telegram в таком же виде, как в демо.</p></div>
+      <button class="btn-p" type="button" data-mail>Написать Екатерине</button>
+    </div>
+  </div>
+</section>
+<div class="foot">Демо подготовлено AI Room Studio. Это не сайт компании FLIK. Логотип, фото, цены и проекты взяты с сайта flik.ru.</div>
+
+<div class="teaser" id="teaser" hidden><b>Алина, FLIK</b>Добрый вечер! Подскажу, сколько стоит дизайн и ремонт вашей квартиры</div>
+<button class="launch" id="launch" type="button" aria-label="Открыть чат с консультантом"></button>
+
+<div class="widget" id="widget" hidden aria-live="polite">
+  <div class="wh"><div class="av"></div><div><b>Алина, FLIK</b><small>ИИ-консультант, онлайн 24/7</small></div><button class="x" type="button" id="close" aria-label="Свернуть чат">×</button></div>
+  <div class="msgs" id="msgs"></div>
+  <div class="qr" id="qr"></div>
+  <div class="inp"><input id="txt" placeholder="Напишите сообщение" autocomplete="off"><button type="button" id="sendTxt" aria-label="Отправить">→</button></div>
+</div>
+
+<div class="mgr" id="mgr" hidden>
+  <div class="mbox">
+    <div class="tg"><div class="scr">
+      <div class="th"><div class="av"></div><div><b>Заявки FLIK</b><small>бот, Telegram</small></div></div>
+      <div class="mchat" id="mchat"></div>
+    </div></div>
+    <div class="mside">
+      <h3>А утром менеджер видит готового клиента</h3>
+      <p id="mtext">Клиент написал ночью. Алина ответила сразу, назвала цену по вашим ценам за м² и записала на встречу.</p>
+      <ul><li>Площадь, объект, услуга и стиль уже известны</li><li>Клиент знает, что вы работаете под ключ и по дизайн-проекту</li><li>Клиент не ушёл к другой студии, пока ждал расчёта</li></ul>
+      <div class="btns"><button class="btn-p" type="button" data-mail>Написать Екатерине</button><button class="btn-g" type="button" id="closeMgr">Вернуться к сайту</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="mcard" role="dialog" aria-label="Почта Екатерины">
+    <button class="cl" type="button" id="mclose" aria-label="Закрыть">×</button>
+    <div>Екатерина Бокова, AI Room Studio</div>
+    <div class="mail">katerina@lacifra.co</div>
+    <div class="row"><a class="btn" href="mailto:katerina@lacifra.co?subject=%D0%90%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%B4%D0%BB%D1%8F%20FLIK">Написать на почту</a><button class="cp" type="button" id="copy">Скопировать адрес</button></div>
+    <div class="ok" id="okc"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var CDN="https://static.tildacdn.com/";
+  var AVA="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=faces";
+  var IMG={flat:CDN+"tild6265-3662-4439-b531-356134646430/1_2.png",house:CDN+"tild6563-3332-4531-a532-646463663063/3d-rendering-of-hous.png"};
+  /* площадь: варианты как в квизе flik.ru */
+  var AREAS=[["До 50 м2",null,50],["50-100 м2",50,100],["100-150 м2",100,150],["Более 200 м2",200,null],["Другое",0,0]];
+  /* услуги и цены с flik.ru (FAQ на главной, блок «Выберите подходящую») */
+  var SERV={
+    "Дизайн-проект":{t:5000,em:"от 5 000 ₽ за м², от 2 месяцев",img:CDN+"tild6635-6164-4533-a134-326166373131/22-min.jpg"},
+    "Реализация дизайн-проекта":{t:35000,em:"ремонт от 35 000 ₽ за м², от 5 месяцев",img:CDN+"tild3866-3266-4537-b663-613131616664/DSCF3054.jpg"},
+    "Комплекс: дизайн-проект, реализация, мебель, декор":{t:40000,em:"под ключ с мебелью и декором, от 7 месяцев",img:CDN+"tild3332-6538-4039-a437-383665643365/image.png"}
+  };
+  var STYLES=[
+    {k:"Современный",img:CDN+"tild3332-6538-4039-a437-383665643365/image.png",d:"Спокойная база, дерево и встроенные системы хранения, всё подчинено удобной планировке.",p:"ЖК «Наследие»",sub:"Квартира 128 м2 в современном стиле с невероятно функциональной планировкой",kv:[["Комнат","4"],["Площадь","128 м²"],["Срок","9 месяцев"]],vid:true,url:"https://flik.ru/project/nasledie"},
+    {k:"Американская классика",img:CDN+"tild3736-6238-4236-a331-366532353366/image.png",d:"Классические филёнки и шкафы со стеклом, мягкие диваны, акценты в текстиле.",p:"ЖК «Прайм Тайм»",sub:"Проект с объединением двух квартир в стиле американской классики",kv:[["Комнат","4"],["Площадь","116 м²"],["Срок","1 год"]],vid:true,url:"https://flik.ru/project/prime-time-four-room"},
+    {k:"Неоклассика",img:CDN+"tild3866-3266-4537-b663-613131616664/DSCF3054.jpg",d:"Элементы классической архитектуры, глубокие цвета и смелый декор.",p:"Марксистская",sub:"Квартира в «сталинке» в неоклассическом духе",kv:[["Комнат","2"],["Площадь","62,2 м²"],["Срок","7 месяцев"]],vid:false,url:"https://flik.ru/project/marksistskaya"},
+    {k:"Эко-минимализм",img:CDN+"tild6335-6466-4336-b161-643930316664/image.png",d:"Натуральные материалы и цвета, свет и минимум лишних деталей.",p:"ЖК LIFE-Кутузовский",sub:"Просторная квартира в стиле эко-минимализм для молодой семьи с ребенком",kv:[["Комнат","4"],["Площадь","108 м²"],["Срок","проект 3 месяца, реализация 8 месяцев"]],vid:true,url:"https://flik.ru/design/projects/kutuzovlife"},
+    {k:"Минимализм",img:CDN+"tild6635-6164-4533-a134-326166373131/22-min.jpg",d:"Чистые линии, светлая база и пастельные цвета для каждой комнаты.",p:"Юшуньская",sub:"Дизайн-проект: визуализации и чертежи",kv:[["Площадь","95 м²"],["Год","2022"]],vid:false,url:"https://flik.ru/design/projects/yunshunskaya"}
+  ];
+
+  function money(v){if(v>=1e6){var x=v/1e6;return x.toLocaleString("ru-RU",{maximumFractionDigits:2})+" млн ₽"}return Math.round(v/1000).toLocaleString("ru-RU")+" тыс ₽"}
+  function num(v){return v.toLocaleString("ru-RU")}
+  var msgs=$("msgs"),qr=$("qr"),clock=[23,41],started=false,done=false,L={},cur=null,nMe=0;
+  function t(adv){if(adv)clock[1]++;if(clock[1]>59){clock[1]=0;clock[0]=(clock[0]+1)%24}return("0"+clock[0]).slice(-2)+":"+("0"+clock[1]).slice(-2)}
+  function scroll(){msgs.scrollTop=msgs.scrollHeight}
+  function me(text,file){var d=document.createElement("div");d.className="b me"+(file?" file":"");d.innerHTML=file?"<span class='ic'>PDF</span><span>"+text+"</span>":esc(text)+"<span class='t'>"+t((++nMe)%2===0)+"</span>";msgs.appendChild(d);scroll()}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function typing(cb,ms){var ty=document.createElement("div");ty.className="typing";ty.innerHTML="<i></i><i></i><i></i>";msgs.appendChild(ty);scroll();setTimeout(function(){ty.remove();cb()},ms||850)}
+  /* opts: строки (кнопки) или объекты {v,img,em,ct,wide} (карточки с фото) */
+  function bot(text,opts,next,extra){qr.innerHTML="";cur=null;text=text.replace(/(\d) (\d{3})/g,"$1\u00a0$2").replace(/ ₽/g,"\u00a0₽");
+    typing(function(){var d=document.createElement("div");d.className="b bot";d.innerHTML=text+"<span class='t'>"+t()+"</span>";msgs.appendChild(d);
+      if(extra)msgs.appendChild(extra);scroll();
+      opts=opts||[];var box=qr,cards=opts.some(function(o){return typeof o==="object"});
+      if(cards){box=document.createElement("div");box.className="cards";qr.appendChild(box)}
+      opts.forEach(function(o){var bt=document.createElement("button");bt.type="button";
+        if(typeof o==="object"){bt.className="c"+(o.wide?" wide":"");bt.setAttribute("data-v",o.v);
+          bt.innerHTML=(o.img?"<span class='im"+(o.ct?" ct":"")+"' style=\"background-image:url('"+o.img+"')\"></span>":"")+"<span class='l'>"+o.v+(o.em?"<em>"+o.em+"</em>":"")+"</span>";
+          bt.onclick=function(){answer(o.v,next)}}
+        else{bt.className="o";bt.setAttribute("data-v",o);bt.textContent=o;bt.onclick=function(){answer(o,next)}}
+        box.appendChild(bt)});
+      cur=next;scroll();setTimeout(scroll,60);setTimeout(scroll,400)},extra?1100:850)}
+  function answer(o,next){qr.innerHTML="";cur=null;me(o);if(next)setTimeout(function(){next(o)},350)}
+  $("sendTxt").onclick=function(){var v=$("txt").value.trim();if(!v||!cur)return;$("txt").value="";answer(v,cur)};
+  $("txt").addEventListener("keydown",function(e){if(e.key==="Enter")$("sendTxt").click()});
+
+  function s1(){bot("Добрый вечер! Я Алина, консультант «FLIK». Помогу рассчитать стоимость ремонта. Какой у вас объект недвижимости?",[{v:"Квартира",img:IMG.flat,ct:true},{v:"Загородный дом",img:IMG.house,ct:true}],s1b)}
+  function s1b(v){L.obj=v;if(v==="Квартира"){bot("Квартира в новостройке или вторичка?",["Новостройка","Вторичка"],function(x){L.kind=x;s2()})}else{L.kind="";s2()}}
+  function s2(){bot("Какая площадь вашего объекта?",AREAS.map(function(a){return a[0]}),function(v){
+      var a=AREAS.filter(function(x){return x[0]===v})[0];
+      if(a&&a[0]==="Другое"){bot("Напишите площадь в м² цифрой, например 170",[],function(x){var n=parseInt(String(x).replace(/\D/g,""),10)||0;L.areaTxt=n?n+" м2":x;L.a=n||null;L.b=null;L.exact=n||null;s3()});return}
+      if(!a){var n=parseInt(String(v).replace(/\D/g,""),10)||0;L.areaTxt=n?n+" м2":v;L.a=n||null;L.b=null;L.exact=n||null}
+      else{L.areaTxt=a[0];L.a=a[1];L.b=a[2];L.exact=null}
+      s3()})}
+  function s3(){bot("Название вашего ЖК или адрес? Можно написать в поле ниже или пропустить.",["Пропущу, скажу менеджеру"],function(v){L.addr=/^Пропущу/.test(v)?"":v;s4()})}
+  function s4(){var o=Object.keys(SERV).map(function(k){return{v:k,em:SERV[k].em,img:SERV[k].img,wide:k.indexOf("Комплекс")===0}});o.push({v:"Не знаю, нужна консультация",em:"расскажу, чем они отличаются",wide:true});
+    bot("Что нужно для вашего объекта?",o,function(v){L.serv=v;
+      if(v==="Реализация дизайн-проекта"){bot("Мы работаем только по дизайн-проекту: он даёт точный бюджет до старта работ. У вас он уже есть?",["Да, проект готов","Нет, закажу у FLIK","Закажу в другом бюро"],function(x){L.design=x;s5()})}
+      else if(v==="Не знаю, нужна консультация"){bot("Коротко: <b>дизайн-проект</b> от 5 000 ₽ за м², от 2 месяцев. <b>Ремонт</b> только под ключ и только по дизайн-проекту, от 35 000 ₽ за м², от 5 месяцев. <b>Комплекс</b>: проект, ремонт, мебель и декор с расширенной гарантией, от 7 месяцев. Посчитаю пока как дизайн-проект и ремонт.",[],null);L.serv="Комплекс: дизайн-проект, реализация, мебель, декор";L.unsure=true;setTimeout(s5,1300)}
+      else s5()})}
+  function s5(){var o=STYLES.map(function(s){return{v:s.k,img:s.img}});o.push({v:"Пока не знаю",em:"подберём с архитектором",wide:true});
+    bot("Какой стиль вам ближе? Покажу наш проект в этом стиле.",o,function(v){L.style=v;var s=STYLES.filter(function(x){return x.k===v})[0];
+      if(!s){bot("Хорошо, стиль подберёт ваш архитектор-дизайнер на этапе техзадания. Все наши работы есть в разделе «Проекты».",[],null);setTimeout(s6,1300);return}
+      var c=document.createElement("div");c.className="proj";
+      c.innerHTML="<div class='ph' style=\"background-image:url('"+s.img+"')\"></div><div class='in'><b>"+s.p+"</b><div style='color:#6f7277;margin-bottom:6px'>"+s.sub+"</div><div class='kv'>"+s.kv.map(function(k){return"<span>"+k[0]+"</span><span>"+k[1]+"</span>"}).join("")+"</div>"+(s.vid?"<span class='vid'>есть видеообзор</span>":"")+"<a href='"+s.url+"' target='_blank' rel='noopener'>Смотреть проект</a></div>";
+      L.proj=s.p;bot("<b>"+s.k+"</b>. "+s.d+" Вот наш проект в этом стиле:",[],null,c);setTimeout(s6,3400)})}
+  function calcText(){var S=SERV[L.serv]||SERV["Комплекс: дизайн-проект, реализация, мебель, декор"],tt=S.t,r;
+    if(L.exact){r="для "+L.exact+" м² <span class='price'>от "+money(L.exact*tt)+"</span>";L.budget="от "+money(L.exact*tt)}
+    else if(L.a&&L.b){r="<span class='price'>от "+money(L.a*tt)+" до "+money(L.b*tt)+"</span>";L.budget="от "+money(L.a*tt)+" до "+money(L.b*tt)}
+    else if(L.a){r="<span class='price'>от "+money(L.a*tt)+"</span>";L.budget="от "+money(L.a*tt)}
+    else{r="для 50 м² <span class='price'>от "+money(L.b*tt)+"</span>";L.budget="от "+money(L.b*tt)+" за 50 м²"}
+    var what=L.serv==="Дизайн-проект"?"дизайн-проект от 5 000 ₽ за м²":L.serv==="Реализация дизайн-проекта"?"ремонт от 35 000 ₽ за м², материалы отдельно":"дизайн-проект от 5 000 ₽ и ремонт от 35 000 ₽ за м², материалы, мебель и декор отдельно";
+    L.budgetNote=L.serv==="Дизайн-проект"?"за дизайн-проект":L.serv==="Реализация дизайн-проекта"?"за работы":"за дизайн и работы";
+    var sec=L.kind==="Вторичка"?"<small>Во вторичке ремонт, как правило, дороже примерно на 30%: демонтаж и состояние объекта.</small>":"";
+    return "По нашим ценам ("+what+") это "+r+"<small>Точную стоимость покажет подробная смета. После договора она не меняется.</small>"+sec}
+  function s6(){bot(calcText(),[],null);setTimeout(function(){
+      var tl=L.serv==="Дизайн-проект"?"Дизайн-проект занимает от 2 месяцев.":"Ремонт в среднем занимает 5-7 месяцев на 80-90 м² в новостройке, начинаем через 1-2 недели после договора.";
+      bot(tl+" Когда хотите начать?",["Ключи уже есть","Через 1-3 месяца","Пока выбираю студию"],s7)},1600)}
+  function s7(v){L.when=v;bot("Следующий шаг: познакомиться с вами и объектом. Как удобнее?",["Встреча на объекте","Экскурсия по готовому объекту","Сначала пришлю проект или планировку"],s8)}
+  function s8(v){L.step=v;
+    if(/^Сначала/.test(v)){L.plan=true;L.stepShort="сначала проект";qr.innerHTML="";setTimeout(function(){me("планировка.pdf",true);setTimeout(function(){bot("Получила, утром передам архитектору. И всё же лучше увидеть объект. Выберите время встречи:",["Чт 11:00","Чт 16:00","Пт 12:00"],s9)},400)},300)}
+    else{L.plan=false;L.stepShort=v==="Встреча на объекте"?"на объекте":"экскурсия по готовому объекту";
+      bot(v==="Экскурсия по готовому объекту"?"Отлично, оценивать ремонт вживую лучше, чем на картинках. Менеджер покажет текущий объект и познакомит с руководителем проекта. Выберите время:":"Выберите удобное время встречи:",["Чт 11:00","Чт 16:00","Пт 12:00"],s9)}}
+  function s9(v){L.slot=v;bot("Как к вам обращаться и куда удобнее написать?",["Анна, в Telegram","Анна, в WhatsApp","Анна, позвоните"],s10)}
+  function s10(v){L.contact=v;
+    bot("Готово, Анна! Записала: <b>"+L.slot+"</b>, "+L.stepShort+". Утром всё передам менеджеру Ивану, он подтвердит встречу"+(L.contact.indexOf("позвоните")>0?" по телефону":L.contact.indexOf("WhatsApp")>0?" в WhatsApp":" в Telegram")+"."+(L.plan?" Планировка уже у архитектора.":"")+" Если появятся вопросы, пишите сюда в любое время.",[],null);
+    done=true;setTimeout(function(){var e=document.createElement("div");e.className="end";e.innerHTML="Конец демо. Так Алина может работать на вашем сайте круглосуточно.<br><button type='button' id='toMgr'>Что увидит менеджер</button>";msgs.appendChild(e);scroll();$("toMgr").onclick=showMgr;
+      setTimeout(function(){if($("mgr").hidden)showMgr()},3000)},1400)}
+
+  function card(){var c=$("mchat");c.innerHTML="";var m=document.createElement("div");m.className="m";
+    var mins=Math.max(2,(clock[0]*60+clock[1])-(23*60+41));
+    m.innerHTML="<span class='tm'>"+t()+"</span><b>Новый клиент от Алины</b><div class='kv'>"+
+      "<span>Клиент</span><span>"+esc(L.contact)+"</span>"+
+      "<span>Объект</span><span>"+L.obj.toLowerCase()+(L.kind?", "+L.kind.toLowerCase():"")+", "+esc(L.areaTxt)+"</span>"+
+      (L.addr?"<span>Адрес</span><span>"+esc(L.addr)+"</span>":"")+
+      "<span>Услуга</span><span>"+(L.serv.indexOf("Комплекс")===0?"комплекс":L.serv.toLowerCase())+(L.unsure?" (нужна консультация)":"")+"</span>"+
+      (L.design?"<span>Проект</span><span>"+L.design.toLowerCase()+"</span>":"")+
+      "<span>Стиль</span><span>"+L.style.toLowerCase()+(L.proj?", смотрела "+L.proj:"")+"</span>"+
+      "<span>Бюджет</span><span>"+L.budget+" "+L.budgetNote+"</span>"+
+      "<span>Старт</span><span>"+L.when.toLowerCase()+"</span>"+
+      "<span>Встреча</span><span>"+L.slot+", "+L.stepShort+"</span>"+
+      "<span>Планировка</span><span>"+(L.plan?"приложена":"нет")+"</span>"+
+      "<span>Итог</span><span>написала в 23:41, диалог "+mins+" мин</span></div><button class='mb' type='button'>Открыть диалог</button>";
+    c.appendChild(m)}
+  function showMgr(){
+    if(!done){L={obj:"Квартира",kind:"Новостройка",areaTxt:"50-100 м2",serv:"Комплекс: дизайн-проект, реализация, мебель, декор",style:"Современный",proj:"ЖК «Наследие»",budget:"от 2 до 4 млн ₽",budgetNote:"за дизайн и работы",when:"Ключи уже есть",slot:"Чт 11:00",stepShort:"на объекте",plan:true,contact:"Анна, в Telegram"};clock=[23,47];
+      $("mtext").textContent="Пример карточки после разговора с Алиной. Пройдите диалог в чате справа внизу, чтобы увидеть, как она её собирает.";}
+    else $("mtext").textContent="Анна написала в 23:41, поздно вечером. Алина ответила сразу, назвала цену по вашим ценам за м², показала ваш проект и записала на встречу.";
+    card();$("mgr").hidden=false}
+  function open(){$("teaser").hidden=true;$("widget").hidden=false;if(!started){started=true;s1()}}
+  $("launch").onclick=function(){if($("widget").hidden)open();else $("widget").hidden=true};
+  $("teaser").onclick=open;$("close").onclick=function(){$("widget").hidden=true};
+  document.querySelectorAll("[data-open]").forEach(function(b){b.onclick=open});
+  $("sampleMgr").onclick=showMgr;$("closeMgr").onclick=function(){$("mgr").hidden=true};
+  document.querySelectorAll("[data-mail]").forEach(function(b){b.onclick=function(){$("okc").textContent="";$("modal").hidden=false}});
+  $("mclose").onclick=function(){$("modal").hidden=true};
+  $("modal").addEventListener("click",function(e){if(e.target===$("modal"))$("modal").hidden=true});
+  $("copy").onclick=function(){var a="katerina@lacifra.co";function ok(){$("okc").textContent="Адрес скопирован"}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(a).then(ok,fb);else fb();
+    function fb(){var i=document.createElement("input");i.value=a;document.body.appendChild(i);i.select();try{document.execCommand("copy");ok()}catch(e){$("okc").textContent=a}i.remove()}};
+  setTimeout(function(){if(!started)$("teaser").hidden=false},window.innerWidth<700?4000:2000);
+})();
+</script>
+</body>
+</html>

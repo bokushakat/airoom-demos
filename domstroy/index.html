@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>ДомСтрой Ремонт: консультант Алина</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --navy:#213b96;--navy2:#00376d;--yel:#f9bf05;--yel2:#ffc52f;
+  --text:#333;--mute:#6b7280;--line:#e3e8ef;--soft:#f3f6fb;--bg:#fff;
+  --ok:#2fb36b;
+  --f:"Montserrat","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--f);font-size:16px;line-height:1.5;overflow-x:hidden}
+button,input{font:inherit}
+img{max-width:100%}
+:focus-visible{outline:2px solid var(--yel);outline-offset:2px}
+.wrap{width:100%;max-width:1320px;margin:0 auto;padding-left:clamp(16px,4vw,60px);padding-right:clamp(16px,4vw,60px)}
+
+/* header like their site */
+.util{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:10px;padding-bottom:6px;font-size:12.5px;font-weight:600;color:var(--navy2)}
+.util .l{display:flex;gap:28px;flex-wrap:wrap}
+.util .r{display:flex;align-items:center;gap:12px}
+.util .r img{width:20px;height:20px}
+.util .tel{font-size:21px;font-weight:600;color:var(--navy);letter-spacing:.02em;margin-left:8px;white-space:nowrap}
+.head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:6px;padding-bottom:16px}
+.logo img{display:block;width:217px;height:auto}
+.menu{display:flex;align-items:center;gap:clamp(18px,2.4vw,40px);font-size:15.5px;color:#444;letter-spacing:.02em}
+.menu span{white-space:nowrap}
+.menu .dd::after{content:"";display:inline-block;width:5px;height:5px;border-right:1.5px solid #666;border-bottom:1.5px solid #666;transform:rotate(45deg);margin-left:8px;vertical-align:3px}
+.menu .ak{font-weight:700;color:var(--navy)}
+.menu .dot{width:5px;height:5px;border-radius:50%;background:var(--yel);display:inline-block;margin-right:-18px}
+.hbtns{display:flex;gap:16px}
+.hb{border-radius:999px;background:#fff;padding:12px 22px;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;color:#222;white-space:nowrap}
+.hb.n{border:1.5px solid var(--navy)}
+.hb.y{border:1.5px solid var(--yel)}
+.mphone{display:none;border:1.5px solid var(--yel);border-radius:999px;padding:4px 10px;font-weight:700;font-size:13px;color:#222;white-space:nowrap}
+.burger{display:none;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--navy);position:relative}
+.burger::before{content:"";position:absolute;left:7px;right:7px;top:9px;height:8px;border-top:1.5px solid var(--navy);border-bottom:1.5px solid var(--navy)}
+.burger::after{content:"";position:absolute;left:7px;right:7px;top:12.5px;border-top:1.5px solid var(--navy)}
+.mtop{display:none}
+
+/* hero */
+.hero{width:100%;display:grid;grid-template-columns:43% 57%;border-top:1px solid var(--line);border-bottom:1px solid var(--line);min-height:calc(100vh - 124px)}
+.hero .txt{display:flex;flex-direction:column;justify-content:center;padding-top:60px;padding-bottom:60px;padding-left:clamp(16px,13vw,186px);padding-right:clamp(16px,3vw,48px)}
+.hero h1{margin:0;font-size:clamp(30px,2.9vw,42px);line-height:1.18;font-weight:800;color:#333;letter-spacing:.005em}
+.hero .sub{margin:30px 0 0;font-size:clamp(17px,1.45vw,21px);color:var(--navy);font-weight:500;line-height:1.5;max-width:22em}
+.hero .sub mark{background:var(--yel);color:var(--navy);font-weight:700;padding:2px 8px}
+.cta{margin-top:44px;border:0;background:var(--navy);color:#fff;font-weight:800;font-size:18px;letter-spacing:.02em;text-transform:uppercase;padding:22px 52px;cursor:pointer;align-self:flex-start;box-shadow:0 14px 30px rgba(33,59,150,.22)}
+.cta span{color:var(--yel)}
+.cta:hover{background:#1a3080}
+.ph{position:relative;overflow:hidden;background:#d8e4e8}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:zoom 26s ease-in-out infinite alternate;transform-origin:60% 40%}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.1)}}
+
+@media (max-width:1180px){.menu{display:none}}
+@media (max-width:860px){
+  .util{display:none}
+  .mtop{display:flex;gap:10px;justify-content:center;padding-top:12px;padding-bottom:6px}
+  .mtop .hb{padding:11px 18px;font-size:12px}
+  .hbtns{display:none}
+  .head{padding-top:8px;padding-bottom:10px}
+  .logo img{width:104px}
+  .mphone{display:inline-block}
+  .burger{display:inline-block}
+  .head .rgt{display:flex;align-items:center;gap:10px}
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero .txt{padding-top:44px;padding-bottom:36px;text-align:center;align-items:center}
+  .hero h1{color:var(--navy);font-size:32px}
+  .hero .sub{margin-top:16px;font-size:16px}
+  .cta{align-self:center;margin-top:28px;padding:18px 30px;font-size:16px}
+  .ph{height:340px}
+}
+@media (min-width:861px){.head .rgt{display:none}}
+
+/* chat launcher */
+.launch{position:fixed;right:24px;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:40;width:68px;height:68px;border-radius:50%;border:3px solid #fff;padding:0;cursor:pointer;background:#ddd url("https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=faces") 50% 30%/cover no-repeat;box-shadow:0 10px 28px rgba(0,25,90,.35)}
+.launch::before{content:"";position:absolute;inset:-7px;border-radius:50%;border:2px solid var(--yel);animation:ring 1.9s infinite}
+.launch::after{content:"";position:absolute;right:1px;bottom:3px;width:14px;height:14px;border-radius:50%;background:var(--ok);border:2.5px solid #fff}
+@keyframes ring{0%{transform:scale(.92);opacity:.85}100%{transform:scale(1.28);opacity:0}}
+.teaser{position:fixed;right:104px;bottom:calc(36px + env(safe-area-inset-bottom,0px));z-index:40;background:#fff;color:#222;border-radius:16px 16px 4px 16px;padding:12px 15px;font-size:14px;line-height:1.4;box-shadow:0 12px 32px rgba(0,25,90,.22);max-width:250px;cursor:pointer;animation:in .4s ease-out;border:1px solid var(--line)}
+.teaser b{color:var(--navy)}
+
+/* widget */
+.widget{position:fixed;right:24px;bottom:calc(106px + env(safe-area-inset-bottom,0px));z-index:45;width:min(392px,calc(100vw - 32px));height:min(640px,calc(100vh - 140px));background:#fff;border-radius:20px;box-shadow:0 26px 70px rgba(0,25,90,.30);display:flex;flex-direction:column;overflow:hidden;animation:in .3s ease-out;border:1px solid var(--line)}
+@media (max-width:560px){.widget{right:12px;left:12px;width:auto;bottom:calc(100px + env(safe-area-inset-bottom,0px));height:calc(100vh - 124px)}}
+.wh{background:var(--navy);color:#fff;padding:13px 16px;display:flex;gap:11px;align-items:center}
+.av{width:42px;height:42px;border-radius:50%;flex:none;position:relative;background:#ddd url("https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=faces") 50% 30%/cover no-repeat;border:2px solid rgba(255,255,255,.85)}
+.av::after{content:"";position:absolute;right:-1px;bottom:-1px;width:11px;height:11px;border-radius:50%;background:var(--ok);border:2px solid var(--navy)}
+.wh b{display:block;font-size:14.5px;font-weight:700;line-height:1.25}
+.wh small{display:block;color:#cfd8f5;font-size:12px}
+.wh .x{margin-left:auto;background:none;border:0;color:#fff;font-size:24px;cursor:pointer;line-height:1;opacity:.8}
+.msgs{flex:1;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:9px;background:#f7f9fc}
+.b{max-width:88%;padding:10px 13px;border-radius:16px;font-size:14px;line-height:1.45;animation:in .3s ease-out}
+.b.bot{background:#fff;border:1px solid var(--line);border-bottom-left-radius:5px;align-self:flex-start;color:#222}
+.b.me{background:var(--navy);color:#fff;border-bottom-right-radius:5px;align-self:flex-end}
+.b b{color:var(--navy)}.b.me b{color:#fff}
+.b .t{display:block;font-size:10.5px;opacity:.55;margin-top:3px;text-align:right}
+.b.file{display:flex;gap:10px;align-items:center}
+.b.file .ic{width:30px;height:36px;border-radius:5px;background:rgba(255,255,255,.22);display:grid;place-items:center;font-size:10px;font-weight:800}
+.b .price{display:block;font-size:19px;font-weight:800;color:var(--navy);margin:6px 0 2px;line-height:1.25}
+.b .note{display:block;font-size:12.5px;color:var(--mute);margin-top:4px}
+.b .promo{display:block;margin-top:8px;background:#fff7d6;border-left:3px solid var(--yel);padding:7px 9px;border-radius:6px;font-size:13px}
+.proj{display:block;margin-top:4px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.proj img{display:block;width:100%;height:150px;object-fit:cover}
+.proj .pi{padding:9px 11px;font-size:12.5px;line-height:1.5}
+.proj .pi b{display:block;font-size:13.5px;margin-bottom:3px}
+.proj .vid{display:inline-block;background:var(--yel);color:#222;font-weight:700;font-size:11px;padding:1px 7px;border-radius:4px;margin-top:4px}
+.proj a{display:inline-block;margin-top:6px;color:var(--navy);font-weight:700;text-decoration:none}
+.bimg{display:block;margin-top:8px;border-radius:10px;width:100%}
+.typing{align-self:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:11px 13px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#9aa6c4;animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{50%{opacity:.25}}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.qr{display:flex;flex-wrap:wrap;gap:7px;padding:10px 12px;border-top:1px solid var(--line);min-height:54px;max-height:46%;overflow-y:auto;background:#fff}
+.qr button{border:1.5px solid var(--navy);color:var(--navy);background:#fff;border-radius:999px;padding:8px 13px;font-size:13px;font-weight:600;cursor:pointer;text-align:left}
+.qr button:hover{background:var(--navy);color:#fff}
+.qr.pics{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.qr button.pic{border-radius:12px;padding:0;overflow:hidden;display:flex;flex-direction:column;border:1.5px solid var(--line)}
+.qr button.pic img{display:block;width:100%;height:78px;object-fit:cover}
+.qr button.pic span{display:block;padding:6px 8px;font-size:12.5px;line-height:1.3}
+.qr button.pic small{display:block;font-weight:500;color:var(--mute);font-size:11.5px}
+.qr button.pic:hover{border-color:var(--navy);background:#fff;color:var(--navy)}
+.qr button.wide{grid-column:1/-1;border-radius:999px;text-align:center;border:1.5px solid var(--navy)}
+.inp{display:flex;gap:8px;padding:0 12px 12px;background:#fff}
+.inp input{flex:1;background:#f3f6fb;border:1px solid var(--line);color:#222;border-radius:999px;padding:10px 14px;font-size:14px}
+.inp button{border:0;border-radius:50%;width:40px;background:var(--navy);color:#fff;cursor:pointer;font-weight:800}
+.end{align-self:stretch;background:#fff7d6;border:1px solid #f3dc8a;border-radius:14px;padding:12px 14px;font-size:13.5px;text-align:center;animation:in .3s ease-out;color:#222}
+.end button{margin-top:9px;border:0;border-radius:999px;background:var(--navy);color:#fff;font-weight:700;padding:10px 18px;cursor:pointer}
+
+/* manager screen */
+.mgr{position:fixed;inset:0;z-index:60;background:rgba(10,22,60,.93);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;overflow-y:auto;animation:in .3s ease-out;color:#fff}
+.mbox{display:grid;grid-template-columns:auto minmax(0,360px);gap:32px;align-items:center;max-width:860px;width:100%}
+@media (max-width:760px){.mbox{grid-template-columns:1fr;gap:20px}.mside{order:-1}}
+.phone{background:#0d0d0d;border-radius:34px;padding:9px;width:min(340px,100%);margin:0 auto;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.scr{background:#cfdbe6;border-radius:26px;display:flex;flex-direction:column;overflow:hidden;color:#16202A;font-family:"Helvetica Neue",Arial,sans-serif;min-height:520px}
+.th{background:#fff;padding:11px 14px;display:flex;gap:10px;align-items:center;font-size:13.5px;border-bottom:1px solid #D5DEE6}
+.th .tav{width:32px;height:32px;border-radius:50%;background:var(--navy);color:var(--yel);display:grid;place-items:center;font-weight:800;font-size:14px}
+.th small{display:block;color:#76766E;font-size:11.5px}
+.chat{flex:1;padding:22px 10px 12px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px}
+.m{background:#fff;border-radius:14px 14px 14px 4px;padding:10px 12px;font-size:12.8px;line-height:1.4;border-left:4px solid var(--yel);animation:in .35s ease-out}
+.m .tm{float:right;color:#76766E;font-size:11px;margin-left:8px}
+.m .kv{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin-top:6px}
+.m .kv span:nth-child(odd){color:#76766E}
+.m .mb{margin-top:8px;width:100%;border:0;border-radius:10px;padding:9px;background:var(--navy);color:#fff;font-weight:600}
+.mside h3{margin:0;font-size:clamp(22px,3vw,30px);line-height:1.2}
+.mside p{color:#d6def5;margin:12px 0 0;font-size:15.5px}
+.mside ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px}
+.mside li{display:flex;gap:10px}.mside li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yel);margin-top:8px;flex:none}
+.mside .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.mside .pri{border:0;border-radius:999px;background:var(--yel);color:#1a1a1a;font-weight:800;padding:13px 22px;cursor:pointer}
+.mside .sec{border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;border-radius:999px;padding:12px 18px;cursor:pointer}
+
+/* offer block below the first screen */
+.offer{background:#f6f8fc;border-top:1px solid var(--line);padding-top:72px;padding-bottom:40px}
+.offer .in{max-width:1040px;margin:0 auto;padding-left:16px;padding-right:16px}
+.offer .kick{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
+.offer h2{margin:8px 0 0;font-size:clamp(24px,3vw,34px);line-height:1.2;color:#1f2a44}
+.offer .lead{margin:12px 0 0;max-width:62ch;color:#4b5563}
+.offer h3{margin:56px 0 18px;font-size:clamp(20px,2.4vw,26px);color:#1f2a44}
+.loss{display:grid;gap:12px}
+.lrow{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch}
+.lrow > div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:15px}
+.lrow .now{border-left:4px solid #e26a55}
+.lrow .new{border-left:4px solid var(--ok)}
+.lrow small{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.lrow .arr{align-self:center;font-size:22px;color:var(--navy);background:none;border:0;padding:0}
+@media (max-width:760px){.lrow{grid-template-columns:1fr}.lrow .arr{transform:rotate(90deg);justify-self:center}}
+.why{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:32px;align-items:start}
+@media (max-width:860px){.why{grid-template-columns:1fr}}
+.why ol{margin:0;padding:0;list-style:none;counter-reset:w;display:grid;gap:12px}
+.why li{counter-increment:w;background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px 18px 15px 60px;position:relative;font-size:15px}
+.why li::before{content:counter(w);position:absolute;left:16px;top:14px;width:30px;height:30px;border-radius:50%;background:var(--navy);color:var(--yel);display:grid;place-items:center;font-weight:800;font-size:14px}
+.why li b{display:block;color:#1f2a44;margin-bottom:2px}
+.sample{background:#cfdbe6;border-radius:18px;padding:16px 12px}
+.final{margin-top:56px;background:var(--navy);color:#fff;border-radius:20px;padding:34px clamp(20px,4vw,44px);display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.final h3{margin:0;color:#fff;font-size:clamp(20px,2.4vw,26px)}
+.final p{margin:8px 0 0;color:#d6def5;max-width:52ch}
+.final button{border:0;border-radius:999px;background:var(--yel);color:#1a1a1a;font-weight:800;padding:16px 28px;cursor:pointer;font-size:15px}
+.foot{margin-top:40px;font-size:12px;color:#8a93a6;text-align:center}
+
+/* email modal */
+.mail{position:fixed;inset:0;z-index:80;background:rgba(10,22,60,.6);display:grid;place-items:center;padding:16px;animation:in .25s ease-out}
+.mcard{background:#fff;color:#1f2a44;border-radius:18px;padding:26px 24px;width:min(420px,100%);text-align:center;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.mcard p{margin:0;color:#4b5563;font-size:14.5px}
+.mcard .addr{display:block;margin:12px 0 18px;font-size:clamp(19px,5vw,24px);font-weight:800;color:var(--navy);word-break:break-all}
+.mcard .r{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.mcard a,.mcard button{border-radius:999px;padding:12px 18px;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none}
+.mcard a{background:var(--navy);color:#fff;border:0}
+.mcard .cp{background:#fff;border:1.5px solid var(--navy);color:var(--navy)}
+.mcard .cl{display:block;margin:16px auto 0;background:none;border:0;color:var(--mute);font-weight:500}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="mtop"><button class="hb n" type="button" data-open>Расчет сметы</button><button class="hb y" type="button" data-open>Заказать звонок</button></div>
+<div class="wrap">
+  <div class="util">
+    <div class="l"><span>г. Москва, ул. Ермакова роща, 7а</span><span>Ежедневно с 9:00 до 21:00</span></div>
+    <div class="r"><img src="https://domstroy-remont.ru/wp-content/themes/domstroy-remont/img/socials/tg.svg" alt="Telegram" referrerpolicy="no-referrer"><img src="https://domstroy-remont.ru/wp-content/themes/domstroy-remont/img/socials/whatsapp.svg" alt="WhatsApp" referrerpolicy="no-referrer"><span class="tel">+7 (495) 920-48-80</span></div>
+  </div>
+  <div class="head">
+    <div class="logo"><img src="https://domstroy-remont.ru/wp-content/themes/domstroy-remont/img/logo-header-new.png" alt="ДомСтрой Ремонт" width="217" height="64" referrerpolicy="no-referrer"></div>
+    <nav class="menu"><span class="dd">Услуги</span><span class="dd">Наши работы</span><span class="dd">О компании</span><i class="dot"></i><span>Цены</span><span class="ak">Акции</span></nav>
+    <div class="hbtns"><button class="hb n" type="button" data-open>Расчет сметы</button><button class="hb y" type="button" data-open>Заказать звонок</button></div>
+    <div class="rgt"><span class="mphone">+7 (495) 920-48-80</span><span class="burger"></span></div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="txt">
+    <h1>Ремонт квартир<br>и домов<br>в Москве</h1>
+    <p class="sub">Проект ремонта с планировочным решением <mark>В подарок</mark></p>
+    <button class="cta" id="heroBtn" type="button" data-open>Рассчитать <span>стоимость</span></button>
+  </div>
+  <div class="ph"><img src="https://domstroy-remont.ru/wp-content/uploads/2025/02/img_8385-1004x1339.jpg" alt="Ремонт квартиры под ключ" referrerpolicy="no-referrer"></div>
+</section>
+
+<section class="offer" id="offer">
+  <div class="in">
+    <div class="kick">Для команды «ДомСтрой Ремонт»</div>
+    <h2>Вы только что видели ваш сайт с ИИ-консультантом Алиной</h2>
+    <p class="lead">Это демо от Екатерины Боковой, AI Room Studio. Алина отвечает клиенту ночью, считает ремонт по вашим ценам со страницы «Цены», показывает ваши работы и записывает на бесплатный замер. Откройте чат справа внизу и пройдите диалог как клиент.</p>
+
+    <h3>Где сайт сейчас теряет клиентов</h3>
+    <div class="loss">
+      <div class="lrow"><div class="now"><small>Сейчас</small>Форма «Рассчитаем стоимость ремонта с материалами» на первом экране не показывает цену без телефона. Без номера кнопка «Рассчитать стоимость» отвечает «Поле обязательно для заполнения».</div><span class="arr" aria-hidden="true">→</span><div class="new"><small>С Алиной</small>Клиент сразу видит вилку по своей площади и вашим тарифам от 7 000 руб./м². Телефон Алина просит только для записи на замер, когда клиент уже решил.</div></div>
+      <div class="lrow"><div class="now"><small>Сейчас</small>Квиз «Расчет стоимости ремонта за 1 минуту» и калькулятор «Сколько будет стоить Ваш ремонт» тоже заканчиваются контактами: «мы перезвоним Вам, чтобы уточнить детали и сориентировать по стоимости услуг».</div><span class="arr" aria-hidden="true">→</span><div class="new"><small>С Алиной</small>Те же вопросы вашего квиза, но в конце ответ: ориентир по цене, срок по виду ремонта, ваши акции и похожий объект из портфолио.</div></div>
+      <div class="lrow"><div class="now"><small>Сейчас</small>Офис работает ежедневно с 9:00 до 21:00. Вечером после 21:00 клиент может только оставить телефон и ждать звонка на следующий день.</div><span class="arr" aria-hidden="true">→</span><div class="new"><small>С Алиной</small>В 23:41 клиент получает ответ за секунду и выбирает время замера. Утром менеджер видит готовую заявку.</div></div>
+    </div>
+
+    <h3>5 причин, почему это приведёт вам клиентов</h3>
+    <div class="why">
+      <ol>
+        <li><b>Цена до телефона</b>Клиент получает ответ на главный вопрос сразу и не уходит считать к конкурентам.</li>
+        <li><b>Ответ ночью</b>Алина отвечает круглосуточно, даже когда офис закрыт.</li>
+        <li><b>Ваши работы в разговоре</b>Показывает похожий объект с площадью, сроком и стоимостью из вашего портфолио.</li>
+        <li><b>Ваши акции в нужный момент</b>Новоселам 3%, молодоженам 4%, 5% при 100% оплате: Алина говорит о скидке, когда клиент видит цену.</li>
+        <li><b>Готовый клиент утром</b>Менеджер получает дом, площадь, вид ремонта, бюджет и время замера. Не нужно перезванивать и выяснять заново.</li>
+      </ol>
+      <div class="sample" aria-label="Пример карточки для менеджера">
+        <div class="m"><span class="tm">09:00</span><b>Новый клиент от Алины</b><div class="kv"><span>Клиент</span><span>Анна, WhatsApp</span><span>Дом</span><span>новостройка, всей квартиры</span><span>Площадь</span><span>40-60 м²</span><span>Ремонт</span><span>капитальный</span><span>Ориентир</span><span>от 600 000 до 900 000 руб.</span><span>Замер</span><span>Чт 8 окт, 10:00</span><span>Планировка</span><span>приложена</span></div><button class="mb" type="button" tabindex="-1">Открыть диалог</button></div>
+      </div>
+    </div>
+
+    <div class="final">
+      <div><h3>Подключим Алину к вашему сайту</h3><p>Настрою консультанта под ваши цены, акции и портфолио и покажу, как он работает на вашем сайте. Напишите, обсудим детали.</p></div>
+      <button type="button" data-mail>Написать Екатерине</button>
+    </div>
+    <p class="foot">Демо подготовлено AI Room Studio. Это не сайт компании «ДомСтрой Ремонт». Логотип, фото и цены взяты с сайта domstroy-remont.ru.</p>
+  </div>
+</section>
+
+<div class="teaser" id="teaser" hidden>Добрый вечер! Я Алина. <b>Подсказать стоимость ремонта</b> по вашей площади?</div>
+<button class="launch" id="launch" type="button" aria-label="Открыть чат с консультантом"></button>
+
+<div class="widget" id="widget" hidden aria-live="polite">
+  <div class="wh"><div class="av"></div><div><b>Алина, ДомСтрой Ремонт</b><small>ИИ-консультант, онлайн 24/7</small></div><button class="x" type="button" id="close" aria-label="Свернуть чат">×</button></div>
+  <div class="msgs" id="msgs"></div>
+  <div class="qr" id="qr"></div>
+  <div class="inp"><input id="txt" placeholder="Напишите сообщение" autocomplete="off"><button type="button" id="sendTxt" aria-label="Отправить">→</button></div>
+</div>
+
+<div class="mgr" id="mgr" hidden>
+  <div class="mbox">
+    <div class="phone"><div class="scr">
+      <div class="th"><div class="tav">Д</div><div><b>Заявки ДомСтрой Ремонт</b><small>бот для менеджеров</small></div></div>
+      <div class="chat" id="mchat"></div>
+    </div></div>
+    <div class="mside">
+      <h3>А утром менеджер видит готового клиента</h3>
+      <p id="mtext">Клиент написал ночью, когда офис был закрыт. Алина ответила сразу, назвала цену и записала на замер.</p>
+      <ul><li>Не нужно перезванивать и выяснять площадь и вид ремонта</li><li>Клиент уже знает ориентир по цене и ваши акции</li><li>Замер записан, планировка у сметчика</li></ul>
+      <div class="row"><button class="pri" type="button" data-mail>Связаться с Екатериной</button><button class="sec" type="button" id="closeMgr">Вернуться к сайту</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="mail" id="mail" hidden role="dialog" aria-modal="true" aria-label="Контакт Екатерины">
+  <div class="mcard">
+    <p>Екатерина Бокова</p>
+    <span class="addr">katerina@lacifra.co</span>
+    <div class="r"><a id="mailto" href="mailto:katerina@lacifra.co?subject=%D0%98%D0%98-%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D0%BD%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%BE%D0%BC%D0%A1%D1%82%D1%80%D0%BE%D0%B9%20%D0%A0%D0%B5%D0%BC%D0%BE%D0%BD%D1%82">Написать на почту</a><button class="cp" type="button" id="copy">Скопировать адрес</button></div>
+    <button class="cl" type="button" id="mailClose">Закрыть</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var U="https://domstroy-remont.ru/wp-content/uploads/";
+  var CO="«ДомСтрой Ремонт»";
+  /* tariffs: page "Цены", work cost without materials */
+  var T=[
+    {n:"Косметический",p:7000,s:"от 1 месяца",img:U+"2020/02/service-1-270x270.jpg"},
+    {n:"Комплексный",p:10000,s:"от 2 до 4 месяцев",img:U+"2020/02/service-2-270x270.jpg"},
+    {n:"Капитальный",p:15000,s:"от 4 до 6 месяцев",img:U+"2020/02/service-3-270x270.jpg"},
+    {n:"Дизайнерский",p:21000,s:"от 3 до 5 месяцев",img:U+"2020/02/service-4-270x270.jpg"}
+  ];
+  var AREAS={"до 20 м²":[0,20],"20-40 м²":[20,40],"40-60 м²":[40,60],"Более 60 м²":[60,0]};
+  var P={
+    nb:{t:"Ремонт в новостройке 54 кв. м. ЖК Спутник",r:"2-комнатная",a:"54 м2",c:"780 000 руб.",d:"52 дня",img:U+"2025/02/img_8271-343x361.jpeg",u:"https://domstroy-remont.ru/nashi-rabotyi/remont-v-novostrojkah/remont-pod-klyuch-54-kv-m/",v:false},
+    ob:{t:"Ремонт двухкомнатной квартиры",r:"2",a:"57 м2",c:"850000 руб.",d:"49 дней",img:U+"2025/02/img_8403-458x358.jpg",u:"https://domstroy-remont.ru/nashi-rabotyi/remont-kvartir/remont-dvuhkomnatnoj-kvartiry/",v:true}
+  };
+  function rub(v){return v.toLocaleString("ru-RU")+" руб."}
+
+  var msgs=$("msgs"),qr=$("qr"),clock=[23,41],started=false,done=false,L={},cur=null,nMe=0,mgrTimer=null;
+  function t(adv){if(adv)clock[1]++;if(clock[1]>59){clock[1]=0;clock[0]=(clock[0]+1)%24}return ("0"+clock[0]).slice(-2)+":"+("0"+clock[1]).slice(-2)}
+  function scroll(){msgs.scrollTop=msgs.scrollHeight}
+  function me(text,file){var d=document.createElement("div");d.className="b me"+(file?" file":"");
+    d.innerHTML=file?"<span class='ic'>PDF</span><span>"+text+"</span>":text+"<span class='t'>"+t((++nMe)%2===0)+"</span>";msgs.appendChild(d);scroll()}
+  /* bot(list of messages, options, next). option: string or {l,img,sub,wide} */
+  function bot(list,opts,next,pics){qr.innerHTML="";qr.className="qr";if(typeof list==="string")list=[list];var i=0;
+    (function one(){var ty=document.createElement("div");ty.className="typing";ty.innerHTML="<i></i><i></i><i></i>";msgs.appendChild(ty);scroll();
+      setTimeout(function(){ty.remove();var d=document.createElement("div");d.className="b bot";d.innerHTML=list[i]+"<span class='t'>"+t()+"</span>";msgs.appendChild(d);scroll();
+        d.querySelectorAll("img").forEach(function(im){im.addEventListener("load",scroll)});
+        i++;if(i<list.length){setTimeout(one,250);return}
+        if(pics)qr.className="qr pics";
+        (opts||[]).forEach(function(o){var l=typeof o==="string"?o:o.l;var bt=document.createElement("button");bt.type="button";
+          if(typeof o!=="string"&&o.img){bt.className="pic";bt.innerHTML="<img src='"+o.img+"' alt='' referrerpolicy='no-referrer'><span>"+l+(o.sub?"<small>"+o.sub+"</small>":"")+"</span>"}
+          else{bt.textContent=l;if(pics)bt.className="wide"}
+          bt.onclick=function(){answer(l,next)};qr.appendChild(bt)});
+        cur=next;},i===0?700:600)})();}
+  function answer(o,next){qr.innerHTML="";qr.className="qr";cur=null;me(o);if(next)setTimeout(function(){next(o)},350)}
+  $("sendTxt").onclick=function(){var v=$("txt").value.trim();if(!v||!cur)return;$("txt").value="";answer(v,cur)};
+  $("txt").addEventListener("keydown",function(e){if(e.key==="Enter")$("sendTxt").click()});
+
+  /* dialog follows their quiz: Тип дома, комнаты, меблировка, метраж, тип ремонта */
+  function s1(){bot("Добрый вечер! Я Алина, консультант "+CO+". Помогу рассчитать стоимость ремонта. Ремонт в каком доме планируете?",
+    [{l:"Новостройка",img:U+"2025/05/newbuild.png"},{l:"Вторичное жильё",img:U+"2025/05/oldbuild.png"}],s2,true)}
+  function s2(v){L.house=v;bot("Ремонт скольких комнат планируется?",["Одна комната","Несколько комнат","Всей квартиры"],s3)}
+  function s3(v){L.rooms=v;bot("Потребуется ли услуга меблировки? Наш специалист поможет с подбором и заказом мебели со скидкой до 20%.",["Ремонт с мебелью","Только отделочные/Инженерные работы"],s4)}
+  function s4(v){L.furn=v;bot("Какой общий метраж помещения?",Object.keys(AREAS),s5)}
+  function s5(v){L.areaTxt=v;L.ar=AREAS[v]||[40,60];
+    var o=T.map(function(x){return {l:x.n,img:x.img,sub:"от "+x.p.toLocaleString("ru-RU")+" руб./м²"}});o.push({l:"Не знаю, нужна консультация"});
+    bot("Выберите тип ремонта. Цены за работы, без материалов:",o,s6,true)}
+  function range(p){var a=L.ar[0],b=L.ar[1];if(!a)return "до "+rub(b*p);if(!b)return "от "+rub(a*p);return "от "+(a*p).toLocaleString("ru-RU")+" до "+rub(b*p)}
+  function s6(v){var tr=T.filter(function(x){return x.n===v})[0];var msg=[];
+    if(tr){L.tier=tr.n;L.price=range(tr.p);
+      msg.push("Для площади "+L.areaTxt+", "+tr.n.toLowerCase()+" ремонт от "+tr.p.toLocaleString("ru-RU")+" руб./м²:<span class='price'>"+L.price+"</span><span class='note'>Это стоимость работ без материалов. Срок ремонта "+tr.s+". Точную стоимость назовём после бесплатного замера, и она фиксируется в договоре.</span>"+promo())}
+    else{L.tier="подобрать на замере";L.price=range(7000)+" за косметический";
+      msg.push("Подскажу. Косметический ремонт от 7 000 руб./м², комплексный от 10 000, капитальный от 15 000, дизайнерский от 21 000 руб./м². Для площади "+L.areaTxt+" косметический:<span class='price'>"+range(7000)+"</span><span class='note'>Цены за работы, без материалов. Вид ремонта замерщик согласует с вами на объекте, замер бесплатно.</span>"+promo())}
+    var p=L.house==="Новостройка"?P.nb:P.ob;L.proj=p.t;
+    msg.push("Посмотрите наш похожий объект:<span class='proj'><img src='"+p.img+"' alt='' referrerpolicy='no-referrer'><span class='pi'><b>"+p.t+"</b>Комнат: "+p.r+"<br>Площадь: "+p.a+"<br>Стоимость: "+p.c+"<br>Срок: "+p.d+(p.v?"<br><span class='vid'>есть видеообзор</span>":"")+"<br><a href='"+p.u+"' target='_blank' rel='noopener noreferrer'>Смотреть проект</a></span></span>");
+    msg.push("Перед началом работ мы разрабатываем проект ремонта с планировочным решением и планом расстановки мебели. Сейчас он в подарок. Включить проект?");
+    bot(msg,["Да, включите","Подумаю","Нет, проект уже есть"],s7)}
+  function promo(){return L.house==="Новостройка"
+    ?"<span class='promo'>Новоселам дополнительная скидка 3%. При 100% оплате при подписании договора дополнительная скидка 5%.</span>"
+    :"<span class='promo'>Молодоженам дополнительная скидка 4%. При 100% оплате при подписании договора дополнительная скидка 5%.</span>"}
+  function s7(v){L.design=v;bot("Когда планируете начать ремонт?",["Ключи уже есть","Через 1-3 месяца","Пока присматриваюсь"],s8)}
+  function s8(v){L.when=v;bot("Пока готовим замер, могу прислать руководство с рекомендациями по ремонту. Прислать?<img class='bimg' src='"+U+"2025/05/banner_download.png' alt='' referrerpolicy='no-referrer'>",["Да, пришлите","Не нужно"],s9)}
+  function s9(v){L.bonus=v==="Да, пришлите";bot((L.bonus?"Отправлю вместе с подтверждением записи. ":"")+"Точную смету составит специалист на объекте. Замер и расчет итоговой сметы бесплатно. Как вам удобнее?",["Выезд замерщика","Сначала пришлю планировку"],s10)}
+  var SLOTS=["Чт 8 окт, 10:00","Чт 8 окт, 18:00","Сб 10 окт, 12:00"];
+  function s10(v){if(v==="Сначала пришлю планировку"){L.plan=true;qr.innerHTML="";me("планировка_квартиры.pdf",true);
+      setTimeout(function(){bot("Получила планировку, утром передам сметчику. Когда удобно принять замерщика?",SLOTS,s11)},350)}
+    else{L.plan=false;bot("Когда удобно принять замерщика? Офис работает ежедневно с 9:00 до 21:00.",SLOTS,s11)}}
+  function s11(v){L.slot=v;bot("Как к вам обращаться и как удобнее связаться?",["Анна, в WhatsApp","Анна, позвоните"],s12)}
+  function s12(v){L.contact=v;var wa=v.indexOf("WhatsApp")>-1;
+    bot("Готово, Анна! Замерщик приедет <b>"+L.slot+"</b>. "+(wa?"Подтверждение пришлю в WhatsApp":"Менеджер позвонит утром и подтвердит время")+(L.bonus?", руководство по ремонту тоже.":".")+(L.plan?" Планировка уже у сметчика.":"")+" Если появятся вопросы, пишите сюда в любое время.",[],null);
+    done=true;setTimeout(function(){var e=document.createElement("div");e.className="end";e.innerHTML="Конец демо. Так Алина может работать на вашем сайте круглосуточно<br><button type='button' id='mgrBtn'>Что увидит менеджер</button>";msgs.appendChild(e);scroll();
+      $("mgrBtn").onclick=showMgr;mgrTimer=setTimeout(showMgr,3000)},1300)}
+
+  function card(){var c=$("mchat");c.innerHTML="";var m=document.createElement("div");m.className="m";var mins=Math.max(2,clock[1]-41+(clock[0]===0?60:0));
+    m.innerHTML="<span class='tm'>09:00</span><b>Новый клиент от Алины</b><div class='kv'>"+
+    "<span>Клиент</span><span>Анна, "+L.contact.replace("Анна, ","").replace("в ","")+"</span>"+
+    "<span>Дом</span><span>"+L.house.toLowerCase()+", "+L.rooms.toLowerCase()+"</span>"+
+    "<span>Площадь</span><span>"+L.areaTxt+"</span>"+
+    "<span>Ремонт</span><span>"+L.tier.toLowerCase()+"</span>"+
+    "<span>Ориентир</span><span>"+L.price+"</span>"+
+    "<span>Мебель</span><span>"+(L.furn==="Ремонт с мебелью"?"нужна меблировка":"только отделка")+"</span>"+
+    "<span>Проект</span><span>"+({"Да, включите":"нужен, в подарок","Подумаю":"думает","Нет, проект уже есть":"есть свой"}[L.design]||L.design)+"</span>"+
+    "<span>Старт</span><span>"+L.when.toLowerCase()+"</span>"+
+    "<span>Замер</span><span>"+L.slot+"</span>"+
+    "<span>Планировка</span><span>"+(L.plan?"приложена":"нет")+"</span>"+
+    "<span>Итог</span><span>написала в 23:41, офис был закрыт, диалог "+mins+" мин</span></div><button class='mb' type='button' tabindex='-1'>Открыть диалог</button>";c.appendChild(m)}
+  function showMgr(){if(mgrTimer){clearTimeout(mgrTimer);mgrTimer=null}
+    if(!done){L={house:"Новостройка",rooms:"Всей квартиры",furn:"Только отделочные/Инженерные работы",areaTxt:"40-60 м²",ar:[40,60],tier:"Капитальный",design:"Да, включите",when:"Ключи уже есть",plan:true,slot:SLOTS[0],contact:"Анна, в WhatsApp"};L.price=range(15000);
+      $("mtext").textContent="Так выглядит карточка клиента после разговора с Алиной. Пройдите диалог в чате справа внизу, чтобы увидеть, как она её собирает.";}
+    else{$("mtext").textContent="Анна написала в 23:41, когда офис был закрыт. Алина ответила сразу, назвала цену по вашим тарифам, показала похожий объект и записала на замер."}
+    card();$("mgr").hidden=false}
+  function open(){$("teaser").hidden=true;$("widget").hidden=false;if(!started){started=true;s1()}}
+  $("launch").onclick=function(){if($("widget").hidden)open();else $("widget").hidden=true};
+  $("teaser").onclick=open;$("close").onclick=function(){$("widget").hidden=true};
+  document.querySelectorAll("[data-open]").forEach(function(b){b.onclick=open});
+  $("closeMgr").onclick=function(){$("mgr").hidden=true};
+  document.querySelectorAll("[data-mail]").forEach(function(b){b.onclick=function(){$("mail").hidden=false}});
+  $("mailClose").onclick=function(){$("mail").hidden=true};
+  $("mail").addEventListener("click",function(e){if(e.target===this)this.hidden=true});
+  $("copy").onclick=function(){var b=this,a="katerina@lacifra.co";function ok(){b.textContent="Адрес скопирован"}
+    try{navigator.clipboard.writeText(a).then(ok,function(){fb()})}catch(e){fb()}
+    function fb(){var i=document.createElement("input");i.value=a;document.body.appendChild(i);i.select();try{document.execCommand("copy")}catch(e){}i.remove();ok()}};
+  setTimeout(function(){if(!started)$("teaser").hidden=false},window.innerWidth<600?4000:2000);
+})();
+</script>
+</body>
+</html>

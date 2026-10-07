@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Аквариус: дизайн и ремонт квартир в Москве</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --ink:#0b0c0e;--ink2:#2d3139;--g600:#596173;--g500:#80899c;--g100:#e2e4e9;--light:#f7f7f5;--bar:#ebebeb;
+  --ok:#20b038;--tg:#2AABEE;
+  --f:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:#fff;color:var(--ink);font-family:var(--f);font-size:14px;line-height:1.43;overflow-x:hidden}
+button,input{font:inherit;color:inherit}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.wrap{max-width:1328px;margin:0 auto;padding-left:16px;padding-right:16px}
+@media (min-width:992px){.wrap{padding-left:24px;padding-right:24px}}
+
+/* header as on aqremont.ru */
+.hdr{position:relative;z-index:5;padding-top:16px}
+.bar{display:flex;align-items:center;gap:20px;background:var(--bar);border-radius:8px;padding:12px 24px;min-height:56px}
+.bar .logo img{width:32px;height:32px}
+.menu{display:flex;gap:20px;font-size:16px}
+.menu span{cursor:default;white-space:nowrap}
+.bar .right{margin-left:auto;display:flex;align-items:center;gap:24px;font-size:16px}
+.bar .city,.bar .tel{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.bar .city img,.bar .tel img{width:18px;height:18px}
+.bar .city::after{content:"";border:4px solid transparent;border-top:5px solid var(--ink);margin:4px 0 0 4px}
+.burger{display:none;margin-left:auto;width:28px;height:20px;border:0;background:none;padding:0;cursor:pointer;flex-direction:column;justify-content:space-between}
+.burger i{display:block;height:2px;background:var(--ink);border-radius:2px}
+.burger i:nth-child(2){width:80%;margin-left:auto}
+@media (max-width:991px){.menu,.bar .right{display:none}.burger{display:flex}.bar{padding:12px 20px}}
+
+/* hero */
+.hero{width:100%;position:relative;border-radius:8px;overflow:hidden;margin-top:16px;min-height:540px;display:flex;align-items:center}
+.hero .bg{position:absolute;inset:0;background:#2d3139 url("https://aqremont.ru/view/templates/assets/images/pages/home/main.jpg") center top/cover no-repeat;animation:zoom 26s ease-in-out infinite alternate}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.09)}}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,12,14,.55) 0%,rgba(11,12,14,.25) 55%,rgba(11,12,14,.05) 100%)}
+.hero .in{position:relative;padding-left:62px;padding-right:24px;padding-top:56px;padding-bottom:56px;max-width:900px;color:#fff}
+.hero h1{margin:0;font-size:60px;line-height:1.13;font-weight:600;letter-spacing:-.01em}
+.hero p{margin:24px 0 0;font-size:20px;line-height:1.5;max-width:44ch}
+.cta-row{display:flex;gap:12px;margin-top:28px;align-items:center}
+.btn-light{border:0;background:var(--light);color:var(--ink);border-radius:56px;padding:18px 24px;font-size:16px;cursor:pointer;transition:background .2s}
+.btn-light:hover{background:#fff}
+.btn-round{width:58px;height:58px;border-radius:50%;border:0;background:var(--light);display:grid;place-items:center;cursor:pointer}
+.btn-round img{width:28px;height:28px}
+@media (max-width:991px){
+  .hdr{position:absolute;left:0;right:0;top:0}
+  .hero{margin-top:0;border-radius:0;min-height:660px;align-items:flex-end;margin-left:-16px;margin-right:-16px;width:calc(100% + 32px)}
+  .hero .shade{background:linear-gradient(180deg,rgba(11,12,14,0) 30%,rgba(11,12,14,.65) 100%)}
+  .hero .in{padding-left:16px;padding-right:16px;padding-top:120px;padding-bottom:24px}
+  .hero h1{font-size:26px;line-height:1.3}
+  .hero p{font-size:16px;margin-top:12px}
+  .cta-row{margin-top:20px}
+}
+.intro{padding-top:56px;padding-bottom:64px;font-size:24px;line-height:1.35;color:var(--g600);max-width:1240px}
+@media (max-width:991px){.intro{font-size:18px;padding-top:32px;padding-bottom:40px}}
+
+/* chat launcher */
+.launch{position:fixed;right:24px;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:40;width:68px;height:68px;border-radius:50%;border:3px solid #fff;padding:0;cursor:pointer;
+  background:#ccc url("https://images.unsplash.com/photo-1580489944761-15a19d654956?w=240&h=240&fit=crop&crop=faces&q=80") 50% 30%/cover no-repeat;box-shadow:0 10px 28px rgba(11,12,14,.35)}
+.launch::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--ink);opacity:.5;animation:ring 1.9s infinite}
+.launch::after{content:"";position:absolute;right:2px;bottom:2px;width:14px;height:14px;border-radius:50%;background:var(--ok);border:2px solid #fff}
+@keyframes ring{0%{transform:scale(.92);opacity:.6}100%{transform:scale(1.25);opacity:0}}
+.teaser{position:fixed;right:104px;bottom:calc(36px + env(safe-area-inset-bottom,0px));z-index:40;background:#fff;color:var(--ink);border-radius:16px 16px 4px 16px;padding:12px 16px;font-size:14px;box-shadow:0 10px 30px rgba(11,12,14,.22);max-width:250px;cursor:pointer;animation:in .4s ease-out}
+.teaser b{display:block;font-weight:600;margin-bottom:2px}
+@media (max-width:560px){.teaser{right:96px;max-width:200px}}
+
+/* widget */
+.widget{position:fixed;right:24px;bottom:calc(106px + env(safe-area-inset-bottom,0px));z-index:45;width:min(392px,calc(100vw - 32px));height:min(640px,calc(100vh - 140px));background:#fff;border:1px solid var(--g100);border-radius:20px;box-shadow:0 24px 64px rgba(11,12,14,.28);display:flex;flex-direction:column;overflow:hidden;animation:in .3s ease-out}
+@media (max-width:560px){.widget{right:16px;left:16px;width:auto;bottom:calc(98px + env(safe-area-inset-bottom,0px));height:calc(100vh - 120px);height:calc(100dvh - 120px)}}
+.wh{background:var(--ink);color:#fff;padding:14px 16px;display:flex;gap:12px;align-items:center}
+.av{width:42px;height:42px;border-radius:50%;flex:none;position:relative;background:#ccc url("https://images.unsplash.com/photo-1580489944761-15a19d654956?w=240&h=240&fit=crop&crop=faces&q=80") 50% 30%/cover no-repeat}
+.wh .av::after{content:"";position:absolute;right:-1px;bottom:-1px;width:11px;height:11px;border-radius:50%;background:var(--ok);border:2px solid var(--ink)}
+.wh b{display:block;font-size:15px;font-weight:600}
+.wh small{color:#b9bfcc;font-size:12.5px}
+.wh .x{margin-left:auto;background:none;border:0;color:#b9bfcc;font-size:24px;cursor:pointer;line-height:1;padding:4px}
+.msgs>*{flex-shrink:0}
+.msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:9px;background:#fff}
+.b{max-width:88%;padding:10px 13px;border-radius:16px;font-size:14.5px;line-height:1.45;animation:in .3s ease-out}
+.b.bot{background:var(--light);border:1px solid #ecece8;border-bottom-left-radius:5px;align-self:flex-start}
+.b.me{background:var(--ink);color:#fff;border-bottom-right-radius:5px;align-self:flex-end}
+.b b{font-weight:600}
+.b .t{display:block;font-size:11px;opacity:.5;margin-top:3px;text-align:right}
+.b.file{display:flex;gap:10px;align-items:center}
+.b.file .ic{width:30px;height:36px;border-radius:5px;background:rgba(255,255,255,.2);display:grid;place-items:center;font-size:10px;font-weight:700}
+.b small{display:block;color:var(--g600);font-size:12.5px;margin-top:6px}
+.proj{align-self:flex-start;width:88%;border:1px solid var(--g100);border-radius:14px;overflow:hidden;background:#fff;animation:in .3s ease-out}
+.proj img{width:100%;height:150px;object-fit:cover}
+.proj div{padding:10px 12px;font-size:13.5px}
+.proj b{display:block;font-size:14.5px;font-weight:600;margin-bottom:3px}
+.proj span{display:block;color:var(--g600)}
+.proj .vid{display:inline-block;margin-top:6px;background:var(--light);border-radius:20px;padding:3px 9px;font-size:12px;color:var(--ink)}
+.proj a{display:inline-block;margin-top:8px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.typing{align-self:flex-start;background:var(--light);border-radius:16px;padding:12px 14px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--g500);animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{50%{opacity:.25}}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.qr{display:flex;flex-wrap:wrap;gap:7px;padding:10px 14px;border-top:1px solid var(--g100);min-height:58px;max-height:46%;overflow-y:auto}
+.qr button{border:1px solid var(--ink);background:#fff;border-radius:56px;padding:8px 14px;font-size:13.5px;cursor:pointer}
+.qr button:hover{background:var(--ink);color:#fff}
+.qr.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.qr .card{border-radius:12px;padding:0;overflow:hidden;text-align:left;display:flex;flex-direction:column}
+.qr .card img{width:100%;height:64px;object-fit:cover}
+.qr .card span{padding:6px 8px;font-size:12.5px;line-height:1.3}
+.qr .card em{font-style:normal;display:block;color:var(--g600);font-size:11.5px}
+.qr .card:hover em{color:#cfd3dc}
+.qr .wide{grid-column:1/-1;border-radius:56px}
+.end{align-self:stretch;background:var(--light);border:1px dashed #c9ccd3;border-radius:14px;padding:12px 14px;text-align:center;font-size:13.5px;animation:in .3s ease-out}
+.end button{margin-top:8px;border:0;background:var(--ink);color:#fff;border-radius:56px;padding:9px 16px;cursor:pointer;font-size:13.5px}
+.inp{display:flex;gap:8px;padding:0 14px 14px}
+.inp input{flex:1;background:var(--light);border:1px solid var(--g100);border-radius:56px;padding:10px 14px;font-size:14px;min-width:0}
+.inp button{border:0;border-radius:50%;width:42px;height:42px;background:var(--ink);color:#fff;cursor:pointer;font-weight:700;flex:none}
+
+/* manager screen */
+.mgr{position:fixed;inset:0;z-index:60;background:rgba(11,12,14,.92);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;overflow-y:auto;animation:in .3s ease-out}
+.mbox{display:grid;grid-template-columns:auto minmax(0,360px);gap:32px;align-items:center;max-width:860px;width:100%;color:#fff}
+@media (max-width:760px){.mbox{grid-template-columns:1fr;gap:20px}.mside{order:-1}}
+.phone{background:#000;border-radius:34px;padding:9px;width:min(340px,100%);margin:0 auto;box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.scr{background:#CFDCE6;border-radius:26px;display:flex;flex-direction:column;overflow:hidden;color:#16202A;font-family:-apple-system,"Helvetica Neue",Arial,sans-serif}
+.th{background:#fff;padding:11px 14px;display:flex;gap:10px;align-items:center;font-size:13.5px;border-bottom:1px solid #D5DEE6}
+.th .lg{width:32px;height:32px;border-radius:50%;background:var(--bar);display:grid;place-items:center;flex:none}
+.th .lg img{width:20px;height:20px}
+.th small{display:block;color:#76766E;font-size:11.5px}
+.chat{padding:22px 10px 12px;display:flex;flex-direction:column;gap:8px}
+.m{background:#fff;border-radius:14px 14px 14px 4px;padding:10px 12px;font-size:12.8px;line-height:1.4;animation:in .35s ease-out}
+.m .tm{float:right;color:#76766E;font-size:11px;margin-left:8px}
+.m .kv{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;margin-top:7px}
+.m .kv span:nth-child(odd){color:#76766E}
+.m .acts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:9px}
+.m .acts span{text-align:center;border-radius:8px;padding:7px;background:#EEF3F7;color:#2B7BB9;font-weight:600;font-size:12.5px}
+.mside h3{margin:0;font-size:30px;line-height:1.15;font-weight:600;letter-spacing:-.01em}
+.mside p{color:#c9ced8;margin:12px 0 0;font-size:15.5px}
+.mside ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px}
+.mside li{padding-left:16px;position:relative}
+.mside li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:#fff}
+.mside .row2{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.mside .pri{border:0;background:#fff;color:var(--ink);border-radius:56px;padding:13px 20px;cursor:pointer;font-weight:600}
+.mside .sec{border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;border-radius:56px;padding:13px 18px;cursor:pointer}
+@media (max-width:760px){.mside h3{font-size:24px}}
+
+/* offer below first screen */
+.offer{background:var(--light);padding-top:72px;padding-bottom:40px;border-top:1px solid var(--g100)}
+.offer h2{font-size:40px;line-height:1.2;font-weight:600;margin:0 0 28px;letter-spacing:-.01em}
+.offer .kick{color:var(--g600);font-size:16px;margin:0 0 10px}
+.loss{display:grid;gap:12px;margin-bottom:72px}
+.loss .r{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--g100)}
+.loss .r>div{padding:20px 22px;font-size:15.5px;line-height:1.5}
+.loss .r>div:last-child{background:var(--ink);color:#fff}
+.loss small{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--g500);margin-bottom:6px}
+.loss .r>div:last-child small{color:#9aa1b0}
+.why{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:start;margin-bottom:72px}
+.why ol{margin:0;padding:0;list-style:none;display:grid;gap:14px;counter-reset:n}
+.why li{background:#fff;border:1px solid var(--g100);border-radius:12px;padding:18px 20px 18px 64px;position:relative;counter-increment:n;font-size:15.5px}
+.why li::before{content:counter(n);position:absolute;left:20px;top:17px;width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:600;font-size:13px}
+.why li b{display:block;font-weight:600;font-size:16.5px;margin-bottom:2px}
+.sample{background:#CFDCE6;border-radius:16px;padding:18px}
+.sample .lbl{font-size:13px;color:#4c5a68;margin-bottom:10px}
+@media (max-width:860px){.offer h2{font-size:28px}.loss .r{grid-template-columns:1fr}.why{grid-template-columns:1fr}}
+.final{background:var(--ink);color:#fff;border-radius:16px;padding:44px 40px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.final h2{color:#fff;margin:0 0 10px}
+.final p{margin:0;color:#c9ced8;font-size:16px;max-width:60ch}
+.final button{border:0;background:#fff;color:var(--ink);border-radius:56px;padding:18px 28px;font-size:16px;font-weight:600;cursor:pointer;white-space:nowrap}
+@media (max-width:760px){.final{grid-template-columns:1fr;padding:28px 20px}.final button{width:100%}}
+.foot{font-size:12px;color:var(--g500);padding-top:28px;padding-bottom:28px;line-height:1.5}
+
+/* email modal */
+.mail{position:fixed;inset:0;z-index:70;background:rgba(11,12,14,.6);display:grid;place-items:center;padding:16px;animation:in .25s ease-out}
+.mail .box{background:#fff;border-radius:16px;padding:28px;width:min(440px,100%);position:relative}
+.mail .box p{margin:0;color:var(--g600)}
+.mail .addr{font-size:24px;font-weight:600;margin:10px 0 20px;word-break:break-all}
+.mail .bt{display:grid;gap:10px}
+.mail .bt a,.mail .bt button{display:block;text-align:center;text-decoration:none;border-radius:56px;padding:14px;font-size:15px;cursor:pointer}
+.mail .bt a{background:var(--ink);color:#fff}
+.mail .bt button{border:1px solid var(--ink);background:#fff}
+.mail .x{position:absolute;right:12px;top:8px;border:0;background:none;font-size:26px;cursor:pointer;color:var(--g500)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hdr"><div class="wrap">
+  <div class="bar">
+    <span class="logo"><img src="https://aqremont.ru/view/templates/assets/images/icons/logo.svg" alt="Аквариус" referrerpolicy="no-referrer"></span>
+    <nav class="menu"><span>Дизайн</span><span>Ремонт</span><span>Цены</span><span>Наши работы</span><span>О нас</span><span>Контакты</span></nav>
+    <div class="right">
+      <span class="city"><img src="https://aqremont.ru/view/templates/assets/images/icons/geo.svg" alt="" referrerpolicy="no-referrer">г. Москва</span>
+      <span class="tel"><img src="https://aqremont.ru/view/templates/assets/images/icons/phone-black.svg" alt="" referrerpolicy="no-referrer">8 (495) 109-22-59</span>
+    </div>
+    <button class="burger" type="button" aria-label="Меню"><i></i><i></i><i></i></button>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="bg" aria-hidden="true"></div><div class="shade" aria-hidden="true"></div>
+    <div class="in">
+      <h1>Ремонт новостроек бизнес-класса в Москве</h1>
+      <p>Для тех, кому важен предсказуемый результат, а не минимальная цена на старте</p>
+      <div class="cta-row">
+        <button class="btn-light" type="button" data-open>Обсудить мой проект</button>
+        <button class="btn-round" type="button" data-open aria-label="Написать"><img src="https://aqremont.ru/view/templates/assets/images/icons/telegram.svg" alt="" referrerpolicy="no-referrer"></button>
+      </div>
+    </div>
+  </section>
+  <p class="intro">Мы выполняем ремонты в новостройках, где цена ошибки - это переделки, срывы сроков и постоянные доплаты. Поэтому мы считаем объем работ полностью до начала, фиксируем смету и сопровождаем объект техническим контролем на всех этапах.</p>
+</main>
+
+<section class="offer">
+  <div class="wrap">
+    <p class="kick">Для команды «Аквариус» от Екатерины Боковой, AI Room Studio</p>
+    <h2>Где сайт сейчас теряет клиентов</h2>
+    <div class="loss">
+      <div class="r"><div><small>Сейчас</small>На странице «Цены» прямо написано, что цену ремонта в формате ₽/м² вы не указываете. Ориентир «от 35 000 ₽/м²» есть только на странице «Ремонт», расчёта под свою площадь на сайте нет.</div><div><small>С Алиной</small>Клиент называет площадь и сразу видит порядок суммы по вашим ценам: работы от 35 000 ₽/м² и дизайн-проект по вашим тарифам 1600, 3900 или 4900 ₽/м².</div></div>
+      <div class="r"><div><small>Сейчас</small>Кнопки «Запросить расчёт» и «Обсудить мой проект» открывают форму «имя и телефон». Дальше клиент ждёт звонка и не знает, сколько это будет стоить.</div><div><small>С Алиной</small>Разговор начинается сразу. Площадь, состояние квартиры, нужен ли дизайн-проект, когда ключи и удобное время встречи уже собраны.</div></div>
+      <div class="r"><div><small>Сейчас</small>По данным сайта офис работает ежедневно с 9:00 до 19:00. Заявка, оставленная вечером, ждёт до утра, а клиент тем временем пишет другим студиям.</div><div><small>С Алиной</small>Отвечает в 23:41 так же, как днём, и записывает на онлайн-встречу, в офис или на экскурсию по объекту.</div></div>
+    </div>
+
+    <h2>5 причин, почему это приведёт вам клиентов</h2>
+    <div class="why">
+      <ol>
+        <li><b>Ответ за секунды, круглосуточно</b>Вечерние и ночные посетители не уходят с сайта, пока ждут звонка.</li>
+        <li><b>Цена вашими словами</b>Алина называет только ваши цифры: работы от 35 000 ₽/м², точная смета фиксируется в договоре до начала работ.</li>
+        <li><b>Отсеивает тех, кто ищет самое дешёвое</b>Клиент видит порядок бюджета заранее, и до менеджера доходят те, кому он подходит.</li>
+        <li><b>Показывает ваши работы</b>Под площадь клиента Алина подбирает проект из портфолио: ЖК, застройщик, видеообзор.</li>
+        <li><b>Менеджер получает готовую карточку</b>Площадь, состояние, дизайн-проект, ключи и время встречи в одном сообщении в Telegram.</li>
+      </ol>
+      <div class="sample"><div class="lbl">Так выглядит заявка у менеджера</div><div class="m" id="sampleCard"></div></div>
+    </div>
+
+    <div class="final">
+      <div><h2>Поставлю Алину на ваш сайт</h2><p>Обучу её на ваших ценах, портфолио и порядке работы. Заявки будут приходить менеджеру в Telegram. Покажу, как это работает, за 15 минут.</p></div>
+      <button type="button" data-mail>Написать Екатерине</button>
+    </div>
+    <p class="foot">Демо подготовлено AI Room Studio. Это не сайт компании «Аквариус»: логотип, фото и цены взяты с aqremont.ru только для примера. Фото консультанта стоковое.</p>
+  </div>
+</section>
+
+<div class="teaser" id="teaser" hidden><b>Алина, Аквариус</b>Добрый вечер! Подсказать, во сколько обойдётся ремонт вашей квартиры?</div>
+<button class="launch" id="launch" type="button" aria-label="Открыть чат"></button>
+
+<div class="widget" id="widget" hidden aria-live="polite">
+  <div class="wh"><div class="av"></div><div><b>Алина, Аквариус</b><small>ИИ-консультант, онлайн 24/7</small></div><button class="x" type="button" id="close" aria-label="Свернуть чат">×</button></div>
+  <div class="msgs" id="msgs"></div>
+  <div class="qr" id="qr"></div>
+  <div class="inp"><input id="txt" placeholder="Напишите сообщение" autocomplete="off"><button type="button" id="sendTxt" aria-label="Отправить">→</button></div>
+</div>
+
+<div class="mgr" id="mgr" hidden>
+  <div class="mbox">
+    <div class="phone"><div class="scr">
+      <div class="th"><div class="lg"><img src="https://aqremont.ru/view/templates/assets/images/icons/logo.svg" alt="" referrerpolicy="no-referrer"></div><div><b>Заявки Аквариус</b><small>бот, Telegram</small></div></div>
+      <div class="chat"><div class="m" id="mcard"></div></div>
+    </div></div>
+    <div class="mside">
+      <h3>А утром менеджер видит готового клиента</h3>
+      <p id="mtext">Клиент написал ночью, когда офис был закрыт. Алина ответила сразу, сориентировала по цене и записала на встречу.</p>
+      <ul><li>Не нужно перезванивать и выяснять площадь и состояние квартиры</li><li>Клиент уже знает порядок бюджета и не удивится смете</li><li>Планировка уже у вас, если клиент её прислал</li></ul>
+      <div class="row2"><button type="button" class="pri" data-mail>Написать Екатерине</button><button type="button" class="sec" id="closeMgr">Вернуться к сайту</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="mail" id="mail" hidden>
+  <div class="box" role="dialog" aria-label="Связаться с Екатериной">
+    <button class="x" type="button" id="mailX" aria-label="Закрыть">×</button>
+    <p>Екатерина Бокова, AI Room Studio</p>
+    <div class="addr">katerina@lacifra.co</div>
+    <div class="bt">
+      <a id="mailto" href="mailto:katerina@lacifra.co?subject=%D0%90%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20%D0%90%D0%BA%D0%B2%D0%B0%D1%80%D0%B8%D1%83%D1%81">Написать на почту</a>
+      <button type="button" id="copy">Скопировать адрес</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var IMG="https://aqremont.ru/view/images/";
+  // facts from aqremont.ru (price, remont, portfolio), 2026-10-07
+  var WORK=35000; // "Обычно бюджет по работам начинается от 35 000 ₽/м²" (/remont)
+  var DESIGN=[ // /price
+    {n:"Минимальный",p:1600,img:IMG+"price_page_3.jpg",inc:"планировочное решение и рабочие чертежи для строителей"},
+    {n:"Полный",p:3900,img:IMG+"price_page_4.jpg",inc:"планировка, рабочие чертежи и 3d визуализация"},
+    {n:"Максимальный",p:4900,img:IMG+"price_page_5.jpg",inc:"всё из «Полного», плюс ведомость чистовых материалов и ведомость декора и мебели"}];
+  var AREAS=[{t:"40–80\u00a0м²",a:40,b:80},{t:"80–120\u00a0м²",a:80,b:120},{t:"120–160\u00a0м²",a:120,b:160},{t:"больше 160\u00a0м²",a:160,b:0}];
+  var PROJ={ // /portfolio
+    p86:{n:"Ремонт двухкомнатной квартиры 86\u00a0м²",s:"ЖК Парк Рублево",img:IMG+"projects/12/remont-dvuhkomnatnoy-kvartiry-86-m2-kuhnya-gostinaya-moskva-154.jpg",u:"https://aqremont.ru/portfolio/remont-dvuhkomnatnoy-kvartiry-86-m2-12",v:true},
+    p102:{n:"Ремонт трехкомнатной квартиры 102\u00a0м²",s:"ЖК Life-Кутузовский, застройщик Пионер",img:IMG+"projects/11/remont-trehkomnatnoy-kvartiry-102-m2-kuhnya-gostinaya-moskva-115.jpg",u:"https://aqremont.ru/portfolio/remont-trehkomnatnoy-kvartiry-102-m2-11"},
+    p150:{n:"Ремонт трехкомнатной квартиры 150\u00a0м²",s:"ЖК Парк Рублево",img:IMG+"projects/1085/remont-trehkomnatnoy-kvartiry-150-m2-kuhnya-gostinaya-moskva-52240.jpg",u:"https://aqremont.ru/portfolio/remont-trehkomnatnoy-kvartiry-150-m2-1085"},
+    p330:{n:"Дизайн большой квартиры 330\u00a0м²",s:"ЖК Wellton Towers, застройщик Концерн КРОСТ",img:IMG+"projects/13/dizayn-bolshoy-kvartiry-330-m2-kuhnya-gostinaya-moskva-198.jpg",u:"https://aqremont.ru/portfolio/dizayn-bolshoy-kvartiry-330-m2-13"}};
+  var BYAREA=["p86","p102","p150","p330"];
+
+  function rub(v){return Math.round(v).toLocaleString("ru-RU").replace(/\s/g,"\u00a0")+"\u00a0₽"}
+  function mln(v){return (v/1e6).toLocaleString("ru-RU",{maximumFractionDigits:1})+"\u00a0млн\u00a0₽"}
+  function range(rate,fmt){return L.ar.b?"от "+fmt(L.ar.a*rate)+" до "+fmt(L.ar.b*rate):"от "+fmt(L.ar.a*rate)}
+
+  var msgs=$("msgs"),qr=$("qr"),clock=[23,41],started=false,done=false,L={},cur=null,nMe=0;
+  function t(adv){if(adv)clock[1]++;if(clock[1]>59){clock[1]=0;clock[0]=(clock[0]+1)%24}return ("0"+clock[0]).slice(-2)+":"+("0"+clock[1]).slice(-2)}
+  function scroll(){msgs.scrollTop=msgs.scrollHeight}
+  function add(el){msgs.appendChild(el);scroll()}
+  function me(text,file){var d=document.createElement("div");d.className="b me"+(file?" file":"");d.innerHTML=file?"<span class='ic'>PDF</span><span>"+text+"</span>":text+"<span class='t'>"+t((++nMe)%2===0)+"</span>";add(d)}
+  function opts(list,next,cards){qr.innerHTML="";qr.className="qr"+(cards?" cards":"");
+    (list||[]).forEach(function(o){var bt=document.createElement("button");bt.type="button";var label=typeof o==="string"?o:o.t;
+      if(typeof o==="string"||!o.img){bt.textContent=label;if(cards)bt.className="wide"}
+      else{bt.className="card";bt.innerHTML="<img src='"+o.img+"' alt='' referrerpolicy='no-referrer'><span>"+o.t+(o.sub?"<em>"+o.sub+"</em>":"")+"</span>"}
+      bt.onclick=function(){answer(label,next)};qr.appendChild(bt)});cur=next}
+  function bot(text,list,next,cards,extra){qr.innerHTML="";var ty=document.createElement("div");ty.className="typing";ty.innerHTML="<i></i><i></i><i></i>";add(ty);
+    setTimeout(function(){ty.remove();var d=document.createElement("div");d.className="b bot";d.innerHTML=text+"<span class='t'>"+t()+"</span>";add(d);
+      if(extra)extra();opts(list,next,cards)},850)}
+  function answer(o,next){qr.innerHTML="";qr.className="qr";me(o);if(next)setTimeout(function(){next(o)},350)}
+  $("sendTxt").onclick=function(){var v=$("txt").value.trim();if(!v||!cur)return;$("txt").value="";answer(v,cur)};
+  $("txt").addEventListener("keydown",function(e){if(e.key==="Enter")$("sendTxt").click()});
+  function projCard(k){var p=PROJ[k],d=document.createElement("div");d.className="proj";
+    d.innerHTML="<img src='"+p.img+"' alt='' referrerpolicy='no-referrer'><div><b>"+p.n+"</b><span>"+p.s+"</span>"+(p.v?"<span class='vid'>есть видеообзор</span><br>":"")+"<a href='"+p.u+"' target='_blank' rel='noopener noreferrer'>Смотреть проект</a></div>";d.querySelector("img").onload=scroll;add(d)}
+
+  function s1(){bot("Добрый вечер! Я Алина, консультант «Аквариус». Помогу рассчитать стоимость ремонта. Ремонт какого объекта вас интересует?",["Квартира в новостройке","Вторичное жильё","Частный дом"],s2)}
+  function s2(v){L.obj=v;bot("Какая площадь?",AREAS.map(function(x){return x.t}),s3)}
+  function s3(v){L.ar=AREAS.filter(function(x){return x.t===v})[0]||{t:v,a:parseInt(v,10)||80,b:0};L.ai=Math.max(0,AREAS.indexOf(L.ar));
+    bot("В каком состоянии сейчас объект? От этого во многом зависит объём работ.",["В бетоне","WhiteBox","Не знаю, нужна консультация"],s4)}
+  function s4(v){L.state=v;bot("Какой стиль вам ближе?",["Современный","Классический","Пока не знаю"],s5)}
+  function s5(v){L.style=v;var k=BYAREA[L.ai]||"p102";
+    bot((v==="Пока не знаю"?"Ничего страшного, стиль подберёт дизайнер на этапе проекта.":"Записала: "+v.toLowerCase()+" стиль.")+" Посмотрите наш проект похожей площади:",[],null,false,function(){projCard(k);s6()})}
+  function s6(){L.work=range(WORK,mln);
+    bot("Теперь по цене. Бюджет по работам у нас обычно начинается от <b style='white-space:nowrap'>35 000 ₽/м²</b>. Для "+L.ar.t+" это <b>"+L.work+"</b> за работы."+
+      "<small>Работы обычно составляют 25–35% всего бюджета, остальное черновые и чистовые материалы, мебель, техника и свет. Точную стоимость фиксируем в договоре до начала работ.</small>"+
+      "<br>У вас уже есть дизайн-проект?",["Проект уже есть","Нужен дизайн-проект","Пока не знаю"],s7)}
+  function s7(v){L.design=v;
+    if(v==="Проект уже есть"){L.dz="есть свой";bot("Отлично. Мы проанализируем проект и посчитаем стоимость его реализации с учётом всех решений и объёмов работ. Когда планируете начать?",WHEN,s9)}
+    else{bot("Стоимость дизайн-проекта у нас фиксированная и зависит от состава. Какой вариант смотрите?",DESIGN.map(function(d){return {t:d.n,sub:d.p+" ₽/м²",img:d.img}}).concat(["Помогите выбрать"]),s8,true)}}
+  function s8(v){var d=DESIGN.filter(function(x){return x.n===v})[0];
+    if(!d){L.dz="поможем выбрать";bot("Хорошо, подберём состав проекта на встрече, без лишних решений и переплат. Для ориентира: от 1600 до 4900 ₽/м². Когда планируете начать?",WHEN,s9);return}
+    L.dz=d.n.toLowerCase()+", "+range(d.p,rub);
+    bot("«"+d.n+"»: "+d.inc+". Для "+L.ar.t+" это <b>"+range(d.p,rub)+"</b>. Когда планируете начать?",WHEN,s9)}
+  var WHEN=["Ключи уже есть","Ключи будут через пару месяцев","Пока выбираю подрядчика"];
+  function s9(v){L.when=v;var pre=v==="Ключи будут через пару месяцев"?"В большинстве случаев мы можем начать работу над проектом до получения ключей. ":"";
+    bot(pre+"Как удобнее обсудить ваш объект?",["Онлайн-встреча","Встреча в офисе","Экскурсия по готовому объекту","Сначала пришлю планировку"],s10)}
+  function s10(v){if(v==="Сначала пришлю планировку"){L.plan=true;L.meet="онлайн-встреча";qr.innerHTML="";me("планировка_квартиры.pdf",true);
+      setTimeout(function(){bot("Получила планировку, утром передам специалисту. Он посмотрит её до встречи. Выберите время онлайн-встречи:",SLOTS,s11)},400)}
+    else{L.plan=false;L.meet=v.toLowerCase();bot((v==="Встреча в офисе"?"Офис на ул. 3-я Хорошевская, 18к3. ":"")+"Выберите удобное время:",SLOTS,s11)}}
+  var SLOTS=["Чт 10:00","Чт 15:00","Пт 12:00"];
+  function s11(v){L.slot=v;bot("Как к вам обращаться и куда прислать подтверждение?",["Анна, в Telegram","Анна, позвоните"],s12)}
+  function s12(v){L.contact=v;bot("Готово, Анна! "+L.meet.charAt(0).toUpperCase()+L.meet.slice(1)+": <b>"+L.slot+"</b>. Менеджер подтвердит "+(v.indexOf("Telegram")>-1?"в Telegram":"по телефону")+" утром."+(L.plan?" Планировку посмотрят заранее.":"")+" Если появятся вопросы, пишите сюда в любое время.",[],null,false,finish)}
+  function finish(){done=true;var e=document.createElement("div");e.className="end";e.innerHTML="Конец демо. Так Алина может работать на вашем сайте круглосуточно<br><button type='button' id='toMgr'>Что увидит менеджер</button>";add(e);
+    $("toMgr").onclick=showMgr;setTimeout(function(){if($("mgr").hidden)showMgr()},3000)}
+
+  function cardHTML(D){return "<span class='tm'>09:00</span><b>Новый клиент от Алины</b><div class='kv'>"+
+    "<span>Клиент</span><span>"+D.contact+"</span><span>Объект</span><span>"+D.obj.toLowerCase()+", "+D.ar.t+"</span><span>Состояние</span><span>"+D.state.replace("Не знаю, нужна консультация","нужна консультация")+"</span>"+
+    "<span>Стиль</span><span>"+D.style.toLowerCase()+"</span><span>Работы</span><span>"+D.work+"</span><span>Дизайн</span><span>"+D.dz+"</span><span>Ключи</span><span>"+D.when.toLowerCase()+"</span>"+
+    "<span>Встреча</span><span>"+D.meet+", "+D.slot+"</span><span>Планировка</span><span>"+(D.plan?"приложена":"нет")+"</span><span>Диалог</span><span>в 23:41, "+D.mins+" мин, вопросы закрыты</span></div>"+
+    "<div class='acts'><span>Открыть диалог</span><span>Позвонить</span></div>"}
+  var DEMO={contact:"Анна, Telegram",obj:"Квартира в новостройке",ar:AREAS[1],state:"WhiteBox",style:"Современный",work:"от 2,8\u00a0млн\u00a0₽ до 4,2\u00a0млн\u00a0₽",dz:"полный, от 312\u00a0000\u00a0₽ до 468\u00a0000\u00a0₽",when:"Ключи будут через пару месяцев",meet:"онлайн-встреча",slot:"Чт 10:00",plan:true,mins:4};
+  $("sampleCard").innerHTML=cardHTML(DEMO);
+  function showMgr(){var D;
+    if(done){D={contact:L.contact.replace(", в ",", ").replace(", позвоните",", звонок"),obj:L.obj,ar:L.ar,state:L.state,style:L.style,work:L.work,dz:L.dz,when:L.when,meet:L.meet,slot:L.slot,plan:L.plan,mins:Math.max(2,clock[1]-41)};
+      $("mtext").textContent="Анна написала в 23:41, когда офис был закрыт. Алина ответила сразу, назвала порядок цены по вашим тарифам, показала проект из портфолио и записала на встречу."}
+    else{D=DEMO;$("mtext").textContent="Так выглядит карточка клиента после разговора с Алиной. Пройдите диалог в чате справа внизу, чтобы увидеть, как она её собирает."}
+    $("mcard").innerHTML=cardHTML(D);$("mgr").hidden=false}
+
+  function open(){$("teaser").hidden=true;$("widget").hidden=false;if(!started){started=true;s1()}}
+  $("launch").onclick=function(){if($("widget").hidden)open();else $("widget").hidden=true};
+  $("teaser").onclick=open;$("close").onclick=function(){$("widget").hidden=true};
+  document.querySelectorAll("[data-open]").forEach(function(b){b.onclick=open});
+  $("closeMgr").onclick=function(){$("mgr").hidden=true};
+  document.querySelectorAll("[data-mail]").forEach(function(b){b.onclick=function(){$("mail").hidden=false}});
+  $("mailX").onclick=function(){$("mail").hidden=true};
+  $("mail").addEventListener("click",function(e){if(e.target===this)this.hidden=true});
+  $("copy").onclick=function(){var a="katerina@lacifra.co",b=this;
+    function ok(){b.textContent="Адрес скопирован"}
+    try{navigator.clipboard.writeText(a).then(ok,fb)}catch(e){fb()}
+    function fb(){var i=document.createElement("input");i.value=a;document.body.appendChild(i);i.select();try{document.execCommand("copy");ok()}catch(e){}i.remove()}};
+  var wait=window.matchMedia("(max-width:560px)").matches?4000:2000;
+  setTimeout(function(){if(!started)$("teaser").hidden=false},wait);
+})();
+</script>
+</body>
+</html>
