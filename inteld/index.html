@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Дизайн интерьера и ремонт квартир в Казани</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --ink:#242424;--dark:#191a1b;--dark2:#212121;--acc:#6874d7;--acc2:#5f6bcc;--soft:#eef0fb;--paper:#f3f5f7;--mute:#6b6f78;--line:#e3e5e7;--ok:#2fb36a;
+  --f:"Montserrat","Helvetica Neue",Arial,sans-serif;--ft:"Roboto Slab",Georgia,serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.45;overflow-x:hidden}
+button,input{font:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+
+/* ===== первый экран (как на inteld.ru) ===== */
+.hero{position:relative;width:100%;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;background:#111;color:#fff;overflow:hidden}
+.hero .bg{position:absolute;inset:0;background:url("https://inteld.ru/wp-content/themes/intel/images/header-home.jpg") center/cover no-repeat;animation:zoom 30s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(14,14,16,.5);pointer-events:none}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.1)}}
+.wrap{position:relative;padding-left:clamp(16px,9.4vw,135px);padding-right:clamp(16px,9.4vw,135px)}
+.head{position:relative;z-index:3;width:100%}
+.head .top{display:flex;align-items:center;gap:24px;padding-top:22px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12)}
+.logo{flex:none;display:block;margin-right:auto}
+.logo img{height:40px;width:auto;display:block}
+.city{font-size:15px;line-height:1.7;font-weight:400}
+.city b{font-weight:400;font-size:16px;display:flex;align-items:center;gap:8px}
+.city b svg{width:14px;height:18px}
+.phone{margin-left:clamp(12px,2vw,30px);text-align:right;font-size:15px;line-height:1.7}
+.phone small{display:block;color:rgba(255,255,255,.5);font-size:12.5px;line-height:1.2}
+.soc{display:flex;gap:6px;margin-left:clamp(10px,1.4vw,20px)}
+.soc i{width:30px;height:30px;border-radius:4px;background:var(--acc);display:grid;place-items:center}
+.soc svg{width:16px;height:16px;display:block}
+.burger{display:none;margin-left:14px;width:32px;height:32px;border:0;background:none;padding:0;flex-direction:column;justify-content:center;gap:6px;cursor:pointer}
+.burger i{display:block;width:28px;height:2px;background:#fff}
+.menu{display:flex;justify-content:space-between;align-items:stretch;border-bottom:1px solid rgba(255,255,255,.12);font-size:13px;letter-spacing:.02em;text-transform:uppercase}
+.menu span{display:flex;align-items:center;padding:24px clamp(10px,2.8vw,40px);white-space:nowrap}
+.menu span.on{background:var(--acc)}
+.hbody{position:relative;z-index:2;flex:1;width:100%;display:flex;align-items:center}
+.htxt{padding-top:clamp(40px,8vh,90px);padding-bottom:clamp(70px,12vh,130px);padding-left:clamp(0px,7vw,100px);max-width:860px}
+h1{margin:0;font-family:var(--ft);font-weight:300;font-size:clamp(34px,3.4vw,50px);line-height:1.2;letter-spacing:0}
+.sub{margin:clamp(22px,4vh,44px) 0 0;font-family:var(--ft);font-weight:300;font-size:clamp(15px,1.25vw,18px);text-transform:uppercase}
+.btn-b{margin-top:clamp(28px,5vh,46px);border:0;padding:20px 38px;background:var(--acc);color:#fff;font-weight:500;font-size:15px;letter-spacing:.04em;text-transform:uppercase;line-height:1;cursor:pointer;transition:background .3s}
+.btn-b:hover{background:var(--acc2)}
+@media (max-width:1100px){.city{display:none}}
+@media (max-width:900px){.menu,.soc{display:none}.burger{display:flex}.logo img{height:34px}.head .top{padding-top:14px;padding-bottom:14px}.htxt{padding-left:0}}
+@media (max-width:560px){.phone{display:none}.htxt{padding-top:36px;padding-bottom:150px}h1{font-size:31px}.btn-b{width:100%;max-width:330px}}
+
+/* ===== чат ===== */
+.launch{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:40;width:68px;height:68px;border-radius:50%;border:3px solid #fff;padding:0;cursor:pointer;background:#ddd url("https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=240&h=240&fit=crop&crop=faces&facepad=3") center/cover;box-shadow:0 10px 26px rgba(0,0,0,.4)}
+.launch::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--acc);opacity:.9;animation:ring 1.8s infinite}
+.launch::after{content:"";position:absolute;right:1px;bottom:1px;width:14px;height:14px;border-radius:50%;background:var(--ok);border:2px solid #fff}
+@keyframes ring{0%{transform:scale(.92);opacity:.8}100%{transform:scale(1.25);opacity:0}}
+.teaser{position:fixed;right:102px;bottom:calc(36px + env(safe-area-inset-bottom,0px));z-index:40;background:#fff;color:var(--ink);border-radius:12px 12px 4px 12px;padding:11px 14px;font-size:14px;line-height:1.35;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:250px;cursor:pointer;animation:in .4s ease-out;border:1px solid var(--line)}
+.teaser b{display:block;font-size:12.5px;font-weight:600;margin-bottom:2px;color:var(--acc)}
+.widget{position:fixed;right:22px;bottom:calc(102px + env(safe-area-inset-bottom,0px));z-index:45;width:min(392px,calc(100vw - 32px));height:min(630px,calc(100vh - 140px));height:min(630px,calc(100svh - 140px));background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.35);display:flex;flex-direction:column;overflow:hidden;animation:in .3s ease-out}
+@media (max-width:560px){.widget{right:12px;left:12px;width:auto;bottom:calc(98px + env(safe-area-inset-bottom,0px))}.teaser{right:98px;max-width:210px}}
+.wh{background:var(--dark);color:#fff;padding:12px 16px;display:flex;gap:11px;align-items:center;border-bottom:3px solid var(--acc)}
+.av{width:42px;height:42px;border-radius:50%;background:#ddd url("https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=160&h=160&fit=crop&crop=faces&facepad=3") center/cover;position:relative;flex:none;border:2px solid var(--acc)}
+.wh .av::after{content:"";position:absolute;right:-2px;bottom:-2px;width:11px;height:11px;border-radius:50%;background:var(--ok);border:2px solid var(--dark)}
+.wh b{display:block;font-size:15px;font-weight:600}.wh small{color:rgba(255,255,255,.7);font-size:12px}
+.wh .x{margin-left:auto;background:none;border:0;color:#fff;opacity:.8;font-size:26px;cursor:pointer;line-height:1}
+.msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:9px;background:var(--paper)}
+.msgs>*{flex-shrink:0}
+.b{max-width:88%;padding:10px 13px;border-radius:12px;font-size:14px;line-height:1.45;animation:in .3s ease-out}
+.b.bot{background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
+.b.me{background:var(--acc);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.b b{font-weight:700;color:var(--acc2)}.b.me b{color:#fff}
+.b .t{display:block;font-size:11px;opacity:.6;margin-top:3px;text-align:right}
+.b.file{display:flex;gap:10px;align-items:center}
+.b.file .ic{width:30px;height:36px;border-radius:5px;background:rgba(255,255,255,.25);display:grid;place-items:center;font-size:10px;font-weight:700}
+.proj{align-self:flex-start;width:88%;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;animation:in .3s ease-out}
+.proj img{width:100%;height:180px;object-fit:cover;display:block;background:#e3e5ea}
+.proj .pi{padding:10px 12px;font-size:13.5px;line-height:1.4}
+.proj .pi b{display:block;font-size:14.5px;font-weight:600}
+.proj .pi .kv{display:grid;grid-template-columns:auto 1fr;gap:1px 10px;margin-top:5px}
+.proj .pi .kv span:nth-child(odd){color:var(--mute)}
+.proj .pi a{display:inline-block;margin-top:7px;font-weight:600;color:var(--acc2);text-underline-offset:3px}
+.endplate{align-self:stretch;background:var(--soft);border:1px solid #d3d7f3;border-radius:12px;color:var(--ink);padding:12px 14px;font-size:14px;animation:in .3s ease-out}
+.endplate button{margin-top:9px;width:100%;border:0;border-radius:6px;padding:12px;background:var(--dark);color:#fff;font-weight:600;cursor:pointer}
+.typing{align-self:flex-start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 13px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#aab1e6;animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{50%{opacity:.25}}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.qr{display:flex;flex-wrap:wrap;gap:7px;padding:10px 14px;border-top:1px solid var(--line);max-height:48%;overflow-y:auto;background:#fff}
+.qr:empty{display:none}
+.qr button{border:1.5px solid #d3d7f3;border-radius:6px;color:var(--ink);background:#f7f8fe;padding:8px 12px;font-size:13px;font-weight:500;cursor:pointer;text-align:left;line-height:1.3}
+.qr button:hover{border-color:var(--acc);background:var(--soft)}
+.qr.pics button{flex:1 1 calc(33% - 7px);min-width:0;padding:0;overflow:hidden;display:flex;flex-direction:column;font-size:12.5px;line-height:1.25}
+.qr.pics img{width:100%;height:78px;object-fit:cover;display:block;background:#e3e5ea}
+.qr.pics span{padding:7px 8px;hyphens:auto;overflow-wrap:anywhere}
+.inp{display:flex;gap:8px;padding:10px 14px 14px;background:#fff}
+.inp input{flex:1;min-width:0;background:#fff;border:1.5px solid var(--line);border-radius:6px;color:var(--ink);padding:10px 14px;font-size:14px}
+.inp button{border:0;border-radius:6px;width:42px;height:42px;background:var(--acc);color:#fff;cursor:pointer;font-weight:700}
+
+/* ===== экран менеджера ===== */
+.mgr{position:fixed;inset:0;z-index:60;background:rgba(14,14,18,.95);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;overflow-y:auto;animation:in .3s ease-out;color:#fff}
+.mbox{display:grid;grid-template-columns:auto minmax(0,360px);gap:32px;align-items:center;max-width:840px;width:100%}
+@media (max-width:760px){.mbox{grid-template-columns:1fr;gap:20px}.mside{order:-1}}
+.phn{background:#000;border-radius:34px;padding:9px;width:min(340px,100%);margin:0 auto;box-shadow:0 30px 70px rgba(0,0,0,.5);border:1px solid #333}
+.scr{background:#DCE6EE;border-radius:26px;overflow:hidden;color:#16202A;font-family:"Helvetica Neue",Arial,sans-serif}
+.th{background:#fff;padding:11px 14px;display:flex;gap:10px;align-items:center;font-size:13.5px;border-bottom:1px solid #D5DEE6}
+.th .lg{width:32px;height:32px;border-radius:50%;background:var(--acc);display:grid;place-items:center;color:#fff;font:600 12px var(--f)}
+.th small{display:block;color:#76766E;font-size:11.5px}
+.chat{padding:22px 12px 14px;display:flex;flex-direction:column;gap:8px}
+.m{background:#fff;border-radius:14px 14px 14px 4px;padding:10px 12px;font-size:13px;line-height:1.4;border-left:4px solid var(--acc);animation:in .35s ease-out;color:#16202A}
+.m .tm{float:right;color:#76766E;font-size:11px;margin-left:8px}
+.m .kv{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin-top:6px}
+.m .kv span:nth-child(odd){color:#76766E}
+.m .mb{margin-top:8px;width:100%;border-radius:8px;padding:9px;background:var(--dark);color:#fff;font-weight:600;text-align:center}
+.mside h3{margin:0;font-family:var(--ft);font-weight:300;font-size:clamp(26px,3.2vw,38px);line-height:1.15}
+.mside p{color:#d3d5de;margin:12px 0 0;font-size:15.5px}
+.mside ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px}
+.mside li{display:flex;gap:10px}.mside li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--acc);margin-top:8px;flex:none}
+.mbtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.mbtns button{padding:14px 22px;border-radius:6px;cursor:pointer;font-weight:500;font-size:15px}
+.btn-r{border:0;background:var(--acc);color:#fff}
+.btn-l{border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff}
+
+/* ===== предложение ниже первого экрана ===== */
+.offer{background:var(--paper);color:var(--ink);width:100%;padding-top:clamp(56px,8vw,96px);padding-bottom:40px}
+.offer .in{max-width:1170px;margin:0 auto}
+.offer h2{font-family:var(--ft);font-weight:300;font-size:clamp(28px,3.2vw,42px);line-height:1.15;margin:0 0 26px}
+.offer .lead{color:var(--mute);max-width:66ch;margin:-12px 0 28px}
+.loss{display:grid;gap:12px;margin-bottom:clamp(56px,8vw,90px)}
+.lrow{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.lrow>div{padding:18px 20px}
+.lrow small{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;font-weight:700}
+.lrow .now small{color:#c2453a}.lrow .ai{background:var(--soft)}.lrow .ai small{color:var(--acc2)}
+@media (max-width:700px){.lrow{grid-template-columns:1fr}}
+.why{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,56px);align-items:start;margin-bottom:clamp(56px,8vw,90px)}
+@media (max-width:860px){.why{grid-template-columns:1fr}}
+.reasons{display:grid;gap:14px;counter-reset:r}
+.reason{display:grid;grid-template-columns:44px 1fr;gap:14px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.reason::before{counter-increment:r;content:counter(r);width:36px;height:36px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-weight:600}
+.reason b{display:block;margin-bottom:2px;font-weight:600}
+.reason span{color:var(--mute);font-size:15px}
+.sample{background:#DCE6EE;border-radius:14px;padding:18px 14px;position:sticky;top:20px}
+.sample .cap{font-size:13px;color:#5b6773;margin:0 4px 10px}
+.final{background:var(--dark);color:#fff;border-radius:14px;padding:clamp(26px,4vw,44px);display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap;border-bottom:3px solid var(--acc)}
+.final h3{font-family:var(--ft);font-weight:300;font-size:clamp(26px,3vw,36px);line-height:1.1;margin:0 0 10px}
+.final p{margin:0;color:#d3d5de;max-width:52ch}
+.final button{border:0;border-radius:6px;background:var(--acc);color:#fff;padding:18px 32px;font-weight:500;cursor:pointer;font-size:17px}
+.fine{max-width:1170px;margin:28px auto 0;font-size:12px;color:#868a93;line-height:1.5}
+
+.modal{position:fixed;inset:0;z-index:70;background:rgba(10,10,14,.7);display:grid;place-items:center;padding:16px}
+.mcard{background:#fff;color:var(--ink);border-radius:14px;padding:26px;max-width:440px;width:100%;position:relative;animation:in .25s ease-out}
+.mcard h4{margin:0 0 6px;font-size:18px;font-weight:600}
+.mcard p{margin:0 0 14px;color:var(--mute);font-size:14.5px}
+.mail{font-size:clamp(20px,5.4vw,26px);font-weight:600;color:var(--acc2);word-break:break-all;margin-bottom:18px}
+.mrow{display:flex;gap:10px;flex-wrap:wrap}
+.mcard a,.mcard .cp{flex:1;min-width:150px;text-align:center;padding:12px 14px;border-radius:6px;font-weight:500;text-decoration:none;cursor:pointer;font-size:15px}
+.mcard a{background:var(--acc);color:#fff}
+.mcard .cp{border:1.5px solid var(--line);background:#fff;color:var(--ink)}
+.mcard .cl{position:absolute;right:14px;top:8px;border:0;background:none;font-size:24px;cursor:pointer;color:#8e98a3}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="bg" aria-hidden="true"></div>
+  <header class="head">
+    <div class="top wrap">
+      <a class="logo" href="#" aria-label="Intel Design"><img src="https://inteld.ru/wp-content/themes/intel/images/logo.svg" alt="INTEL DESIGN" referrerpolicy="no-referrer"></a>
+      <div class="city"><b><svg viewBox="0 0 14 18" fill="none"><path d="M7 0C3.1 0 0 3.1 0 7c0 5.2 7 11 7 11s7-5.8 7-11c0-3.9-3.1-7-7-7zm0 9.6A2.6 2.6 0 1 1 7 4.4a2.6 2.6 0 0 1 0 5.2z" fill="#7c78fa"/></svg>Казань</b>ул. Б. Красная, 58А</div>
+      <div class="phone">+7 (987) 297-01-00<small>Ежедневно 9-21</small></div>
+      <div class="soc">
+        <i title="MAX"><svg viewBox="0 0 20 22" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.71 2.05C5.16 2.53 2.03 4.93.71 8.19.19 9.47-.01 10.57 0 12.15c.01 1.8.14 2.71.77 5.2.45 1.82.58 2.48.65 3.46.05.68.13.87.47 1.06.29.16 1.03.18 1.59.04.71-.18 1.56-.65 2.04-1.12l.23-.23.52.34c1.09.71 1.8.95 3.08 1.04 3.04.2 5.67-.77 7.76-2.88 1.74-1.75 2.67-3.78 2.87-6.25.14-1.78-.19-3.58-.97-5.21-1.34-2.82-3.79-4.77-6.84-5.43-.67-.15-2.7-.21-3.45-.11zm2.43 4.99c2.23.56 3.8 2.42 3.94 4.67.13 2.09-1.19 4.15-3.17 4.95-1.41.57-2.83.49-4.14-.23l-.44-.24-.47.38c-.54.44-.84.59-.99.49-.62-.39-1.11-3.16-.89-5.04.28-2.37 1.47-4.11 3.28-4.8.9-.34 1.97-.41 2.87-.18z" fill="#fff"/></svg></i>
+        <i title="Telegram"><svg viewBox="0 0 24 24" fill="none"><path d="M21.6 3.2 2.9 10.4c-1.3.5-1.3 1.2-.2 1.6l4.8 1.5 1.8 5.6c.2.6.1.9.8.9.5 0 .7-.2 1-.5l2.4-2.3 5 3.7c.9.5 1.6.2 1.8-.9l3.3-15.4c.3-1.3-.5-1.9-1.3-1.5zM8.3 13.2l10-6.3c.5-.3.9-.1.6.2l-8.6 7.7-.3 3.6-1.7-5.2z" fill="#fff"/></svg></i>
+      </div>
+      <button class="burger" type="button" aria-label="Меню"><i></i><i></i><i></i></button>
+    </div>
+    <nav class="menu wrap"><span class="on">Главная</span><span>Дизайн интерьера</span><span>Ремонт и отделка</span><span>Портфолио</span><span>О компании</span><span>Контакты</span></nav>
+  </header>
+  <div class="hbody wrap">
+    <div class="htxt">
+      <h1>Проектируем и реализуем уникальные дизайнерские решения в Казани</h1>
+      <p class="sub">Мы – компания полного цикла</p>
+      <button class="btn-b" type="button" data-open>Рассчитать стоимость</button>
+    </div>
+  </div>
+</section>
+
+<section class="offer">
+  <div class="wrap"><div class="in">
+    <h2>Где сайт сейчас теряет клиентов</h2>
+    <p class="lead">Всё ниже проверено на inteld.ru. Слева то, что видит клиент сейчас. Справа то, что он получит с Алиной.</p>
+    <div class="loss">
+      <div class="lrow"><div class="now"><small>Сейчас</small>Цены за м² на сайте нет ни на одной странице. Квиз «Узнайте стоимость дизайна и ремонта» после 6 вопросов просит телефон, а расчёт обещает прислать в Telegram. Чтобы понять порядок цифр, клиент должен оставить номер.</div><div class="ai"><small>С Алиной</small>Клиент проходит те же вопросы в живом диалоге, видит ваш проект похожей площади со сроком и сразу записывается на встречу с дизайнером. Дадите ориентир цены за м², и Алина будет называть вилку под площадь клиента.</div></div>
+      <div class="lrow"><div class="now"><small>Сейчас</small>Телефон и офис работают «Ежедневно 9-21». Кто пишет после 21:00, ждёт ответа до утра и за это время успевает написать в другие студии.</div><div class="ai"><small>С Алиной</small>Ответ прямо на сайте, в 23:41 так же, как днём. Утром менеджер получает готовую карточку клиента и время встречи.</div></div>
+      <div class="lrow"><div class="now"><small>Сейчас</small>В кейсах есть площадь и срок (ЖК Максат: 89 м², 47 дней), но нет бюджета. Клиент не понимает, его ли это уровень, и уходит считать к другим.</div><div class="ai"><small>С Алиной</small>Алина показывает кейс под стиль и площадь клиента и спрашивает бюджет на материалы вашими вариантами из квиза. Менеджер заранее видит уровень клиента.</div></div>
+    </div>
+
+    <div class="why">
+      <div>
+        <h2>5 причин, почему это приведёт вам клиентов</h2>
+        <div class="reasons">
+          <div class="reason"><div><b>Ответ сразу, без звонка</b><span>Клиент дизайна и ремонта сравнивает несколько студий. Кто первым ответил и пригласил на встречу, к тому он и едет.</span></div></div>
+          <div class="reason"><div><b>Работает после 21:00</b><span>Алина отвечает, когда офис закрыт, задаёт вопросы вашего квиза и записывает на встречу с дизайнером на завтра.</span></div></div>
+          <div class="reason"><div><b>Продаёт вашими аргументами</b><span>На рынке больше 10 лет, 500+ проектов и 200+ объектов, фиксированная смета без доплат, гарантия от 3 лет, шоурум с 2000 видами материалов, своё мебельное производство.</span></div></div>
+          <div class="reason"><div><b>Показывает ваши работы</b><span>ЖК Максат, Статум, Светский, Арт Сити, Новые Горки, Манхэттен. Алина показывает проект в стиле, который выбрал клиент, с площадью и сроком.</span></div></div>
+          <div class="reason"><div><b>Менеджер получает готового клиента</b><span>Задача, объект, состояние, площадь, стиль, бюджет на материалы, сроки и время встречи уже в карточке. Не нужно перезванивать и выяснять.</span></div></div>
+        </div>
+      </div>
+      <div class="sample"><p class="cap">Так выглядит заявка в Telegram менеджера</p><div class="m" id="sampleCard"></div></div>
+    </div>
+
+    <div class="final">
+      <div><h3>Алина на вашем сайте</h3><p>Настрою консультанта по вашему квизу, проектам и аргументам и покажу, как заявки приходят менеджеру. Ответьте на письмо или напишите мне.</p></div>
+      <button type="button" data-mail>Написать Екатерине</button>
+    </div>
+  </div></div>
+  <p class="fine wrap">Демо подготовлено LACIFRA (Екатерина). Это не сайт компании «Intel Design»: логотип, фото, вопросы квиза и тексты взяты с сайта inteld.ru только для демонстрации. Фото консультанта стоковое. Заявки из демо никуда не отправляются.</p>
+</section>
+
+<div class="teaser" id="teaser" hidden><b>Алина, Intel Design</b>Добрый вечер! Подсказать, с чего начать дизайн и ремонт?</div>
+<button class="launch" id="launch" type="button" aria-label="Открыть чат с консультантом"></button>
+
+<div class="widget" id="widget" hidden aria-live="polite">
+  <div class="wh"><div class="av"></div><div><b>Алина, Intel Design</b><small>ИИ-консультант, онлайн 24/7</small></div><button class="x" type="button" id="close" aria-label="Свернуть чат">×</button></div>
+  <div class="msgs" id="msgs"></div>
+  <div class="qr" id="qr"></div>
+  <div class="inp"><input id="txt" placeholder="Напишите сообщение" autocomplete="off"><button type="button" id="sendTxt" aria-label="Отправить">→</button></div>
+</div>
+
+<div class="mgr" id="mgr" hidden>
+  <div class="mbox">
+    <div class="phn"><div class="scr">
+      <div class="th"><div class="lg">ID</div><div><b>Заявки Intel Design</b><small>бот в Telegram, для менеджера</small></div></div>
+      <div class="chat"><div class="m" id="mcard"></div></div>
+    </div></div>
+    <div class="mside">
+      <h3>Утром менеджер видит готового клиента</h3>
+      <p id="mtext">Анна написала в 23:41, когда офис уже закрыт. Алина сразу ответила, показала ваш проект и записала на встречу с дизайнером.</p>
+      <ul><li>Не нужно перезванивать и выяснять объект, площадь, стиль и бюджет</li><li>Время встречи и формат известны до первого звонка</li><li>Клиент не ушёл в другую студию, пока ждал утра</li></ul>
+      <div class="mbtns"><button type="button" class="btn-r" data-mail>Написать Екатерине</button><button type="button" class="btn-l" id="closeMgr">Вернуться к сайту</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="mcard" role="dialog" aria-label="Контакт Екатерины">
+    <button class="cl" type="button" id="mclose" aria-label="Закрыть">×</button>
+    <h4>Екатерина, LACIFRA</h4>
+    <p>Напишите, и я покажу, как Алина будет работать на сайте «Intel Design».</p>
+    <div class="mail">katerina@lacifra.co</div>
+    <div class="mrow"><a href="mailto:katerina@lacifra.co?subject=%D0%90%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%B4%D0%BB%D1%8F%20%C2%ABIntel%20Design%C2%BB">Написать на почту</a><button class="cp" type="button" id="copy">Скопировать адрес</button></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var NAME="Intel Design",SITE="https://inteld.ru/",UP=SITE+"wp-content/uploads/";
+  // квиз Marquiz на сайте («Узнайте стоимость дизайна и ремонта в Казани»), вопросы по порядку
+  var NEED=["Дизайн и ремонт под ключ, всё от одного подрядчика","Только дизайн-проект","Только ремонт, дизайн-проект уже есть"];
+  var OBJ=["Квартира","Дом, коттедж","Апартаменты","Таунхаус"];
+  var STATE=["Новостройка с черновой отделкой","Новостройка с предчистовой отделкой (whitebox)","Вторичка, ремонт под ключ","Вторичка, косметика или зонирование","Объект ещё выбираю"];
+  var AREA=[["До 60 м²",50],["60-90 м²",75],["90-140 м²",115],["140-200 м²",170],["Более 200 м²",220]];
+  var BUDGET=["Российские бренды и местные фабрики","Российские и европейские, баланс цены и качества","Премиум, европейская мебель и эксклюзивные материалы","Как в проекте, доверюсь дизайнеру"];
+  var WHEN=["Готов стартовать в ближайший месяц","В течение 1-3 месяцев","В течение полугода","Пока изучаю варианты"];
+  // портфолио inteld.ru/portfolio/dizajn-interera/: площадь, срок, комнаты, слова дизайнера со страницы проекта
+  var PR=[
+    {k:"Современная классика",t:"Квартира с архитектурой элегантной, ЖК Максат",r:"4+",a:89,s:"47 дней",ph:UP+"2026/05/1.-glavnaya-1.jpg",u:"portfolio/kvartira-s-jelegantnoj-arhitekturoj-prostranstva/",d:"Современная классика: традиционные формы звучат актуально и сдержанно. Интерьер вне времени, где каждая деталь работает на ощущение гармонии."},
+    {k:"Классика с яркими акцентами",t:"Квартира в классике с яркими акцентами, ЖК Арт Сити",r:"3",a:118,s:"35 дней",ph:UP+"2026/05/1.-glavnaya-3-2340x1316-1.jpg",u:"portfolio/kvartira-v-sovremennoj-klassike-s-jarkimi-akcentami/",d:"Элегантная архитектурная основа и выразительные цветовые акценты. Симметрия и выверенные пропорции задают ощущение статуса, а насыщенные детали добавляют характер."},
+    {k:"Современный",t:"Квартира со вторым светом, ЖК Светский",r:"3",a:110,s:"53 дня",ph:UP+"2026/05/1.-glavnaya-11-2340x1316-1.jpg",u:"portfolio/kvartira-so-vtorym-svetom-v-sovremennoj-jestetike/",d:"Ключевую роль сыграли свет и архитектура. Второй свет подчеркнул масштаб пространства и сделал интерьер лёгким и выразительным."},
+    {k:"Серый с терракотой",t:"Квартира с терракотовыми акцентами, ЖК Статум",r:"3",a:64,s:"39 дней",ph:UP+"2026/05/1.-glavnaya-6-2340x1316-1.jpg",u:"portfolio/kvartira-v-seroj-palitre-s-terrakotovymi-akcentami/",d:"Светло-серая основа как спокойная база для современного интерьера: оттенок визуально расширяет пространство и создаёт ощущение воздуха."},
+    {k:"Эклектика",t:"Квартира в стиле эклектика, ЖК Новые Горки",r:"3",a:70,s:"42 дня",ph:UP+"2026/05/1.-glavnaya-7-2340x1316-1.jpg",u:"portfolio/kvartira-v-stile-jeklektika-s-mednymi-akcentami/",d:"Минимализм, неоклассика и скандинавский стиль в гармоничной эклектике без перегруженности деталями."},
+    {k:"Мягкий и светлый",t:"Квартира с приёмами из разных стилей, ЖК Манхэттен",r:"3",a:82,s:"40 дней",ph:UP+"2024/12/%D0%A1%D1%82%D1%83%D0%B4%D0%B8%D1%8F-3.jpg",u:"portfolio/kvartiry-s-priemami-iz-raznyh-stilej-zhk-manhjetten/",d:"Проект для молодой семьи: максимально мягкий и светлый интерьер, натуральные материалы делают его уютным."}];
+  var MEET=["Встреча в офисе-шоуруме","Выезд специалиста на объект","Посмотреть готовый объект","Сначала пришлю планировку"];
+  function nb(s){return s.replace(/(\d) (?=\d{3})/g,"$1 ").replace(/ ₽/g," ₽").replace(/ м²/g," м²")}
+  var msgs=$("msgs"),qr=$("qr"),clock=[23,41],started=false,done=false,L={},cur=null,nMe=0;
+  function t(adv){if(adv)clock[1]++;if(clock[1]>59){clock[1]=0;clock[0]=(clock[0]+1)%24}return ("0"+clock[0]).slice(-2)+":"+("0"+clock[1]).slice(-2)}
+  function scroll(){msgs.scrollTop=msgs.scrollHeight}
+  function add(el){msgs.appendChild(el);scroll()}
+  function me(text,file){var d=document.createElement("div");d.className="b me"+(file?" file":"");d.innerHTML=file?"<span class='ic'>PDF</span><span>"+text+"</span>":text+"<span class='t'>"+t((++nMe)%2===0)+"</span>";add(d)}
+  function typing(cb){var ty=document.createElement("div");ty.className="typing";ty.innerHTML="<i></i><i></i><i></i>";add(ty);setTimeout(function(){ty.remove();cb()},800)}
+  // items: строки или {proj:...}/{end:1}; opts: строки или [текст, картинка]
+  function bot(items,opts,next){qr.innerHTML="";qr.className="qr";cur=null;if(typeof items==="string")items=[items];var i=0;
+    (function step(){if(i>=items.length){(opts||[]).forEach(function(o){var bt=document.createElement("button");bt.type="button";
+          if(typeof o==="string"){bt.textContent=nb(o)}else{qr.className="qr pics";bt.innerHTML=(o[1]?"<img src='"+o[1]+"' alt='' referrerpolicy='no-referrer'>":"")+"<span>"+o[0]+"</span>"}
+          bt.onclick=function(){answer(typeof o==="string"?nb(o):o[0],next)};qr.appendChild(bt)});cur=next;scroll();return}
+      var it=items[i++];typing(function(){
+        if(typeof it==="string"){var d=document.createElement("div");d.className="b bot";d.innerHTML=nb(it)+"<span class='t'>"+t()+"</span>";add(d)}
+        else if(it.proj){var p=it.proj,g=document.createElement("div");g.className="proj";
+          g.innerHTML="<img src='"+p.ph+"' alt='"+p.t+"' referrerpolicy='no-referrer'>"+
+            "<div class='pi'><b>"+p.t+"</b><div class='kv'><span>Комнат</span><span>"+p.r+"</span><span>Площадь</span><span>"+p.a+" м²</span><span>Срок</span><span>"+p.s+"</span></div>"+
+            "<a href='"+SITE+p.u+"' target='_blank' rel='noopener'>Смотреть проект</a></div>";
+          g.querySelector("img").onload=scroll;add(g)}
+        else if(it.end){var e=document.createElement("div");e.className="endplate";e.innerHTML="<b>Конец демо.</b> Так Алина может работать на вашем сайте круглосуточно.<button type='button' id='toMgr'>Что увидит менеджер</button>";add(e);$("toMgr").onclick=showMgr}
+        step()})})()}
+  function answer(o,next){qr.innerHTML="";me(o);if(next)setTimeout(function(){next(o)},350)}
+  $("sendTxt").onclick=function(){var v=$("txt").value.trim();if(!v||!cur)return;$("txt").value="";answer(v,cur)};
+  $("txt").addEventListener("keydown",function(e){if(e.key==="Enter")$("sendTxt").click()});
+
+  // ближайшие дни для встречи, в часы работы (ежедневно 9-21)
+  var DN=["Вс","Пн","Вт","Ср","Чт","Пт","Сб"],MN=["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
+  function slots(){var r=[],d=new Date();while(r.length<2){d.setDate(d.getDate()+1);r.push(DN[d.getDay()]+" "+d.getDate()+" "+MN[d.getMonth()])}
+    return [r[0]+", 11:00",r[0]+", 18:00",r[1]+", 13:00"]}
+  function near(a){return PR.slice().sort(function(x,y){return Math.abs(x.a-a)-Math.abs(y.a-a)})[0]}
+
+  function s1(){bot("Добрый вечер! Я Алина, консультант «"+NAME+"». Помогу рассчитать стоимость дизайна и ремонта. Что для вас сейчас актуально?",NEED,s2)}
+  function s2(v){L.need=v;var a="";
+    if(v.indexOf("Дизайн и ремонт")===0)a="Это самый популярный формат: один договор, одна команда, один результат. ";
+    else if(v.indexOf("Только дизайн")===0)a="Хорошо. В дизайн-проект входят 3 концепции на выбор, 3D-визуализации, чертежи, спецификации материалов и сметная стоимость отделочных работ. ";
+    else a="Хорошо, сделаем ремонт по вашему проекту. ";
+    bot(a+"Где будем работать?",OBJ,s3)}
+  function s3(v){L.obj=v;bot("В каком состоянии объект сейчас?",STATE,s4)}
+  function s4(v){L.state=v;bot("Какая площадь объекта?",AREA.map(function(x){return x[0]}),s5)}
+  function s5(v){var f=AREA.filter(function(x){return nb(x[0])===v})[0];L.area=f?f[0]:v;L.mid=f?f[1]:(parseInt(String(v).replace(/[^\d]/g,""),10)||80);
+    bot(["Вот наши проекты в Казани. Какой стиль вам ближе?"],PR.map(function(p){return [p.k,p.ph]}).concat([["Пока не знаю",""]]),s6)}
+  function s6(v){var items=[],p=PR.filter(function(x){return x.k===v})[0];
+    if(p){L.style=v;items.push(p.d)}else{p=near(L.mid);L.style="не выбран";items.push("Стиль не нужно знать точно. На первой встрече дизайнер покажет несколько концепций под ваш объект. Вот наш проект близкой площади:")}
+    L.proj=p.t;items.push({proj:p});
+    items.push("Стоимость считаем под ваш объект, и после договора смета фиксируется: никаких доплат в процессе. За подбор на сайте действует скидка 20 000 ₽ на 30 дней, закреплю её за вами.");
+    items.push("Какой бюджет на материалы и мебель?");bot(items,BUDGET,s7)}
+  function s7(v){L.budget=v;bot(["У нас собственный шоурум, где можно увидеть и потрогать более 2000 видов материалов, и своё мебельное производство. Черновые материалы закупаем по стоп-ценам поставщиков.","Когда планируете начать работу?"],WHEN,s8)}
+  function s8(v){L.when=v;bot(["Предлагаю познакомиться с дизайнером: он ответит на вопросы, покажет похожие проекты и подскажет, с чего начать. Можно встретиться в нашем офисе-шоуруме на ул. Б. Красная, 58А, специалист может приехать на ваш объект, или можно посетить готовый объект и посмотреть качество вживую.","Как вам удобнее?"],MEET,s9)}
+  function s9(v){if(v==="Сначала пришлю планировку"){L.plan=true;L.meet="встреча в офисе-шоуруме";qr.innerHTML="";setTimeout(function(){me("планировка.pdf",true);setTimeout(function(){bot(["Получила планировку, утром передам дизайнеру, он посмотрит её до встречи.","Выберите удобное время встречи в офисе-шоуруме:"],slots(),s10)},350)},300)}
+    else{L.plan=false;L.meet=v.toLowerCase();bot("Выберите удобное время:",slots(),s10)}}
+  function s10(v){L.slot=v;bot("Как к вам обращаться и как удобно получить подтверждение?",["Анна, в Telegram","Анна, в MAX","Анна, позвоните"],s11)}
+  function s11(v){L.contact=v;done=true;var ch=["Telegram","MAX"].filter(function(x){return v.indexOf(x)>0})[0];
+    bot(["Готово, Анна! Записала: "+L.meet+", <b>"+L.slot+"</b>. "+(ch?"Подтверждение пришлю в "+ch+".":"Менеджер позвонит утром после 9:00 и подтвердит время.")+(L.plan?" Планировку передаю дизайнеру.":"")+" Скидка 20 000 ₽ закреплена за вами. Если появятся вопросы, пишите сюда в любое время.",{end:1}],[],null);
+    setTimeout(function(){if($("mgr").hidden)showMgr()},800*2+3000)}
+
+  function cardHTML(d){return "<span class='tm'>23:"+(d.min||"49")+"</span><b>Новый клиент от Алины</b><div class='kv'>"+
+    "<span>Клиент</span><span>"+d.contact+"</span><span>Задача</span><span>"+d.need.toLowerCase()+"</span><span>Объект</span><span>"+d.obj.toLowerCase()+", "+d.area+"</span><span>Состояние</span><span>"+d.state.toLowerCase()+"</span>"+
+    "<span>Стиль</span><span>"+d.style.toLowerCase()+"</span><span>Нравится</span><span>"+d.proj+"</span><span>Бюджет</span><span>"+d.budget.toLowerCase()+"</span>"+
+    "<span>Старт</span><span>"+d.when.toLowerCase()+"</span><span>Встреча</span><span>"+d.meet+", "+d.slot+"</span><span>План</span><span>"+(d.plan?"PDF приложен":"нет")+"</span><span>Скидка</span><span>20 000 ₽ за подбор</span></div><div class='mb'>Открыть диалог</div>"}
+  var DEMO={need:NEED[0],obj:"Квартира",area:"60-90 м²",state:STATE[0],style:"Современная классика",proj:PR[0].t,budget:BUDGET[1],when:WHEN[1],meet:"встреча в офисе-шоуруме",slot:slots()[0],plan:true,contact:"Анна, Telegram"};
+  $("sampleCard").innerHTML=nb(cardHTML(DEMO));
+  function showMgr(){var d;
+    if(!done){d=DEMO;$("mtext").textContent="Так выглядит карточка клиента после разговора с Алиной. Пройдите диалог в чате справа внизу, чтобы увидеть, как она её собирает."}
+    else{d={};for(var k in L)d[k]=L[k];var ch=["Telegram","MAX"].filter(function(x){return L.contact.indexOf(x)>0})[0];
+      d.contact=ch?"Анна, "+ch:"Анна, позвонить утром";d.min=("0"+clock[1]).slice(-2);
+      $("mtext").textContent="Анна написала в 23:41, когда офис уже закрыт. Алина сразу ответила, задала вопросы вашего квиза, показала ваш проект и записала на встречу с дизайнером."}
+    $("mcard").innerHTML=nb(cardHTML(d));$("mgr").hidden=false}
+  function open(){$("teaser").hidden=true;$("widget").hidden=false;if(!started){started=true;s1()}}
+  function hide(){$("widget").hidden=true}
+  $("launch").onclick=function(){if($("widget").hidden)open();else hide()};
+  $("teaser").onclick=open;$("close").onclick=hide;
+  document.querySelectorAll("[data-open]").forEach(function(b){b.onclick=open});
+  $("closeMgr").onclick=function(){$("mgr").hidden=true};
+  document.querySelectorAll("[data-mail]").forEach(function(b){b.onclick=function(){$("modal").hidden=false}});
+  $("mclose").onclick=function(){$("modal").hidden=true};
+  $("modal").onclick=function(e){if(e.target===this)this.hidden=true};
+  $("copy").onclick=function(){var b=this;function ok(){b.textContent="Скопировано"}
+    try{navigator.clipboard.writeText("katerina@lacifra.co").then(ok,fb)}catch(e){fb()}
+    function fb(){var i=document.createElement("input");i.value="katerina@lacifra.co";document.body.appendChild(i);i.select();try{document.execCommand("copy");ok()}catch(e){}i.remove()}};
+  setTimeout(function(){if(!started)$("teaser").hidden=false},window.innerWidth<600?4000:2000);
+})();
+</script>
+</body>
+</html>
