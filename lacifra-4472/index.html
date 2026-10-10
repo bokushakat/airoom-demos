@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>LACIFRA. Orden en las cifras. Confianza en las decisiones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap">
+<style>
+:root{
+  --tinta:#1b2a44;--papel:#f6f5f1;--ambar:#e8a13c;--niebla:#c9d2de;--grafito:#46536b;
+  --line:rgba(27,42,68,.16);--ok:#3fbf7f;
+  --av:url("https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=240&h=240&fit=crop&crop=faces&q=80");
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:"Inter",Arial,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+button,input{font:inherit}
+:focus-visible{outline:2px solid var(--ambar);outline-offset:2px}
+h1,h2,h3{font-family:"Manrope",Arial,sans-serif;margin-top:0}
+p{margin-top:0}
+
+/* site header, as on lacifra.co */
+.site-header{align-items:center;background:rgba(246,245,241,.96);border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto 1fr;min-height:78px;padding:0 5vw;position:sticky;top:0;z-index:20}
+.wordmark{font-family:"Manrope",Arial,sans-serif;font-size:1.06rem;font-weight:800;letter-spacing:.14em;text-decoration:none;color:var(--tinta)}
+.wordmark span,h1>span,h2>span{color:var(--ambar)}
+.site-header nav{display:flex;gap:34px}
+.site-header nav a{color:var(--grafito);font-size:.86rem;font-weight:500;text-decoration:none;cursor:default}
+.header-tools{align-items:center;display:flex;gap:24px;justify-self:end}
+.lang{display:flex;gap:4px}
+.lang span{color:var(--grafito);font-family:"IBM Plex Mono",monospace;font-size:.7rem;padding:5px 4px 3px;border-bottom:1px solid transparent}
+.lang span.on{border-bottom-color:var(--ambar);color:var(--tinta)}
+.header-cta{background:none;border:0;border-bottom:1px solid var(--ambar);color:var(--tinta);font-size:.84rem;font-weight:600;padding:0 0 2px;cursor:pointer}
+@media (max-width:980px){.site-header nav,.lang{display:none}.site-header{grid-template-columns:1fr auto}}
+
+/* hero */
+.hero{background:var(--tinta);color:var(--papel);min-height:calc(100vh - 78px);padding:clamp(76px,10vw,150px) 5vw 80px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-180px;top:-120px;width:640px;height:640px;border-radius:50%;border:1.5px solid rgba(232,161,60,.35);animation:slow 30s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;right:-60px;top:40px;width:420px;height:420px;border-radius:50%;border:1px dashed rgba(201,210,222,.22)}
+@keyframes slow{to{transform:scale(1.08) translate(-20px,10px)}}
+.hero-grid{align-items:end;display:grid;gap:8vw;grid-template-columns:minmax(0,1.4fr) minmax(300px,.6fr);margin:0 auto;max-width:1400px;position:relative;z-index:1}
+.eyebrow{color:var(--niebla);font-size:.72rem;font-weight:600;letter-spacing:.18em;margin:0 0 24px;text-transform:uppercase}
+.hero h1{font-size:clamp(2.2rem,3.2vw,3.25rem);font-weight:800;letter-spacing:-.04em;line-height:1.06;margin-bottom:30px;max-width:760px}
+.hero h1 em{color:var(--niebla);font-style:normal}
+.hero-lead{color:var(--niebla);font-size:clamp(1.1rem,1.6vw,1.4rem);line-height:1.55;max-width:760px}
+.hero-actions{align-items:center;display:flex;flex-wrap:wrap;gap:28px;margin-top:42px}
+.button{border:0;border-radius:2px;cursor:pointer;display:inline-flex;text-decoration:none;font-weight:600;justify-content:center;min-height:54px;padding:15px 24px;transition:transform .16s,background .16s}
+.button:hover{transform:translateY(-2px)}
+.button-primary{background:var(--ambar);color:var(--tinta)}
+.button-primary:hover{background:#f0ad4c}
+.text-link{color:var(--papel);font-size:.92rem;font-weight:500;text-decoration:underline;text-decoration-color:rgba(246,245,241,.4);text-underline-offset:5px}
+.text-link span{color:var(--ambar);padding-left:8px}
+.decision-card{border:1px solid rgba(201,210,222,.38);min-height:430px;padding:38px;position:relative;background:rgba(27,42,68,.6)}
+.card-label{color:var(--ambar);font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.12em}
+.decision-card ol{list-style:none;margin:70px 0 0;padding:0}
+.decision-card li{border-top:1px solid rgba(201,210,222,.25);font-family:"Manrope",Arial,sans-serif;font-size:clamp(1.15rem,1.5vw,1.45rem);font-weight:700;padding:20px 0}
+.decision-card li span{color:var(--niebla);font-family:"IBM Plex Mono",monospace;font-size:.76rem;margin-right:18px}
+.card-point{background:var(--ambar);border-radius:50%;bottom:32px;height:13px;position:absolute;right:32px;width:13px}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.decision-card{min-height:0}.decision-card ol{margin-top:30px}}
+
+/* offer block (LACIFRA) */
+.offer{background:var(--papel);padding:110px 5vw 60px}
+.offer .in{max-width:1100px;margin:0 auto}
+.kick{color:var(--ambar);font-family:"IBM Plex Mono",monospace;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;margin:0 0 18px}
+.offer h2{font-size:clamp(1.8rem,2.5vw,2.55rem);letter-spacing:-.035em;line-height:1.1;margin-bottom:20px}
+.offer .lead{color:var(--grafito);font-size:1.08rem;max-width:720px}
+.loss{margin-top:56px;border-top:1px solid var(--line)}
+.loss h3{font-size:1.4rem;margin:40px 0 22px}
+.lrow{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.lrow:last-child{border-bottom:1px solid var(--line)}
+.lrow div{padding:22px 26px 22px 0}
+.lrow div+div{padding-left:26px;border-left:1px solid var(--line)}
+.lrow small{display:block;font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grafito);margin-bottom:6px}
+.lrow div+div small{color:var(--ambar)}
+@media (max-width:700px){.lrow{grid-template-columns:1fr}.lrow div+div{border-left:0;padding-left:0;padding-top:0}}
+.how{display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px}
+.how article{border-left:1px solid var(--line);padding:26px}
+.how article>span{color:var(--ambar);font-family:"IBM Plex Mono",monospace;font-size:.84rem}
+.how h3{font-size:1.15rem;margin:14px 0 8px}
+.how p{color:var(--grafito);font-size:.95rem;margin:0}
+@media (max-width:800px){.how{grid-template-columns:1fr}}
+.final{margin-top:70px;background:var(--tinta);color:var(--papel);padding:44px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.final h3{font-size:1.6rem;margin:0 0 6px;letter-spacing:-.02em}
+.final p{color:var(--niebla);margin:0}
+.foot{max-width:1100px;margin:40px auto 0;color:var(--grafito);font-size:.78rem;opacity:.85}
+
+/* chat widget */
+.launch{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:40;width:66px;height:66px;border-radius:50%;border:3px solid var(--ambar);background:var(--av) 50% 22%/150% no-repeat,#e8a13c;box-shadow:0 12px 30px rgba(27,42,68,.4);cursor:pointer;padding:0}
+.launch::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--ambar);opacity:.6;animation:ring 1.8s infinite}
+.launch::after{content:"";position:absolute;right:1px;bottom:3px;width:13px;height:13px;border-radius:50%;background:var(--ok);border:2px solid #fff}
+@keyframes ring{0%{transform:scale(.9);opacity:.7}100%{transform:scale(1.25);opacity:0}}
+.teaser{position:fixed;right:100px;bottom:calc(34px + env(safe-area-inset-bottom,0px));z-index:40;background:#fff;color:var(--tinta);border-radius:14px 14px 4px 14px;padding:11px 15px;font-size:14px;box-shadow:0 10px 30px rgba(27,42,68,.25);max-width:250px;cursor:pointer;animation:in .4s ease-out;border:1px solid var(--line)}
+.widget{position:fixed;right:22px;bottom:calc(102px + env(safe-area-inset-bottom,0px));z-index:45;width:min(390px,calc(100vw - 32px));height:min(620px,calc(100vh - 150px));background:var(--papel);border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 60px rgba(27,42,68,.35);display:flex;flex-direction:column;overflow:hidden;animation:in .3s ease-out}
+@media (max-width:560px){.widget{right:12px;left:12px;width:auto;bottom:calc(96px + env(safe-area-inset-bottom,0px));height:calc(100vh - 120px)}}
+.wh{background:var(--tinta);color:var(--papel);padding:14px 16px;display:flex;gap:11px;align-items:center}
+.av{width:40px;height:40px;border-radius:50%;background:var(--av) 50% 22%/150% no-repeat,#e8a13c;position:relative;flex:none}
+.wh .av::after{content:"";position:absolute;right:-1px;bottom:-1px;width:11px;height:11px;border-radius:50%;background:var(--ok);border:2px solid var(--tinta)}
+.wh b{display:block;font-family:"Manrope",Arial,sans-serif;font-size:15px}.wh small{color:var(--niebla);font-size:12.5px}
+.wh .x{margin-left:auto;background:none;border:0;color:var(--niebla);font-size:24px;cursor:pointer;line-height:1}
+.msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:9px}
+.b{max-width:88%;padding:10px 13px;border-radius:14px;font-size:14.5px;line-height:1.45;animation:in .3s ease-out}
+.b.bot{background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
+.b.me{background:var(--tinta);color:var(--papel);border-bottom-right-radius:4px;align-self:flex-end}
+.b.bot b{color:var(--tinta)}
+.b .t{display:block;font-size:11px;opacity:.5;margin-top:3px;text-align:right}
+.fcard{align-self:flex-start;max-width:88%;background:#fff;border:1px solid var(--line);border-left:3px solid var(--ambar);border-radius:4px 14px 14px 4px;padding:13px 15px;animation:in .3s ease-out;font-size:14px}
+.fcard .n{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--ambar);letter-spacing:.08em;text-transform:uppercase}
+.fcard h4{font-family:"Manrope",Arial,sans-serif;font-size:16px;margin:4px 0 6px}
+.fcard p{margin:0;color:var(--grafito)}
+.typing{align-self:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px 13px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--grafito);animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{50%{opacity:.25}}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.qr{display:flex;flex-wrap:wrap;gap:7px;padding:10px 14px;border-top:1px solid var(--line);min-height:56px;max-height:40%;overflow-y:auto}
+.qr button{border:1px solid var(--tinta);color:var(--tinta);background:#fff;border-radius:999px;padding:8px 13px;font-size:13.5px;cursor:pointer;text-align:left}
+.qr button:hover{background:var(--ambar);border-color:var(--ambar)}
+.endbar{align-self:stretch;background:#fff;border:1px dashed var(--ambar);border-radius:12px;padding:14px;text-align:center;font-size:14px;animation:in .3s ease-out}
+.endbar button{margin-top:10px;border:0;border-radius:2px;background:var(--ambar);color:var(--tinta);font-weight:600;padding:11px 16px;cursor:pointer}
+.inp{display:flex;gap:8px;padding:0 14px 14px}
+.inp input{flex:1;background:#fff;border:1px solid var(--line);color:var(--tinta);border-radius:999px;padding:10px 14px;font-size:14px}
+.inp button{border:0;border-radius:50%;width:40px;background:var(--ambar);color:var(--tinta);cursor:pointer;font-weight:800}
+
+/* manager view */
+.mgr{position:fixed;inset:0;z-index:60;background:rgba(18,28,46,.95);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;overflow-y:auto;animation:in .3s ease-out;color:var(--papel)}
+.mbox{display:grid;grid-template-columns:auto minmax(0,360px);gap:32px;align-items:center;max-width:860px;width:100%}
+@media (max-width:760px){.mbox{grid-template-columns:1fr}.mside{order:-1}}
+.phone{background:#0d0d0d;border-radius:34px;padding:9px;width:min(350px,100%);margin:0 auto;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.scr{background:#DCE6EE;border-radius:26px;display:flex;flex-direction:column;overflow:hidden;color:#16202A;font-family:"Helvetica Neue",Arial,sans-serif}
+.th{background:#fff;padding:11px 14px;display:flex;gap:10px;align-items:center;font-size:13.5px;border-bottom:1px solid #D5DEE6}
+.th .av{width:32px;height:32px}
+.th small{display:block;color:#76766E;font-size:11.5px}
+.chat{padding:26px 12px 14px;display:flex;flex-direction:column;gap:8px}
+.m{background:#fff;border-radius:14px 14px 14px 4px;padding:10px 12px;font-size:13px;line-height:1.4;border-left:4px solid var(--ambar);animation:in .35s ease-out}
+.m .tm{float:right;color:#76766E;font-size:11px;margin-left:8px}
+.m .kv{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;margin-top:8px}
+.m .kv span:nth-child(odd){color:#76766E}
+.m button{margin-top:10px;width:100%;border:0;border-radius:10px;padding:9px;background:var(--tinta);color:#fff;font-weight:600}
+.mside h3{margin:0;font-size:clamp(22px,3vw,30px);line-height:1.15;letter-spacing:-.02em}
+.mside p{color:var(--niebla);margin:12px 0 0;font-size:15.5px}
+.mside ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px}
+.mside li{display:flex;gap:10px}.mside li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ambar);margin-top:9px;flex:none}
+.mside .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.mside .ghost{border:1px solid rgba(201,210,222,.4);background:transparent;color:var(--papel);border-radius:2px;padding:12px 18px;cursor:pointer}
+
+/* contact modal */
+.modal{position:fixed;inset:0;z-index:70;background:rgba(18,28,46,.7);display:grid;place-items:center;padding:16px;animation:in .25s ease-out}
+.mcard{background:var(--papel);color:var(--tinta);width:min(460px,100%);padding:34px;border-radius:4px;position:relative}
+.mcard .x{position:absolute;right:14px;top:10px;background:none;border:0;font-size:26px;cursor:pointer;color:var(--grafito)}
+.mcard .mail{font-family:"Manrope",Arial,sans-serif;font-size:clamp(22px,5vw,28px);font-weight:800;letter-spacing:-.02em;margin:10px 0 22px;word-break:break-all}
+.mcard .row{display:flex;gap:10px;flex-wrap:wrap}
+.mcard .ghost{border:1px solid var(--tinta);background:transparent;color:var(--tinta);border-radius:2px;padding:15px 20px;cursor:pointer;font-weight:600}
+.mcard .ok{color:#2a8a5a;font-size:14px;margin-top:12px;min-height:20px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="wordmark" href="#top">LACIFRA<span>.</span></a>
+  <nav aria-label="Menú"><a>Diagnóstico</a><a>Cómo trabajamos</a><a>Sobre mí</a><a>Portfolio</a></nav>
+  <div class="header-tools">
+    <div class="lang" aria-hidden="true"><span>RU</span><span class="on">ES</span><span>EN</span></div>
+    <button class="header-cta" type="button" data-open>Solicitar condiciones</button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">Sistemas de gestión para pequeñas y medianas empresas</p>
+      <h1>Orden en las cifras. Confianza en las <em>decisiones</em><span>.</span></h1>
+      <p class="hero-lead">Ayudo a propietarios de pequeñas y medianas empresas a detectar dónde se pierden dinero y tiempo, y a construir un sistema de gestión claro sin informes innecesarios.</p>
+      <div class="hero-actions">
+        <button class="button button-primary" type="button" data-open>Cuéntame tu caso</button>
+        <a class="text-link" href="#demo">Cómo trabajamos <span>↓</span></a>
+      </div>
+    </div>
+    <aside class="decision-card" aria-label="Orden de actuación">
+      <p class="card-label">ORDEN DE ACTUACIÓN</p>
+      <ol><li><span>01</span>¿Qué está pasando?</li><li><span>02</span>¿Por qué está pasando?</li><li><span>03</span>¿Por dónde empezamos?</li></ol>
+      <i class="card-point"></i>
+    </aside>
+  </div>
+</section>
+
+<section class="offer" id="demo">
+  <div class="in">
+    <p class="kick">Demo para LACIFRA</p>
+    <h2>Ha solicitado esta demo en lacifra.co<span>.</span></h2>
+    <p class="lead">Así trabajaría Lucía, una recepcionista con IA, en su web: responde a quien escribe a cualquier hora, le ayuda a elegir el formato de trabajo y deja la solicitud lista para Katerina.</p>
+
+    <div class="loss">
+      <h3>Dónde se pierden ahora las solicitudes</h3>
+      <div class="lrow"><div><small>Ahora</small>La solicitud se envía por formulario y la respuesta llega «en un día laborable». Quien escribe un viernes por la noche puede esperar hasta el lunes.</div><div><small>Con Lucía</small>Respuesta al momento, a cualquier hora, y la llamada con Katerina ya reservada.</div></div>
+      <div class="lrow"><div><small>Ahora</small>La web no publica precios: el formato y el precio se proponen después de describir el caso.</div><div><small>Con Lucía</small>El cliente sabe enseguida qué formato le encaja (Diagnóstico, Implantación o Acompañamiento) y cuál es el siguiente paso.</div></div>
+      <div class="lrow"><div><small>Ahora</small>Para contactar solo hay un formulario, el correo e Instagram. No hay chat en la web.</div><div><small>Con Lucía</small>Un chat que pregunta lo mismo que el formulario (equipo, idioma, acceso a los datos) y lo entrega ordenado.</div></div>
+    </div>
+
+    <div class="how">
+      <article><span>01</span><h3>El cliente escribe</h3><p>Desde la web, también de noche o en fin de semana. Lucía responde en español, inglés o ruso.</p></article>
+      <article><span>02</span><h3>Lucía cualifica</h3><p>Pregunta qué cuesta controlar, el tamaño del equipo y si hay acceso a los datos, y explica el formato adecuado.</p></article>
+      <article><span>03</span><h3>Katerina recibe la ficha</h3><p>Por la mañana tiene la solicitud completa y la llamada en la agenda. Las decisiones las toma una persona.</p></article>
+    </div>
+
+    <div class="final">
+      <div><h3>¿Lo vemos en su web?</h3><p>Escriba a Katerina y le explicará cómo se configura.</p></div>
+      <button class="button button-primary" type="button" id="openContact">Escribir a Katerina</button>
+    </div>
+  </div>
+  <p class="foot">Demo preparada por LACIFRA a petición del propietario. No es la web oficial de la empresa: el logotipo y los textos proceden de lacifra.co. Las horas de la conversación son un ejemplo.</p>
+</section>
+</main>
+
+<div class="teaser" id="teaser" hidden>Buenas noches. ¿Le ayudo a elegir por dónde empezar?</div>
+<button class="launch" id="launch" type="button" aria-label="Abrir el chat con Lucía"></button>
+
+<div class="widget" id="widget" hidden aria-live="polite">
+  <div class="wh"><div class="av" role="img" aria-label="Lucía"></div><div><b>Lucía, LACIFRA</b><small>Recepcionista con IA, en línea 24/7</small></div><button class="x" type="button" id="close" aria-label="Cerrar el chat">×</button></div>
+  <div class="msgs" id="msgs"></div>
+  <div class="qr" id="qr"></div>
+  <div class="inp"><input id="txt" placeholder="Escriba su mensaje…" autocomplete="off" aria-label="Mensaje"><button type="button" id="sendTxt" aria-label="Enviar">→</button></div>
+</div>
+
+<div class="mgr" id="mgr" hidden>
+  <div class="mbox">
+    <div class="phone"><div class="scr">
+      <div class="th"><div class="av" role="img" aria-label="Lucía"></div><div><b>Solicitudes LACIFRA</b><small>Telegram, administración</small></div></div>
+      <div class="chat" id="mchat"></div>
+    </div></div>
+    <div class="mside">
+      <h3>Y por la mañana Katerina tiene la solicitud completa</h3>
+      <p id="mtext">Ana escribió a las 23:41. Lucía respondió al momento, le explicó el formato adecuado y reservó la llamada.</p>
+      <ul><li>No hace falta escribir para preguntar el tamaño del equipo o el idioma</li><li>El cliente sabe cuál es el siguiente paso y cuándo</li><li>Ninguna solicitud se queda sin respuesta hasta el lunes</li></ul>
+      <div class="row"><button class="button button-primary" type="button" id="mgrContact">Escribir a Katerina</button><button class="ghost" type="button" id="closeMgr">Volver a la web</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="contact" hidden role="dialog" aria-modal="true" aria-labelledby="ctTitle">
+  <div class="mcard">
+    <button class="x" type="button" id="closeContact" aria-label="Cerrar">×</button>
+    <p class="kick" id="ctTitle">Escribir a Katerina</p>
+    <div class="mail">katerina@lacifra.co</div>
+    <div class="row">
+      <a class="button button-primary" id="mailBtn" href="mailto:katerina@lacifra.co?subject=Demo%20de%20recepcionista%20con%20IA%20para%20LACIFRA">Escribir por correo</a>
+      <button class="ghost" type="button" id="copyBtn">Copiar la dirección</button>
+    </div>
+    <div class="ok" id="copyOk" aria-live="polite"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var msgs=$("msgs"),qr=$("qr"),clock=[23,41],started=false,done=false,L={},cur=null,nMe=0;
+  function t(adv){if(adv)clock[1]++;if(clock[1]>59){clock[1]=0;clock[0]=(clock[0]+1)%24}return ("0"+clock[0]).slice(-2)+":"+("0"+clock[1]).slice(-2)}
+  function scroll(){msgs.scrollTop=msgs.scrollHeight}
+  function me(text){var d=document.createElement("div");d.className="b me";d.innerHTML=text+"<span class='t'>"+t((++nMe)%2===0)+"</span>";msgs.appendChild(d);scroll()}
+  function node(cls,html){var d=document.createElement("div");d.className=cls;d.innerHTML=html;msgs.appendChild(d);scroll();return d}
+  function bot(text,opts,next,extra){qr.innerHTML="";var ty=node("typing","<i></i><i></i><i></i>");
+    setTimeout(function(){ty.remove();node("b bot",text+"<span class='t'>"+t()+"</span>");if(extra)extra();
+      (opts||[]).forEach(function(o){var bt=document.createElement("button");bt.type="button";bt.textContent=o;bt.onclick=function(){answer(o,next)};qr.appendChild(bt)});cur=next;},850)}
+  function answer(o,next){qr.innerHTML="";me(o);cur=null;if(next)setTimeout(function(){next(o)},350)}
+  $("sendTxt").onclick=function(){var v=$("txt").value.trim();if(!v||!cur)return;$("txt").value="";answer(v,cur)};
+  $("txt").addEventListener("keydown",function(e){if(e.key==="Enter")$("sendTxt").click()});
+
+  // formats as published on lacifra.co (ES)
+  var F={
+    diag:["01. Primera etapa","Diagnóstico","Analizamos una cuestión concreta, comprobamos los datos y encontramos las causas que realmente influyen en el resultado."],
+    impl:["02. Si hacen falta cambios","Implantación «Orden en 30 días»","Acordamos un área prioritaria: alcance, plazos y criterios de resultado se fijan de antemano. Sin intentar reconstruir toda la empresa de una vez."],
+    acomp:["03. Para mantener el resultado","Acompañamiento","Comprobamos que el nuevo sistema funcione en el día a día y que el equipo use los indicadores para actuar, no solo para informar."],
+    circ:["Formato a medida","Circuito «web + CRM + agente»","Para quien ya sabe que se le escapan solicitudes. Desarrollo a medida de su proceso: captación, gestión, recordatorios e informes."]
+  };
+  function fcard(k){var f=F[k];node("fcard","<span class='n'>"+f[0]+"</span><h4>"+f[1]+"</h4><p>"+f[2]+"</p>")}
+
+  var PAIN={
+    "Los datos se recopilan a mano":"Es una de las señales más habituales: para saber qué está pasando hay que consolidar varias hojas de cálculo y confirmar los datos con el equipo.",
+    "Los informes no dan respuestas":"Ocurre a menudo: hay muchos indicadores, pero no muestran dónde surgió la desviación ni qué requiere su atención.",
+    "El equipo espera al propietario":"Lo entiendo: las responsabilidades están definidas, pero las cuestiones clave siguen volviendo a usted.",
+    "El crecimiento no da beneficio":"Suele pasar cuando descuentos, ajustes, carga de trabajo y cobros se controlan por separado, y las pérdidas se detectan tarde.",
+    "Se me escapan solicitudes":"Es un caso frecuente: las solicitudes llegan, pero falta un circuito que las lleve hasta la firma del contrato."
+  };
+  function s1(){bot("Buenas noches. Soy Lucía, recepcionista de LACIFRA. Le ayudo a ver qué formato de trabajo le encaja y le reservo una llamada con Katerina. ¿Qué es lo más difícil de controlar ahora en su empresa?",Object.keys(PAIN),s2)}
+  function s2(v){L.pain=v;var txt=PAIN[v]||"Entendido, gracias por contarlo.";
+    if(v==="Se me escapan solicitudes"){L.fmt="circ";bot(txt+" Para eso Katerina ofrece este formato:",["Me encaja","Prefiero empezar por un diagnóstico"],s3b,function(){fcard("circ")});return}
+    bot(txt+" ¿En qué punto está?",["Aún no sé la causa","Ya sé qué hay que cambiar","Quiero mantener lo que funciona"],s3)}
+  function s3(v){L.fmt=v==="Ya sé qué hay que cambiar"?"impl":v==="Quiero mantener lo que funciona"?"acomp":"diag";
+    var intro={diag:"Entonces lo lógico es empezar por aquí. Antes de proponer un CRM o una automatización, hay que identificar el origen del problema:",impl:"En ese caso encaja la implantación por áreas:",acomp:"Para eso está el acompañamiento:"}[L.fmt];
+    bot(intro,[],null,function(){fcard(L.fmt);setTimeout(s4,900)})}
+  function s3b(v){if(v!=="Me encaja"){L.fmt="diag";bot("De acuerdo. El diagnóstico es la primera etapa:",[],null,function(){fcard("diag");setTimeout(s4,900)})}else s4()}
+  function s4(){bot("Para que Katerina prepare la llamada, ¿cuántas personas tiene el equipo?",["1–4 personas","5–10 personas","11–20 personas","Más de 20 personas"],s5)}
+  function s5(v){L.team=v;bot("Gracias. Katerina trabaja desde Málaga en español, inglés y ruso. ¿En qué idioma prefiere la llamada?",["Español","Inglés","Ruso"],s6)}
+  function s6(v){L.lang=v;bot("Una pregunta más: el trabajo es útil si puede facilitar datos y acceso a las personas clave. ¿Sería posible?",["Sí, sin problema","En parte","Prefiero comentarlo en la llamada"],s7)}
+  function s7(v){L.data=v;bot("Perfecto. Sobre el precio: depende del caso. Katerina propone el formato, el precio y la lista de materiales en la fase de «Condiciones», cuando conoce su empresa. ¿Le reservo una llamada? Horas libres, por ejemplo:",["Lun 10:00","Lun 16:30","Mar 11:00"],s8)}
+  function s8(v){L.slot=v;bot("Anotado: <b>"+v+"</b>. ¿Cómo se llama y dónde prefiere recibir la confirmación?",["Ana, por correo","Ana, por Instagram"],s9)}
+  function s9(v){L.contact=v;
+    bot("Listo, Ana. Llamada con Katerina: <b>"+L.slot+"</b>, en "+L.lang.toLowerCase()+". Le llegará la confirmación "+v.replace("Ana, ","")+" y Katerina le responderá en un día laborable como máximo. Si quiere añadir algo, escriba aquí a cualquier hora.",[],null,function(){
+      done=true;setTimeout(function(){var e=node("endbar","Fin de la demo. Así puede trabajar Lucía en su web las 24 horas.<br><button type='button' id='seeMgr'>Qué verá el administrador</button>");e.querySelector("button").onclick=showMgr;setTimeout(function(){if($("mgr").hidden&&!L.seen)showMgr()},3000)},600)})}
+
+  function card(){var c=$("mchat");c.innerHTML="";var m=document.createElement("div");m.className="m";
+    m.innerHTML="<span class='tm'>23:"+("0"+Math.max(clock[1],46)).slice(-2)+"</span><b>Nueva solicitud de Lucía</b><div class='kv'>"+
+    "<span>Cliente</span><span>Ana, "+L.contact.replace("Ana, ","")+"</span>"+
+    "<span>Le preocupa</span><span>"+L.pain.toLowerCase()+"</span>"+
+    "<span>Formato</span><span>"+F[L.fmt][1]+"</span>"+
+    "<span>Equipo</span><span>"+L.team+"</span>"+
+    "<span>Idioma</span><span>"+L.lang.toLowerCase()+"</span>"+
+    "<span>Datos</span><span>"+L.data.toLowerCase()+"</span>"+
+    "<span>Llamada</span><span>"+L.slot+"</span>"+
+    "<span>Resumen</span><span>escribió a las 23:41, con la web cerrada; respuesta al momento</span></div><button type='button'>Abrir la conversación</button>";c.appendChild(m)}
+  function showMgr(){L.seen=true;
+    if(!done){L={pain:"Los datos se recopilan a mano",fmt:"diag",team:"5–10 personas",lang:"Español",data:"Sí, sin problema",slot:"Lun 10:00",contact:"Ana, por correo",seen:true};
+      $("mtext").textContent="Así llega la solicitud después de hablar con Lucía. Recorra la conversación en el chat de la esquina inferior derecha para ver cómo la prepara.";}
+    card();$("mgr").hidden=false}
+  function open(){$("teaser").hidden=true;$("widget").hidden=false;if(!started){started=true;s1()}}
+  $("launch").onclick=function(){if($("widget").hidden)open();else $("widget").hidden=true};
+  $("teaser").onclick=open;$("close").onclick=function(){$("widget").hidden=true};
+  document.querySelectorAll("[data-open]").forEach(function(b){b.onclick=open});
+  $("closeMgr").onclick=function(){$("mgr").hidden=true};
+  function contact(){$("contact").hidden=false;$("copyOk").textContent=""}
+  $("openContact").onclick=contact;$("mgrContact").onclick=contact;
+  $("closeContact").onclick=function(){$("contact").hidden=true};
+  $("contact").onclick=function(e){if(e.target===this)this.hidden=true};
+  $("copyBtn").onclick=function(){var a="katerina@lacifra.co";
+    function ok(){$("copyOk").textContent="Dirección copiada."}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(a).then(ok,fallback);else fallback();
+    function fallback(){var i=document.createElement("input");i.value=a;document.body.appendChild(i);i.select();try{document.execCommand("copy");ok()}catch(e){$("copyOk").textContent=a}i.remove()}};
+  var mobile=window.matchMedia("(max-width:560px)").matches;
+  setTimeout(function(){if(!started)$("teaser").hidden=false},mobile?4000:2000);
+})();
+</script>
+</body>
+</html>
