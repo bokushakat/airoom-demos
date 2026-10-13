@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Ремонт квартир в Казани | Смарт Ремонт</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0a0a0b;--card:#141416;--card2:#1c1c1f;--line:rgba(255,255,255,.1);--text:#f4f4f5;--mute:#a1a1aa;--mute2:#8a8a82;
+  --gold:#d4a853;--gold2:#e8c46e;--grad:linear-gradient(135deg,#d4a853,#e8c46e 50%,#d4a853);--ok:#4ade80;
+  --paper:#f6f4ef;--ink:#1c1c1f;--lmute:#5f5e58;--lline:#e6e1d6;--cream:#fbf3df;
+  --f:"Inter",Arial,sans-serif;--fh:"Montserrat","Inter",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text);font-family:var(--f);font-size:16px;line-height:1.5;overflow-x:hidden}
+button,input{font:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* ===== первый экран (как на smart-remont.com) ===== */
+.hero{position:relative;width:100%;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;background:var(--bg)}
+.hero .bg{position:absolute;inset:0;background:url("https://smart-remont.com/slider-1.jpg") center/cover no-repeat;animation:zoom 30s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,.45) 45%,rgba(10,10,11,.92) 100%);pointer-events:none}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.1)}}
+.wrap{position:relative;padding-left:clamp(16px,6vw,124px);padding-right:clamp(16px,6vw,112px)}
+.head{position:relative;z-index:3;width:100%}
+.head .top{display:flex;align-items:center;gap:clamp(14px,2vw,32px);height:72px}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none;flex:none}
+.logo img{width:46px;height:46px;object-fit:contain;margin:0 -6px}
+.logo b{font-family:var(--fh);font-weight:700;font-size:19px;color:#fff;white-space:nowrap}
+.menu{display:flex;gap:clamp(14px,2.2vw,32px);font-size:15px;color:#d4d4d8;letter-spacing:.01em}
+.menu span{white-space:nowrap}
+.phones{display:flex;align-items:center;gap:14px;margin-left:auto;font-size:15px;font-weight:500;color:var(--gold);white-space:nowrap}
+.phones i{width:1px;height:20px;background:rgba(255,255,255,.35)}
+.btn-h{border:0;border-radius:6px;background:var(--grad);color:#0a0a0b;font-weight:600;font-size:15px;padding:12px 24px;cursor:pointer;white-space:nowrap;box-shadow:0 8px 24px rgba(212,168,83,.25)}
+.mph,.burger{display:none}
+.mph{margin-left:auto;width:40px;height:40px;border:0;background:none;padding:8px;cursor:pointer}
+.burger{width:40px;height:40px;border:0;background:none;padding:10px 8px;flex-direction:column;justify-content:space-between;cursor:pointer}
+.burger i{display:block;height:2px;background:#fff;border-radius:2px}
+.hbody{position:relative;z-index:2;flex:1;width:100%;display:flex;align-items:center;justify-content:center;text-align:center}
+.htxt{max-width:900px;padding-top:clamp(40px,8vh,90px);padding-bottom:clamp(80px,14vh,140px)}
+h1{margin:0;font-family:var(--fh);font-weight:800;font-size:clamp(38px,6vw,88px);line-height:1.05;letter-spacing:-.02em;color:#fff;text-wrap:balance}
+h1 span{display:block}
+.sub{margin:28px auto 0;max-width:640px;font-size:clamp(16px,1.3vw,17px);line-height:1.6;color:#b4b4bb}
+.btn-b{margin-top:38px;border:0;border-radius:6px;padding:17px 34px;background:var(--grad);color:#0a0a0b;font-weight:600;font-size:16px;letter-spacing:.02em;cursor:pointer;box-shadow:0 12px 30px rgba(212,168,83,.3);position:relative;overflow:hidden}
+.btn-b::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);animation:glare 3.5s ease-in-out infinite}
+@keyframes glare{0%,60%{left:-60%}100%{left:130%}}
+@media (max-width:1280px){.menu{display:none}}
+@media (max-width:860px){.phones,.btn-h{display:none}.mph,.burger{display:flex}.logo b{display:none}.head .top{height:60px;gap:4px}}
+@media (max-width:560px){.htxt{padding-top:20px;padding-bottom:150px}.btn-b{width:100%;padding:16px 20px}}
+
+/* ===== чат ===== */
+.launch{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:40;width:68px;height:68px;border-radius:50%;border:3px solid var(--gold);padding:0;cursor:pointer;background:#333 url("https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=240&h=240&fit=crop&crop=faces&facepad=3") center/cover;box-shadow:0 10px 26px rgba(0,0,0,.5)}
+.launch::before{content:"";position:absolute;inset:-9px;border-radius:50%;border:2px solid var(--gold2);opacity:.9;animation:ring 1.8s infinite}
+.launch::after{content:"";position:absolute;right:0;bottom:0;width:14px;height:14px;border-radius:50%;background:var(--ok);border:2px solid #0a0a0b}
+@keyframes ring{0%{transform:scale(.92);opacity:.8}100%{transform:scale(1.25);opacity:0}}
+.teaser{position:fixed;right:104px;bottom:calc(36px + env(safe-area-inset-bottom,0px));z-index:40;background:var(--card2);color:var(--text);border:1px solid rgba(212,168,83,.35);border-radius:12px 12px 4px 12px;padding:11px 14px;font-size:14px;line-height:1.35;box-shadow:0 10px 30px rgba(0,0,0,.45);max-width:250px;cursor:pointer;animation:in .4s ease-out}
+.teaser b{display:block;font-size:12.5px;font-weight:600;margin-bottom:2px;color:var(--gold)}
+.widget{position:fixed;right:22px;bottom:calc(104px + env(safe-area-inset-bottom,0px));z-index:45;width:min(392px,calc(100vw - 32px));height:min(640px,calc(100vh - 140px));height:min(640px,calc(100svh - 140px));background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.6);display:flex;flex-direction:column;overflow:hidden;animation:in .3s ease-out}
+@media (max-width:560px){.widget{right:12px;left:12px;width:auto;bottom:calc(100px + env(safe-area-inset-bottom,0px))}.teaser{right:100px;max-width:210px}}
+.wh{background:linear-gradient(135deg,#1c1410,#0a0a0b);border-bottom:1px solid rgba(212,168,83,.35);padding:12px 16px;display:flex;gap:11px;align-items:center}
+.av{width:42px;height:42px;border-radius:50%;background:#333 url("https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=160&h=160&fit=crop&crop=faces&facepad=3") center/cover;position:relative;flex:none;border:2px solid var(--gold)}
+.wh .av::after{content:"";position:absolute;right:-2px;bottom:-2px;width:11px;height:11px;border-radius:50%;background:var(--ok);border:2px solid #0a0a0b}
+.wh b{display:block;font-size:15px;font-weight:600}.wh small{color:var(--mute);font-size:12px}
+.wh .x{margin-left:auto;background:none;border:0;color:var(--mute);font-size:26px;cursor:pointer;line-height:1}
+.msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:9px;background:var(--bg)}
+.msgs>*{flex-shrink:0}
+.b{max-width:88%;padding:10px 13px;border-radius:12px;font-size:14px;line-height:1.45;animation:in .3s ease-out}
+.b.bot{background:var(--card2);border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
+.b.me{background:var(--grad);color:#0a0a0b;border-bottom-right-radius:4px;align-self:flex-end;font-weight:500}
+.b b{font-weight:600;color:var(--gold2)}.b.me b{color:#0a0a0b}
+.b .t{display:block;font-size:11px;opacity:.55;margin-top:3px;text-align:right}
+.b.file{display:flex;gap:10px;align-items:center}
+.b.file .ic{width:30px;height:36px;border-radius:5px;background:rgba(0,0,0,.18);display:grid;place-items:center;font-size:10px;font-weight:700}
+.proj{align-self:flex-start;width:88%;background:var(--card2);border:1px solid var(--line);border-radius:12px;overflow:hidden;animation:in .3s ease-out}
+.proj img{width:100%;height:180px;object-fit:cover;display:block;background:#222}
+.proj .pi{padding:10px 12px;font-size:13.5px;line-height:1.4}
+.proj .pi b{display:block;font-size:14.5px;font-weight:600}
+.proj .pi .kv{display:grid;grid-template-columns:auto 1fr;gap:1px 10px;margin-top:5px}
+.proj .pi .kv span:nth-child(odd){color:var(--mute)}
+.proj .pi a{display:inline-block;margin-top:7px;font-weight:600;color:var(--gold);text-underline-offset:3px}
+.endplate{align-self:stretch;background:var(--cream);border-radius:12px;color:var(--ink);padding:12px 14px;font-size:14px;animation:in .3s ease-out}
+.endplate button{margin-top:9px;width:100%;border:0;border-radius:6px;padding:12px;background:var(--grad);color:#0a0a0b;font-weight:600;cursor:pointer}
+.typing{align-self:flex-start;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:11px 13px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#71717a;animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{50%{opacity:.25}}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.qr{display:flex;flex-wrap:wrap;gap:7px;padding:10px 14px;border-top:1px solid var(--line);max-height:48%;overflow-y:auto;background:var(--card)}
+.qr:empty{display:none}
+.qr button{border:1px solid rgba(212,168,83,.45);border-radius:8px;color:var(--text);background:var(--card2);padding:8px 12px;font-size:13px;font-weight:500;cursor:pointer;text-align:left;line-height:1.3}
+.qr button:hover{border-color:var(--gold);background:#241e14}
+.qr.pics button{flex:1 1 calc(50% - 7px);min-width:0;padding:0;overflow:hidden;display:flex;flex-direction:column;font-size:12.5px;line-height:1.25}
+.qr.pics img{width:100%;height:78px;object-fit:cover;display:block;background:#222}
+.qr.pics span{padding:7px 8px;overflow-wrap:anywhere}
+.inp{display:flex;gap:8px;padding:10px 14px 14px;background:var(--card)}
+.inp input{flex:1;min-width:0;background:var(--bg);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:10px 14px;font-size:14px}
+.inp button{border:0;border-radius:8px;width:42px;height:42px;background:var(--grad);color:#0a0a0b;cursor:pointer;font-weight:700}
+
+/* ===== экран менеджера ===== */
+.mgr{position:fixed;inset:0;z-index:60;background:rgba(10,10,11,.95);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;overflow-y:auto;animation:in .3s ease-out;color:#fff}
+.mbox{display:grid;grid-template-columns:auto minmax(0,360px);gap:32px;align-items:center;max-width:840px;width:100%}
+@media (max-width:760px){.mbox{grid-template-columns:1fr;gap:20px}.mside{order:-1}}
+.phn{background:#000;border-radius:34px;padding:9px;width:min(340px,100%);margin:0 auto;box-shadow:0 30px 70px rgba(0,0,0,.5);border:1px solid #333}
+.scr{background:#DCE6EE;border-radius:26px;overflow:hidden;color:#16202A;font-family:"Helvetica Neue",Arial,sans-serif}
+.th{background:#fff;padding:11px 14px;display:flex;gap:10px;align-items:center;font-size:13.5px;border-bottom:1px solid #D5DEE6}
+.th .lg{width:32px;height:32px;border-radius:50%;background:#0a0a0b url("https://smart-remont.com/logo-sr.png") center/80% no-repeat;flex:none}
+.th small{display:block;color:#76766E;font-size:11.5px}
+.chat{padding:22px 12px 14px;display:flex;flex-direction:column;gap:8px}
+.m{background:#fff;border-radius:14px 14px 14px 4px;padding:10px 12px;font-size:13px;line-height:1.4;border-left:4px solid var(--gold);animation:in .35s ease-out;color:#16202A}
+.m .tm{float:right;color:#76766E;font-size:11px;margin-left:8px}
+.m .kv{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin-top:6px}
+.m .kv span:nth-child(odd){color:#76766E}
+.m .mb{margin-top:8px;width:100%;border-radius:8px;padding:9px;background:var(--grad);color:#0a0a0b;font-weight:600;text-align:center}
+.mside h3{margin:0;font-family:var(--fh);font-weight:800;font-size:clamp(24px,2.6vw,32px);line-height:1.15}
+.mside p{color:#c4c4cc;margin:12px 0 0;font-size:15.5px}
+.mside ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px}
+.mside li{display:flex;gap:10px}.mside li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:8px;flex:none}
+.mbtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.mbtns button{padding:14px 24px;border-radius:6px;cursor:pointer;font-weight:600;font-size:15px}
+.btn-g{border:0;background:var(--grad);color:#0a0a0b}
+.btn-l{border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff}
+
+/* ===== предложение ниже первого экрана ===== */
+.offer{background:var(--paper);color:var(--ink);width:100%;padding-top:clamp(56px,8vw,96px);padding-bottom:40px}
+.offer .in{max-width:1170px;margin:0 auto}
+.offer h2{font-family:var(--fh);font-weight:800;font-size:clamp(26px,3.2vw,40px);line-height:1.15;margin:0 0 26px}
+.offer .lead{color:var(--lmute);max-width:66ch;margin:-12px 0 28px}
+.loss{display:grid;gap:12px;margin-bottom:clamp(56px,8vw,90px)}
+.lrow{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--lline)}
+.lrow>div{padding:18px 20px}
+.lrow small{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;font-weight:700}
+.lrow .now small{color:var(--lmute)}.lrow .ai{background:var(--cream)}.lrow .ai small{color:#a7802f}
+@media (max-width:700px){.lrow{grid-template-columns:1fr}}
+.why{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,56px);align-items:start;margin-bottom:clamp(56px,8vw,90px)}
+@media (max-width:860px){.why{grid-template-columns:1fr}}
+.reasons{display:grid;gap:14px;counter-reset:r}
+.reason{display:grid;grid-template-columns:44px 1fr;gap:14px;background:#fff;border:1px solid var(--lline);border-radius:12px;padding:16px 18px}
+.reason::before{counter-increment:r;content:counter(r);width:36px;height:36px;border-radius:50%;background:var(--grad);color:#0a0a0b;display:grid;place-items:center;font-weight:700}
+.reason b{display:block;margin-bottom:2px;font-weight:600}
+.reason span{color:var(--lmute);font-size:15px}
+.sample{background:#DCE6EE;border-radius:14px;padding:18px 14px;position:sticky;top:20px}
+.sample .cap{font-size:13px;color:#5b6773;margin:0 4px 10px}
+.final{background:var(--bg);color:#fff;border-radius:14px;padding:clamp(26px,4vw,44px);display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap;border-bottom:3px solid var(--gold)}
+.final h3{font-family:var(--fh);font-weight:800;font-size:clamp(24px,3vw,34px);line-height:1.1;margin:0 0 10px}
+.final p{margin:0;color:#c4c4cc;max-width:52ch}
+.final button{border:0;border-radius:6px;background:var(--grad);color:#0a0a0b;padding:18px 32px;font-weight:600;cursor:pointer;font-size:17px}
+.fine{max-width:1170px;margin:28px auto 0;font-size:12px;color:#8a877e;line-height:1.5}
+
+.modal{position:fixed;inset:0;z-index:70;background:rgba(10,10,11,.7);display:grid;place-items:center;padding:16px}
+.mcard{background:#fff;color:var(--ink);border-radius:14px;padding:26px;max-width:440px;width:100%;position:relative;animation:in .25s ease-out}
+.mcard h4{margin:0 0 6px;font-size:18px;font-weight:700}
+.mcard p{margin:0 0 14px;color:var(--lmute);font-size:14.5px}
+.mail{font-size:clamp(20px,5.4vw,26px);font-weight:700;color:#a7802f;word-break:break-all;margin-bottom:18px}
+.mrow{display:flex;gap:10px;flex-wrap:wrap}
+.mcard a,.mcard .cp{flex:1;min-width:150px;text-align:center;padding:12px 14px;border-radius:6px;font-weight:600;text-decoration:none;cursor:pointer;font-size:15px}
+.mcard a{background:var(--grad);color:#0a0a0b}
+.mcard .cp{border:1.5px solid var(--lline);background:#fff;color:var(--ink)}
+.mcard .cl{position:absolute;right:14px;top:8px;border:0;background:none;font-size:24px;cursor:pointer;color:#8e98a3}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="bg" aria-hidden="true"></div>
+  <header class="head">
+    <div class="top wrap">
+      <a class="logo" href="#" aria-label="Смарт Ремонт"><img src="https://smart-remont.com/logo-sr.png" alt="" referrerpolicy="no-referrer"><b>Смарт Ремонт</b></a>
+      <nav class="menu"><span>Услуги</span><span>Портфолио</span><span>Цены</span><span>О нас</span><span>Блог</span><span>Контакты</span></nav>
+      <div class="phones"><span>+7 (937) 288-81-18</span><i></i><span>+7 (843) 245-64-74</span></div>
+      <button class="btn-h" type="button" data-open>Бесплатный замер</button>
+      <button class="mph" type="button" data-open aria-label="Позвонить"><svg viewBox="0 0 24 24" fill="none" stroke="#d4a853" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></button>
+      <button class="burger" type="button" aria-label="Меню"><i></i><i></i><i></i></button>
+    </div>
+  </header>
+  <div class="hbody wrap">
+    <div class="htxt">
+      <h1><span>Ремонт квартир</span><span>и домов в Казани</span></h1>
+      <p class="sub">Профессиональный ремонт жилой и коммерческой недвижимости. Гарантия на все работы 2 года. Бесплатный замер в день обращения.</p>
+      <button class="btn-b" type="button" data-open>Рассчитать стоимость</button>
+    </div>
+  </div>
+</section>
+
+<section class="offer">
+  <div class="wrap"><div class="in">
+    <h2>Где сайт сейчас теряет клиентов</h2>
+    <p class="lead">Всё ниже проверено на smart-remont.com. Слева то, что видит клиент сейчас. Справа то, что он получит с Алиной.</p>
+    <div class="loss">
+      <div class="lrow"><div class="now"><small>Сейчас</small>Калькулятор обещает «Ответьте на 6 вопросов и получите предварительную смету за 2 минуты». Клиент отвечает на 5 вопросов, а на шестом шаге видит «Куда прислать расчёт?»: имя и телефон обязательны, только потом кнопка «Получить расчёт».</div><div class="ai"><small>С Алиной</small>Расчёт сразу в чате по вашим ценам от 7 000, 15 000 и 25 000 ₽/м², с вашим проектом из портфолио. Контакт клиент оставляет уже после цены, когда записывается на замер.</div></div>
+      <div class="lrow"><div class="now"><small>Сейчас</small>В подвале сайта «Пн–Сб: 9:00–20:00», на странице контактов «Пн–Пт 9:00–19:00, Сб 10:00–16:00, Воскресенье выходной». Форма обещает «Мы перезвоним в течение 15 минут», но вечером и в воскресенье заявка ждёт следующего рабочего дня.</div><div class="ai"><small>С Алиной</small>Ответ прямо на сайте, в 23:41 и в воскресенье так же, как днём. Утром менеджер получает готовую карточку клиента.</div></div>
+      <div class="lrow"><div class="now"><small>Сейчас</small>Онлайн-чата на сайте нет. Клиент может позвонить, оставить заявку в форме или перейти в WhatsApp, Telegram, VK или Max и ждать ответа.</div><div class="ai"><small>С Алиной</small>Клиент получает ответ на месте, без перехода в мессенджер, и сразу видит ваши проекты: квартиры на Дзержинского, в ЖК Савин Хаус и ЖК Шаляпин, дом на Тякина.</div></div>
+    </div>
+
+    <div class="why">
+      <div>
+        <h2>5 причин, почему это приведёт вам клиентов</h2>
+        <div class="reasons">
+          <div class="reason"><div><b>Цена до контакта</b><span>Клиент ремонта сравнивает несколько компаний. Кто первым показал цену и записал на замер, к тому он и едет.</span></div></div>
+          <div class="reason"><div><b>Работает вечером и в воскресенье</b><span>Алина отвечает, когда офис закрыт, считает ремонт и записывает на замер на ближайший рабочий день.</span></div></div>
+          <div class="reason"><div><b>Продаёт вашими аргументами</b><span>Гарантия 2 года по договору, фиксированная цена в договоре, замер в день обращения, смета через 2 часа, 457+ выполненных проектов.</span></div></div>
+          <div class="reason"><div><b>Показывает ваши работы</b><span>Проект под тип объекта и ремонта клиента: площадь, срок и фото из вашего портфолио, плюс ваши видео.</span></div></div>
+          <div class="reason"><div><b>Менеджер получает готового клиента</b><span>Объект, тип ремонта, площадь, комнаты, состояние, расчёт, дизайн-проект и время замера уже в карточке. Не нужно перезванивать и выяснять.</span></div></div>
+        </div>
+      </div>
+      <div class="sample"><p class="cap">Так выглядит заявка в Telegram менеджера</p><div class="m" id="sampleCard"></div></div>
+    </div>
+
+    <div class="final">
+      <div><h3>Алина на вашем сайте</h3><p>Настрою консультанта по вашим ценам, калькулятору и проектам и покажу, как заявки приходят менеджеру. Ответьте на письмо или напишите мне.</p></div>
+      <button type="button" data-mail>Написать Екатерине</button>
+    </div>
+  </div></div>
+  <p class="fine wrap">Демо подготовлено LACIFRA (Екатерина). Это не сайт компании «Смарт Ремонт»: логотип, фото, цены и тексты взяты с сайта smart-remont.com только для демонстрации. Заявки из демо никуда не отправляются.</p>
+</section>
+
+<div class="teaser" id="teaser" hidden><b>Алина, Смарт Ремонт</b>Добрый вечер! Подсказать стоимость ремонта?</div>
+<button class="launch" id="launch" type="button" aria-label="Открыть чат с консультантом"></button>
+
+<div class="widget" id="widget" hidden aria-live="polite">
+  <div class="wh"><div class="av"></div><div><b>Алина, Смарт Ремонт</b><small>ИИ-консультант, онлайн 24/7</small></div><button class="x" type="button" id="close" aria-label="Свернуть чат">×</button></div>
+  <div class="msgs" id="msgs"></div>
+  <div class="qr" id="qr"></div>
+  <div class="inp"><input id="txt" placeholder="Напишите сообщение" autocomplete="off"><button type="button" id="sendTxt" aria-label="Отправить">→</button></div>
+</div>
+
+<div class="mgr" id="mgr" hidden>
+  <div class="mbox">
+    <div class="phn"><div class="scr">
+      <div class="th"><div class="lg"></div><div><b>Заявки Смарт Ремонт</b><small>бот в Telegram, для менеджера</small></div></div>
+      <div class="chat"><div class="m" id="mcard"></div></div>
+    </div></div>
+    <div class="mside">
+      <h3>Утром менеджер видит готового клиента</h3>
+      <p id="mtext">Анна написала в 23:41. Алина сразу ответила, посчитала ремонт по вашим ценам, показала ваш проект и записала на замер.</p>
+      <ul><li>Не нужно перезванивать и выяснять объект, площадь и тип ремонта</li><li>Расчёт и время замера известны до первого звонка</li><li>Клиент увидел цену сразу и не ушёл к тем, кто ответил быстрее</li></ul>
+      <div class="mbtns"><button type="button" class="btn-g" data-mail>Написать Екатерине</button><button type="button" class="btn-l" id="closeMgr">Вернуться к сайту</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="mcard" role="dialog" aria-label="Контакт Екатерины">
+    <button class="cl" type="button" id="mclose" aria-label="Закрыть">×</button>
+    <h4>Екатерина, LACIFRA</h4>
+    <p>Напишите, и я покажу, как Алина будет работать на сайте «Смарт Ремонт».</p>
+    <div class="mail">katerina@lacifra.co</div>
+    <div class="mrow"><a id="mailto" href="mailto:katerina@lacifra.co">Написать на почту</a><button class="cp" type="button" id="copy">Скопировать адрес</button></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var NAME="Смарт Ремонт",SITE="https://smart-remont.com/";
+  $("mailto").href="mailto:katerina@lacifra.co?subject="+encodeURIComponent("Алина для «Смарт Ремонт»");
+  // калькулятор smart-remont.com/calculator: «Что планируете ремонтировать?»
+  var OBJ=[["Квартира",SITE+"uploads/home-kvartiry.jpg"],["Дом / Коттедж",SITE+"uploads/home-doma.jpg"],["Офис",SITE+"portfolio-5-after.jpg"],["Магазин / Бутик",SITE+"portfolio-3-after.jpg"],["Ресторан / Кафе",""],["Другое",""]];
+  // «Средние цены на ремонт в Казани», ₽/м²: [квартира и дом], [коммерческая]
+  var T={
+    kos:{n:"Косметический",d:"покраска, обои, ламинат",term:"от 20 дней",res:[7000,17000],com:[7000,13000]},
+    kap:{n:"Капитальный",d:"электрика, сантехника, выравнивание",term:"от 40 дней",res:[15000,40000],com:[15000,30000]},
+    kom:{n:"Комфорт/Комфорт+",d:"премиум материалы, идеальные поверхности",term:"от 45 дней",res:[25000,48000],com:[22000,40000]},
+    diz:{n:"Дизайнерский",d:"авторский проект, 3D, эксклюзив",term:"от 85 дней",res:[38000,70000],com:[30000,55000]}};
+  var AREAS=["20 м²","35 м²","50 м²","75 м²","100 м²","150 м²","150+ м²"];
+  var ROOMS=["Студия","1","2","3","4+"];
+  var STATE=["Новостройка (без отделки)","Вторичка (с отделкой)","Вторичка (без отделки)"];
+  var STATE_TIP={"Новостройка (без отделки)":"Черновая отделка от застройщика: в новостройке закладываем выравнивание стен.","Вторичка (с отделкой)":"Нужен демонтаж старых покрытий, он войдёт в смету.","Вторичка (без отделки)":"Помещение подготовлено под ремонт, демонтаж не нужен."};
+  // портфолио smart-remont.com/portfolio
+  var PR={
+    kv1:{t:"Квартира по ул. Дзержинского",k:"Капитальный",a:58,s:"192 дня",ph:SITE+"portfolio-1-after.jpg",d:"полный демонтаж, замена инженерных систем, черновая и чистовая отделка",v:"Мансардная 2-уровневая квартира (капитальный ремонт)"},
+    kv4:{t:"Квартира в ЖК Савин Хаус",k:"Дизайнерский",a:74,s:"249 дней",ph:SITE+"portfolio-4-after.jpg",d:"индивидуальный проект с авторской отделкой и подбором материалов",v:"Безвоздушная покраска стен на квартире 78 м²"},
+    kv6:{t:"Квартира в ЖК Шаляпин",k:"Дизайнерский",a:78,s:"259 дней",ph:SITE+"portfolio-6-after.jpg",d:"продуманная планировка и авторская отделка",v:"Безвоздушная покраска стен на квартире 78 м²"},
+    dom:{t:"Дом по ул. Тякина",k:"Дизайнерский",a:148,s:"325 дней",ph:SITE+"portfolio-2-after.jpg",d:"индивидуальный проект с перепланировкой и авторской отделкой под ключ",v:"Монтаж керамогранита в доме 180 м²"},
+    ofc:{t:"Офис компании Соллерс",k:"Дизайнерский",a:942,s:"191 день",ph:SITE+"portfolio-5-after.jpg",d:"рабочие зоны, переговорные и зоны отдыха в едином корпоративном стиле",v:""},
+    shp:{t:"Магазин одежды в ТЦ Казань Mall",k:"Дизайнерский",a:268,s:"124 дня",ph:SITE+"portfolio-3-after.jpg",d:"торговое пространство, освещение и отделка по фирменному стилю бренда",v:""}};
+  // дизайн-студия smart-remont.com/design-projects, ₽/м²
+  var DES=["Да, полный дизайн-проект","Только 3D-визуализация","Нет, без дизайна"];
+  function rub(v){return Math.round(v).toLocaleString("ru-RU").replace(/\s/g," ")+" ₽"}
+  // неразрывные пробелы в суммах: «7 000 ₽»
+  function nb(s){return s.replace(/(\d) (?=\d{3})/g,"$1 ").replace(/ ₽/g," ₽").replace(/ м²/g," м²").replace(/₽\/м²/g,"₽/⁠м²").replace(/(\d)–(\d)/g,"$1⁠–⁠$2")}
+  var msgs=$("msgs"),qr=$("qr"),clock=[23,41],started=false,done=false,L={},cur=null,nMe=0;
+  function t(adv){if(adv)clock[1]++;if(clock[1]>59){clock[1]=0;clock[0]=(clock[0]+1)%24}return ("0"+clock[0]).slice(-2)+":"+("0"+clock[1]).slice(-2)}
+  function scroll(){msgs.scrollTop=msgs.scrollHeight}
+  function add(el){msgs.appendChild(el);scroll()}
+  function me(text,file){var d=document.createElement("div");d.className="b me"+(file?" file":"");d.innerHTML=file?"<span class='ic'>PDF</span><span>"+text+"</span>":text+"<span class='t'>"+t((++nMe)%2===0)+"</span>";add(d)}
+  function typing(cb){var ty=document.createElement("div");ty.className="typing";ty.innerHTML="<i></i><i></i><i></i>";add(ty);setTimeout(function(){ty.remove();cb()},800)}
+  // items: строки или {proj:...}/{end:1}; opts: строки или [текст, картинка]
+  function bot(items,opts,next){qr.innerHTML="";qr.className="qr";cur=null;if(typeof items==="string")items=[items];var i=0;
+    (function step(){if(i>=items.length){(opts||[]).forEach(function(o){var bt=document.createElement("button");bt.type="button";
+          if(typeof o==="string"){bt.textContent=nb(o)}else{qr.className="qr pics";bt.innerHTML=(o[1]?"<img src='"+o[1]+"' alt='' referrerpolicy='no-referrer'>":"")+"<span>"+nb(o[0])+"</span>"}
+          bt.onclick=function(){answer(nb(typeof o==="string"?o:o[0]),next)};qr.appendChild(bt)});cur=next;scroll();return}
+      var it=items[i++];typing(function(){
+        if(typeof it==="string"){var d=document.createElement("div");d.className="b bot";d.innerHTML=nb(it)+"<span class='t'>"+t()+"</span>";add(d)}
+        else if(it.proj){var p=it.proj,g=document.createElement("div");g.className="proj";
+          g.innerHTML="<img src='"+p.ph+"' alt='"+p.t+"' referrerpolicy='no-referrer'>"+
+            "<div class='pi'><b>"+p.t+"</b><div class='kv'><span>Ремонт</span><span>"+p.k.toLowerCase()+"</span><span>Площадь</span><span>"+p.a+" м²</span><span>Срок</span><span>"+p.s+"</span></div>"+
+            "<a href='"+SITE+"portfolio' target='_blank' rel='noopener'>Смотреть проект</a></div>";
+          g.querySelector("img").onload=scroll;add(g)}
+        else if(it.end){var e=document.createElement("div");e.className="endplate";e.innerHTML="<b style='color:inherit'>Конец демо.</b> Так Алина может работать на вашем сайте круглосуточно.<button type='button' id='toMgr'>Что увидит менеджер</button>";add(e);$("toMgr").onclick=showMgr}
+        step()})})()}
+  function answer(o,next){qr.innerHTML="";me(o);if(next)setTimeout(function(){next(o)},350)}
+  $("sendTxt").onclick=function(){var v=$("txt").value.trim();if(!v||!cur)return;$("txt").value="";answer(v,cur)};
+  $("txt").addEventListener("keydown",function(e){if(e.key==="Enter")$("sendTxt").click()});
+
+  // ближайшие рабочие дни для замера (воскресенье выходной)
+  var DN=["Вс","Пн","Вт","Ср","Чт","Пт","Сб"],MN=["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
+  function slots(){var r=[],d=new Date();while(r.length<2){d.setDate(d.getDate()+1);if(d.getDay()!==0)r.push(DN[d.getDay()]+" "+d.getDate()+" "+MN[d.getMonth()])}
+    return [r[0]+", 10:00",r[0]+", 15:00",r[1]+", 12:00"]}
+  function isCom(){return L.obj==="Офис"||L.obj==="Магазин / Бутик"||L.obj==="Ресторан / Кафе"}
+  function typeOpts(){return ["kos","kap","kom","diz"].map(function(k){var r=isCom()?T[k].com:T[k].res;return T[k].n+", "+(k==="diz"?"индивидуально":"от "+rub(r[0])+"/м²")}).concat(["Не знаю, нужна консультация"])}
+  function pickProj(){if(L.obj==="Дом / Коттедж")return PR.dom;if(L.obj==="Офис")return PR.ofc;if(isCom())return PR.shp;
+    if(L.k==="kos"||L.k==="kap")return PR.kv1;return L.area>=76?PR.kv6:PR.kv4}
+
+  function s1(){bot("Добрый вечер! Я Алина, консультант «"+NAME+"». Помогу рассчитать стоимость ремонта. Что планируете ремонтировать?",OBJ,s2)}
+  function s2(v){L.obj=v;bot("Какой тип ремонта вам нужен?",typeOpts(),s3)}
+  function s3(v){var k=["kos","kap","kom","diz"].filter(function(x){return v.indexOf(T[x].n)===0})[0];
+    if(!k){k=L.obj==="Квартира"||L.obj==="Дом / Коттедж"?"kap":"kos";L.tc=true;
+      bot(["Подскажу. Косметический это покраска, обои, ламинат. Если нужна новая электрика, сантехника и выравнивание, это капитальный. Пока посчитаю <b>"+T[k].n.toLowerCase()+"</b>, а точнее подберём на замере.","Укажите площадь помещения. Можно написать числом."],AREAS,s4)}
+    else bot(["<b>"+T[k].n+"</b>: "+T[k].d+", сроки "+T[k].term+".","Укажите площадь помещения. Можно написать числом."],AREAS,s4);
+    L.k=k}
+  function s4(v){var n=parseFloat(String(v).replace(",",".").replace(/[^\d.]/g,""));
+    if(!n||n<10||n>5000){bot("Напишите площадь числом, например 55.",AREAS,s4);return}
+    L.area=n;L.areaS=(v.indexOf("+")>0?"от "+n:n)+" м²";
+    if(L.obj==="Квартира"||L.obj==="Дом / Коттедж")bot("Сколько комнат?",ROOMS,s5);else s5("")}
+  function s5(v){L.rooms=v;bot("В каком состоянии помещение сейчас?",STATE,s6)}
+  function s6(v){L.state=v;var tp=T[L.k],r=isCom()?tp.com:tp.res,a=L.area,items=[];
+    L.calc="от "+rub(a*r[0]);L.calcHi=rub(a*r[1]);
+    items.push(STATE_TIP[v]||"");
+    items.push(tp.n+" ремонт, "+L.obj.toLowerCase()+" "+L.areaS+": <b>"+L.calc+"</b> за работы.<br>По нашей таблице средних цен в Казани это "+rub(r[0]).replace(" ₽","")+"–"+rub(r[1])+"/м², то есть "+rub(a*r[0]).replace(" ₽","")+"–"+L.calcHi+". Итог зависит от состояния помещения и материалов. Сроки "+tp.term+".");
+    items.push("Точную стоимость назовём после бесплатного замера, смета через 2 часа. Цена фиксируется в договоре, никаких доплат.");
+    var p=pickProj();L.proj=p.t+", "+p.a+" м²";
+    items.push("Вот наш проект из портфолио: "+p.d+".",{proj:p});
+    if(p.v)items.push("На странице портфолио есть и видео, например «"+p.v+"».");
+    items.push("Нужен дизайн-проект? У нас своя дизайн-студия.");
+    bot(items.filter(Boolean),DES,s7)}
+  function s7(v){var items=[];L.des=v;
+    if(v.indexOf("Да")===0){L.desS="полный дизайн-проект, от "+rub(L.area*1500);items.push("Полный дизайн-проект: планировка, 3D-визуализация, чертежи, спецификация материалов, подбор мебели и декора, авторский надзор. От 1 500 ₽/м², для "+L.areaS+" это <b>от "+rub(L.area*1500)+"</b>.")}
+    else if(v.indexOf("Только")===0){L.desS="3D-визуализация, от "+rub(L.area*500);items.push("3D-визуализация: фотореалистичные рендеры будущего интерьера, неограниченное количество правок. От 500 ₽/м², для "+L.areaS+" это <b>от "+rub(L.area*500)+"</b>.")}
+    else{L.desS="не нужен";items.push("Хорошо, обойдёмся без дизайна.")}
+    items.push("Предлагаю бесплатный замер: замерщик приедет, снимет размеры, а смету пришлём через 2 часа. Можно сначала прислать планировку, чтобы он посмотрел её заранее.");
+    bot(items,["Записаться на замер","Сначала пришлю планировку"],s8)}
+  function s8(v){if(v==="Сначала пришлю планировку"){L.pdf=true;qr.innerHTML="";setTimeout(function(){me("планировка.pdf",true);setTimeout(function(){bot(["Получила планировку, утром передам замерщику.","Выберите удобное время замера:"],slots(),s9)},350)},300)}
+    else{L.pdf=false;bot("Выберите удобное время замера:",slots(),s9)}}
+  function s9(v){L.slot=v;bot("Как к вам обращаться и куда прислать подтверждение?",["Анна, в Telegram","Анна, в WhatsApp","Анна, в Max","Анна, позвоните"],s10)}
+  function s10(v){L.contact=v;done=true;var ch=["Telegram","WhatsApp","Max"].filter(function(x){return v.indexOf(x)>0})[0];
+    bot(["Готово, Анна! Замер: <b>"+L.slot+"</b>. "+(ch?"Подтверждение пришлю в "+ch+".":"Менеджер позвонит утром и подтвердит время.")+(L.pdf?" Планировку уже передаю замерщику.":"")+" Если появятся вопросы, пишите сюда в любое время.",{end:1}],[],null);
+    setTimeout(function(){if($("mgr").hidden)showMgr()},800*2+3000)}
+
+  function cardHTML(d){return "<span class='tm'>23:"+(d.min||"48")+"</span><b>Новый клиент от Алины</b><div class='kv'>"+
+    "<span>Клиент</span><span>"+d.contact+"</span><span>Объект</span><span>"+d.obj+"</span><span>Площадь</span><span>"+d.areaS+"</span>"+
+    "<span>Состояние</span><span>"+d.state+"</span><span>Ремонт</span><span>"+d.tarif+"</span><span>Расчёт</span><span>работы "+d.calc+"</span>"+
+    "<span>Дизайн</span><span>"+d.desS+"</span><span>Смотрела</span><span>"+d.proj+"</span>"+
+    "<span>Замер</span><span>"+d.slot+"</span><span>План</span><span>"+(d.pdf?"PDF приложен":"нет")+"</span></div><div class='mb'>Открыть диалог</div>"}
+  var DEMO={obj:"квартира, 2 комнаты",areaS:"50 м²",state:"вторичка (с отделкой)",tarif:"капитальный, от 15 000 ₽/м²",calc:"от "+rub(50*15000),desS:"не нужен",proj:"Квартира по ул. Дзержинского, 58 м²",slot:slots()[0],pdf:true,contact:"Анна, Telegram"};
+  $("sampleCard").innerHTML=nb(cardHTML(DEMO));
+  function showMgr(){var d;
+    if(!done){d=DEMO;$("mtext").textContent="Так выглядит карточка клиента после разговора с Алиной. Пройдите диалог в чате справа внизу, чтобы увидеть, как она её собирает."}
+    else{var ch=["Telegram","WhatsApp","Max"].filter(function(x){return L.contact.indexOf(x)>0})[0];
+      d={obj:L.obj.toLowerCase()+(L.rooms?", "+(L.rooms==="Студия"?"студия":"комнат: "+L.rooms):""),areaS:L.areaS,state:L.state.toLowerCase(),
+        tarif:T[L.k].n.toLowerCase()+", от "+rub((isCom()?T[L.k].com:T[L.k].res)[0])+"/м²"+(L.tc?" (подобрала Алина)":""),calc:L.calc,desS:L.desS,proj:L.proj,slot:L.slot,pdf:L.pdf,
+        contact:ch?"Анна, "+ch:"Анна, позвонить утром",min:("0"+clock[1]).slice(-2)};
+      $("mtext").textContent="Анна написала в 23:41, когда офис уже закрыт. Алина сразу ответила, посчитала ремонт по вашим ценам, показала ваш проект и записала на замер."}
+    $("mcard").innerHTML=nb(cardHTML(d));$("mgr").hidden=false}
+  // фото объектов и проектов грузим заранее, чтобы кнопки и карточки не мигали пустыми
+  function preload(){OBJ.map(function(o){return o[1]}).concat(Object.keys(PR).map(function(k){return PR[k].ph})).filter(Boolean).forEach(function(u){var i=new Image();i.referrerPolicy="no-referrer";i.src=u})}
+  function open(){$("teaser").hidden=true;$("widget").hidden=false;if(!started){started=true;preload();s1()}}
+  function hide(){$("widget").hidden=true}
+  $("launch").onclick=function(){if($("widget").hidden)open();else hide()};
+  $("teaser").onclick=open;$("close").onclick=hide;
+  document.querySelectorAll("[data-open]").forEach(function(b){b.onclick=open});
+  $("closeMgr").onclick=function(){$("mgr").hidden=true};
+  document.querySelectorAll("[data-mail]").forEach(function(b){b.onclick=function(){$("modal").hidden=false}});
+  $("mclose").onclick=function(){$("modal").hidden=true};
+  $("modal").onclick=function(e){if(e.target===this)this.hidden=true};
+  $("copy").onclick=function(){var b=this;function ok(){b.textContent="Скопировано"}
+    try{navigator.clipboard.writeText("katerina@lacifra.co").then(ok,fb)}catch(e){fb()}
+    function fb(){var i=document.createElement("input");i.value="katerina@lacifra.co";document.body.appendChild(i);i.select();try{document.execCommand("copy");ok()}catch(e){}i.remove()}};
+  setTimeout(function(){if(!started)$("teaser").hidden=false},window.innerWidth<600?4000:2000);
+})();
+</script>
+</body>
+</html>
