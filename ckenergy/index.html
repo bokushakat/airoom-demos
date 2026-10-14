@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Energy, ремонт квартир под ключ без стресса в Казани</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;700;800&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --ink:#070200;--brand:#f1a000;--brand2:#d98f00;--soft:#fff5e0;--paper:#f4f4f5;--grey:#a9aeb8;--mute:#6b6f78;--line:#e4e5e8;--ok:#2fb36a;
+  --f:"Onest",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.45;overflow-x:hidden}
+button,input{font:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+/* ===== первый экран (как на ck-energy.ru) ===== */
+.hero{position:relative;width:100%;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;background:#1b1612;color:#fff;overflow:hidden}
+.hero .bg{position:absolute;inset:0;background:url("https://www.ck-energy.ru/img/bg__hero.jpg") center top/cover no-repeat;animation:zoom 30s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(7,2,0,.4);pointer-events:none}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.1)}}
+.wrap{position:relative;padding-left:clamp(16px,8.3vw,160px);padding-right:clamp(16px,8.3vw,160px)}
+.head{position:relative;z-index:3;width:100%;background:rgba(7,2,0,.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.head .top{display:flex;align-items:center;gap:clamp(16px,3vw,40px);height:80px;padding-left:clamp(16px,2.8vw,40px);padding-right:0}
+.logo{flex:none;display:block;width:160px;height:144px;align-self:flex-start}
+.logo svg{display:block;width:100%;height:100%}
+.nav{display:flex;gap:clamp(16px,3.3vw,48px);font-size:16px;font-weight:500;line-height:2;margin-right:auto}
+.nav span{cursor:default}
+.conn{display:flex;align-items:stretch;height:100%}
+.conn .ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:var(--brand);padding:0 36px}
+.conn .ph b{font-size:20px;font-weight:400;line-height:1;white-space:nowrap;color:var(--ink)}
+.conn .ph button{background:none;border:0;padding:0;color:#fff;font-size:16px;font-weight:500;text-decoration:underline;text-underline-offset:3px;cursor:pointer;letter-spacing:.02em}
+.conn .ph button:hover{color:var(--ink)}
+.soc{display:flex;flex-direction:column;justify-content:center;gap:8px;font-size:14px;letter-spacing:.02em;background:#fff;color:var(--ink);padding:0 clamp(20px,4.6vw,66px)}
+.soc span{display:flex;align-items:center;gap:8px;line-height:1}
+.soc svg{width:22px;height:22px;flex:none}
+.burger{display:none;margin-left:auto;width:34px;height:28px;border:0;background:none;padding:0;flex-direction:column;justify-content:space-between;cursor:pointer}
+.burger i{display:block;width:100%;height:2px;background:#fff}
+.hbody{position:relative;z-index:2;flex:1;width:100%;display:flex;align-items:center}
+.htxt{padding-top:clamp(70px,12vh,130px);padding-bottom:clamp(60px,10vh,120px);max-width:880px}
+.labels{display:flex;flex-wrap:wrap;gap:8px}
+.labels span{background:var(--brand);color:#fff;border-radius:16px;font-size:14px;line-height:1.15;padding:8px 16px;letter-spacing:-.01em}
+.labels span.alt{background:var(--ink)}
+h1{margin:24px 0 0;font-weight:800;font-size:clamp(32px,4.2vw,62px);line-height:1.15;letter-spacing:.01em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--brand)}
+.btn-b{margin-top:clamp(28px,5vh,44px);border:0;border-radius:0;padding:20px 40px;background:var(--brand);color:#fff;font-weight:500;font-size:17px;letter-spacing:.01em;line-height:1;cursor:pointer;transition:background .25s}
+.btn-b:hover{background:var(--ink)}
+@media (max-width:1180px){.nav{display:none}.conn{margin-left:auto}}
+@media (max-width:820px){.conn{display:none}.burger{display:flex}.head .top{height:64px;padding-right:16px}.logo{width:120px;height:108px}}
+@media (max-width:560px){.htxt{padding-top:70px;padding-bottom:150px}h1{font-size:32px}.btn-b{width:100%;max-width:340px}}
+
+/* ===== чат ===== */
+.launch{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:40;width:68px;height:68px;border-radius:50%;border:3px solid #fff;padding:0;cursor:pointer;background:var(--brand) url("https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=240&h=240&fit=crop&crop=faces&facepad=3") center/cover;box-shadow:0 10px 26px rgba(0,0,0,.4)}
+.launch::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--brand);opacity:.9;animation:ring 1.8s infinite}
+.launch::after{content:"";position:absolute;right:1px;bottom:1px;width:14px;height:14px;border-radius:50%;background:var(--ok);border:2px solid #fff}
+@keyframes ring{0%{transform:scale(.92);opacity:.8}100%{transform:scale(1.25);opacity:0}}
+.teaser{position:fixed;right:102px;bottom:calc(36px + env(safe-area-inset-bottom,0px));z-index:40;background:#fff;color:var(--ink);border-radius:12px 12px 4px 12px;padding:11px 14px;font-size:14px;line-height:1.35;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:250px;cursor:pointer;animation:in .4s ease-out;border:1px solid var(--line)}
+.teaser b{display:block;font-size:12.5px;font-weight:700;margin-bottom:2px;color:var(--brand2)}
+.widget{position:fixed;right:22px;bottom:calc(102px + env(safe-area-inset-bottom,0px));z-index:45;width:min(392px,calc(100vw - 32px));height:min(630px,calc(100vh - 140px));height:min(630px,calc(100svh - 140px));background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.35);display:flex;flex-direction:column;overflow:hidden;animation:in .3s ease-out}
+@media (max-width:560px){.widget{right:12px;left:12px;width:auto;bottom:calc(98px + env(safe-area-inset-bottom,0px))}.teaser{right:98px;max-width:210px}}
+.wh{background:var(--ink);color:#fff;padding:12px 16px;display:flex;gap:11px;align-items:center;border-bottom:3px solid var(--brand)}
+.av{width:42px;height:42px;border-radius:50%;background:var(--brand) url("https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=160&h=160&fit=crop&crop=faces&facepad=3") center/cover;position:relative;flex:none;border:2px solid var(--brand)}
+.wh .av::after{content:"";position:absolute;right:-2px;bottom:-2px;width:11px;height:11px;border-radius:50%;background:var(--ok);border:2px solid var(--ink)}
+.wh b{display:block;font-size:15px;font-weight:700}.wh small{color:rgba(255,255,255,.7);font-size:12px}
+.wh .x{margin-left:auto;background:none;border:0;color:#fff;opacity:.8;font-size:26px;cursor:pointer;line-height:1}
+.msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:9px;background:var(--paper)}
+.msgs>*{flex-shrink:0}
+.b{max-width:88%;padding:10px 13px;border-radius:12px;font-size:14px;line-height:1.45;animation:in .3s ease-out}
+.b.bot{background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
+.b.me{background:var(--brand);color:var(--ink);border-bottom-right-radius:4px;align-self:flex-end}
+.b b{font-weight:700}
+.b .t{display:block;font-size:11px;opacity:.6;margin-top:3px;text-align:right}
+.b.file{display:flex;gap:10px;align-items:center}
+.b.file .ic{width:30px;height:36px;border-radius:5px;background:rgba(255,255,255,.45);display:grid;place-items:center;font-size:10px;font-weight:700}
+.proj{align-self:flex-start;width:88%;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;animation:in .3s ease-out}
+.proj img{width:100%;height:190px;object-fit:cover;display:block;background:#e3e5ea}
+.proj .pi{padding:10px 12px;font-size:13.5px;line-height:1.4}
+.proj .pi small{display:block;color:var(--mute);font-size:12.5px}
+.proj .pi b{display:block;font-size:14.5px;font-weight:700}
+.proj .pi .kv{display:grid;grid-template-columns:auto 1fr;gap:1px 10px;margin-top:5px}
+.proj .pi .kv span:nth-child(odd){color:var(--mute)}
+.proj .pi a{display:inline-block;margin-top:7px;font-weight:500;color:var(--brand2);text-underline-offset:3px}
+.endplate{align-self:stretch;background:var(--soft);border:1px solid #f3d595;border-radius:12px;color:var(--ink);padding:12px 14px;font-size:14px;animation:in .3s ease-out}
+.endplate button{margin-top:9px;width:100%;border:0;border-radius:0;padding:12px;background:var(--ink);color:#fff;font-weight:500;cursor:pointer}
+.endplate button:hover{background:var(--brand)}
+.typing{align-self:flex-start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 13px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#f3c45f;animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{50%{opacity:.25}}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.qr{display:flex;flex-wrap:wrap;gap:7px;padding:10px 14px;border-top:1px solid var(--line);max-height:48%;overflow-y:auto;background:#fff}
+.qr:empty{display:none}
+.qr button{border:1.5px solid #f3d595;border-radius:0;color:var(--ink);background:#fffaf0;padding:8px 12px;font-size:13px;font-weight:500;cursor:pointer;text-align:left;line-height:1.3}
+.qr button:hover{border-color:var(--brand);background:var(--soft)}
+.qr.pics button{flex:1 1 calc(33% - 7px);min-width:0;padding:0;overflow:hidden;display:flex;flex-direction:column;font-size:12.5px;line-height:1.25}
+.qr.pics img{width:100%;height:78px;object-fit:cover;display:block;background:#e3e5ea}
+.qr.pics span{padding:7px 8px;hyphens:manual;overflow-wrap:break-word}
+@media (max-width:560px){.qr.pics button{flex-basis:calc(50% - 4px)}}
+.inp{display:flex;gap:8px;padding:10px 14px 14px;background:#fff}
+.inp input{flex:1;min-width:0;background:#fff;border:1.5px solid var(--line);border-radius:0;color:var(--ink);padding:10px 14px;font-size:14px}
+.inp button{border:0;border-radius:0;width:42px;height:42px;background:var(--ink);color:#fff;cursor:pointer;font-weight:700}
+.inp button:hover{background:var(--brand)}
+
+/* ===== экран менеджера ===== */
+.mgr{position:fixed;inset:0;z-index:60;background:rgba(10,8,6,.95);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;overflow-y:auto;animation:in .3s ease-out;color:#fff}
+.mbox{display:grid;grid-template-columns:auto minmax(0,360px);gap:32px;align-items:center;max-width:840px;width:100%}
+@media (max-width:760px){.mbox{grid-template-columns:1fr;gap:20px}.mside{order:-1}}
+.phn{background:#000;border-radius:34px;padding:9px;width:min(340px,100%);margin:0 auto;box-shadow:0 30px 70px rgba(0,0,0,.5);border:1px solid #333}
+.scr{background:#DCE6EE;border-radius:26px;overflow:hidden;color:#16202A;font-family:"Helvetica Neue",Arial,sans-serif}
+.th{background:#fff;padding:11px 14px;display:flex;gap:10px;align-items:center;font-size:13.5px;border-bottom:1px solid #D5DEE6}
+.th .lg{width:32px;height:32px;border-radius:50%;background:var(--brand);display:grid;place-items:center;color:#fff;font:700 13px var(--f)}
+.th small{display:block;color:#76766E;font-size:11.5px}
+.chat{padding:22px 12px 14px;display:flex;flex-direction:column;gap:8px}
+.m{background:#fff;border-radius:14px 14px 14px 4px;padding:10px 12px;font-size:13px;line-height:1.4;border-left:4px solid var(--brand);animation:in .35s ease-out;color:#16202A}
+.m .tm{float:right;color:#76766E;font-size:11px;margin-left:8px}
+.m .kv{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin-top:6px}
+.m .kv span:nth-child(odd){color:#76766E}
+.m .mb{margin-top:8px;width:100%;border-radius:8px;padding:9px;background:var(--ink);color:#fff;font-weight:600;text-align:center}
+.mside h3{margin:0;font-weight:800;font-size:clamp(26px,3.2vw,36px);line-height:1.15}
+.mside h3 em{font-style:normal;color:var(--brand)}
+.mside p{color:#d9d6d2;margin:12px 0 0;font-size:15.5px}
+.mside ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px}
+.mside li{display:flex;gap:10px}.mside li::before{content:"";width:8px;height:8px;background:var(--brand);margin-top:8px;flex:none}
+.mbtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.mbtns button{padding:15px 22px;border-radius:0;cursor:pointer;font-weight:500;font-size:15px}
+.btn-r{border:0;background:var(--brand);color:#fff}
+.btn-l{border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff}
+
+/* ===== предложение ниже первого экрана ===== */
+.offer{background:var(--paper);color:var(--ink);width:100%;padding-top:clamp(56px,8vw,96px);padding-bottom:40px}
+.offer .in{max-width:1170px;margin:0 auto}
+.offer h2{font-weight:800;font-size:clamp(28px,3.2vw,40px);line-height:1.15;margin:0 0 26px}
+.offer h2 em{font-style:normal;color:var(--brand)}
+.offer .lead{color:var(--mute);max-width:66ch;margin:-12px 0 28px}
+.loss{display:grid;gap:12px;margin-bottom:clamp(56px,8vw,90px)}
+.lrow{display:grid;grid-template-columns:1fr 1fr;background:#fff;overflow:hidden;border:1px solid var(--line)}
+.lrow>div{padding:18px 20px}
+.lrow small{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;font-weight:700}
+.lrow .now small{color:#c2453a}.lrow .ai{background:var(--soft)}.lrow .ai small{color:var(--brand2)}
+@media (max-width:700px){.lrow{grid-template-columns:1fr}}
+.why{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,56px);align-items:start;margin-bottom:clamp(56px,8vw,90px)}
+@media (max-width:860px){.why{grid-template-columns:1fr}}
+.reasons{display:grid;gap:14px;counter-reset:r}
+.reason{display:grid;grid-template-columns:44px 1fr;gap:14px;background:#fff;border:1px solid var(--line);padding:16px 18px}
+.reason::before{counter-increment:r;content:counter(r);width:36px;height:36px;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:700}
+.reason b{display:block;margin-bottom:2px;font-weight:700}
+.reason span{color:var(--mute);font-size:15px}
+.sample{background:#DCE6EE;border-radius:14px;padding:18px 14px;position:sticky;top:20px}
+.sample .cap{font-size:13px;color:#5b6773;margin:0 4px 10px}
+.final{background:var(--ink);color:#fff;padding:clamp(26px,4vw,44px);display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap;border-bottom:4px solid var(--brand)}
+.final h3{font-weight:800;font-size:clamp(26px,3vw,36px);line-height:1.1;margin:0 0 10px}
+.final p{margin:0;color:#d9d6d2;max-width:52ch}
+.final button{border:0;border-radius:0;background:var(--brand);color:#fff;padding:18px 32px;font-weight:500;cursor:pointer;font-size:17px}
+.final button:hover{background:#fff;color:var(--ink)}
+.fine{max-width:1170px;margin:28px auto 0;font-size:12px;color:#868a93;line-height:1.5}
+
+.modal{position:fixed;inset:0;z-index:70;background:rgba(10,8,6,.7);display:grid;place-items:center;padding:16px}
+.mcard{background:#fff;color:var(--ink);padding:26px;max-width:440px;width:100%;position:relative;animation:in .25s ease-out;border-top:4px solid var(--brand)}
+.mcard h4{margin:0 0 6px;font-size:18px;font-weight:700}
+.mcard p{margin:0 0 14px;color:var(--mute);font-size:14.5px}
+.mail{font-size:clamp(20px,5.4vw,26px);font-weight:700;color:var(--ink);word-break:break-all;margin-bottom:18px}
+.mrow{display:flex;gap:10px;flex-wrap:wrap}
+.mcard a,.mcard .cp{flex:1;min-width:150px;text-align:center;padding:13px 14px;font-weight:500;text-decoration:none;cursor:pointer;font-size:15px}
+.mcard a{background:var(--brand);color:#fff}
+.mcard .cp{border:1.5px solid var(--line);background:#fff;color:var(--ink)}
+.mcard .cl{position:absolute;right:14px;top:8px;border:0;background:none;font-size:24px;cursor:pointer;color:#8e98a3}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="bg" aria-hidden="true"></div>
+  <header class="head">
+    <div class="top wrap">
+      <a class="logo" href="#" aria-label="Energy"><svg viewBox="0 0 160 144" role="img" aria-label="Energy, строительная компания"><g fill="none"><path fill="#fff" d="M0 0h160v144H0z"/><path d="M109.396 55.914h7.682l5.661 5.661 18.996-19h6.659l-22.94 23.967v8.377h-5.43v-8.377l-8.146-8.146v2.948h-8.144c-1.121 0-2.08.399-2.878 1.196-.796.796-1.194 1.755-1.194 2.877 0 1.12.398 2.08 1.194 2.877.798.797 1.757 1.195 2.878 1.195h2.714v-1.357h-2.714v-5.43h8.144v12.217h-8.144c-2.627 0-4.865-.927-6.718-2.785-1.858-1.853-2.784-4.090-2.784-6.717 0-2.623.927-4.865 2.784-6.718 1.853-1.853 4.091-2.784 6.718-2.784h5.663l-.001-.001ZM32.673 87.537c.936 0 1.762-.468 2.2-1.206l-.87-.504c-.24.445-.745.723-1.33.723-.497 0-.898-.154-1.205-.468-.3-.314-.453-.716-.453-1.206 0-.497.153-.898.453-1.212.307-.315.708-.468 1.205-.468.585 0 1.075.27 1.33.73l.87-.504c-.438-.738-1.272-1.206-2.2-1.206-.767 0-1.403.257-1.907.768-.504.504-.753 1.14-.753 1.892 0 .753.25 1.382.753 1.893.504.511 1.140.767 1.907.767ZM35.092 82.32v.963h1.374v4.151h1.008v-4.15h1.381v-.965h-3.763Z" fill="#070200"/><path fill-rule="evenodd" clip-rule="evenodd" d="M39.418 82.32v5.114h1.009v-1.68h.898c.49 0 .906-.168 1.242-.497.337-.33.505-.739.505-1.22 0-.483-.168-.893-.505-1.221a1.714 1.714 0 0 0-1.242-.497h-1.907Zm1.009 2.49v-1.548h.898c.432 0 .745.328.745.775 0 .438-.313.773-.745.773h-.898ZM47.997 86.77c.519-.52.775-1.148.775-1.894 0-.745-.256-1.373-.775-1.885a2.564 2.564 0 0 0-1.885-.775c-.738 0-1.367.257-1.885.775-.512.512-.767 1.14-.767 1.885 0 .746.255 1.374.767 1.893a2.587 2.587 0 0 0 1.885.767c.738 0 1.367-.256 1.885-.767Zm-3.062-.688c-.314-.314-.475-.716-.475-1.206s.161-.89.475-1.205c.315-.314.71-.475 1.177-.475.468 0 .862.16 1.176.475.315.314.476.716.476 1.205 0 .49-.161.892-.476 1.206-.314.314-.708.468-1.176.468-.468 0-.862-.154-1.177-.468Z" fill="#070200"/><path d="M53.449 87.434V82.32h-.768l-2.192 3.127V82.32H49.48v5.115h.767l2.192-3.12v3.12h1.009ZM54.019 82.32v.963h1.374v4.151H56.4v-4.15h1.38v-.965H54.02ZM59.353 85.322h1.937v-.95h-1.937v-1.089h2.12v-.964h-3.128v5.115h3.164v-.964h-2.156v-1.148ZM61.823 87.434c.519.051.928-.036 1.3-.328.38-.293.607-.906.607-1.791v-2.032h1.476v4.151h1.001V82.32H62.73v3.025c0 .965-.3 1.243-.906 1.155v.935Z" fill="#070200"/><path fill-rule="evenodd" clip-rule="evenodd" d="M68.166 84v-1.68h-1.008v5.114h1.907c.49 0 .906-.168 1.242-.497.336-.328.504-.737.504-1.220 0-.482-.168-.891-.504-1.22A1.716 1.716 0 0 0 69.065 84h-.9Zm0 2.492v-1.55h.899c.431 0 .745.337.745.775 0 .446-.314.775-.745.775h-.9Z" fill="#070200"/><path d="M74.377 84.35h-1.9v-2.03h-1.008v5.114h1.008v-2.12h1.9v2.12h1.002V82.32h-1.002v2.032Z" fill="#070200"/><path fill-rule="evenodd" clip-rule="evenodd" d="m80.713 87.434-1.798-5.115h-1.25l-1.79 5.115h1.09l.306-.92h2.039l.306.92h1.097Zm-2.419-3.953.701 2.09h-1.403l.702-2.09ZM82.832 82.32c-.475 0-.877.167-1.206.496a1.642 1.642 0 0 0-.497 1.198c0 .68.454 1.3 1.103 1.535l-1.249 1.885h1.133l1.177-1.776h.577v1.776h1.008V82.32h-2.046Zm0 2.454c-.38 0-.694-.343-.694-.76 0-.416.314-.752.694-.752h1.038v1.512h-1.038Z" fill="#070200"/><path d="m89.687 84.804 1.892-2.485h-1.162l-1.754 2.258v-2.258h-1.008v5.115h1.008v-2.397l1.827 2.397h1.162l-1.965-2.63Z" fill="#070200"/><path fill-rule="evenodd" clip-rule="evenodd" d="M96.015 86.77c.519-.52.775-1.148.775-1.894 0-.745-.256-1.373-.775-1.885a2.566 2.566 0 0 0-1.886-.775c-.737 0-1.366.257-1.885.775-.511.512-.767 1.140-.767 1.885 0 .746.256 1.374.767 1.893.52.511 1.148.767 1.885.767.738 0 1.367-.256 1.886-.767Zm-3.062-.688c-.314-.314-.475-.716-.475-1.206s.161-.89.475-1.205a1.603 1.603 0 0 1 1.176-.475c.468 0 .863.16 1.177.475.315.314.475.716.475 1.205 0 .49-.16.892-.475 1.206-.314.314-.709.468-1.177.468-.467 0-.862-.154-1.176-.468Z" fill="#070200"/><path d="m101.466 82.32-1.461 2.418-1.469-2.419h-1.038v5.115h1.009v-3.31l1.439 2.368h.117l1.44-2.375v3.317h1.001V82.32h-1.038ZM103.454 82.32v5.114h1.008v-4.15h1.805v4.15h1.009V82.32h-3.822Z" fill="#070200"/><path fill-rule="evenodd" clip-rule="evenodd" d="m112.61 87.434-1.798-5.115h-1.249l-1.79 5.115h1.088l.307-.92h2.039l.307.92h1.096Zm-2.419-3.953.702 2.09h-1.403l.701-2.09Z" fill="#070200"/><path d="M116.015 84.35h-1.9v-2.03h-1.008v5.114h1.008v-2.12h1.9v2.12h1.001V82.32h-1.001v2.032ZM121.935 87.434V82.32h-.768l-2.192 3.127V82.32h-1.009v5.115h.768l2.192-3.12v3.12h1.009Z" fill="#070200"/><path fill-rule="evenodd" clip-rule="evenodd" d="M124.448 82.32c-.474 0-.877.167-1.206.496a1.638 1.638 0 0 0-.496 1.198c0 .68.452 1.3 1.103 1.535l-1.25 1.885h1.133l1.177-1.776h.577v1.776h1.008V82.32h-2.046Zm0 2.454c-.38 0-.694-.343-.694-.76 0-.416.314-.752.694-.752h1.038v1.512h-1.038Z" fill="#070200"/><path d="M37.215 61.344v-5.43H20.926V74.92h16.29v-5.43h-10.86v-1.357H34.5v-5.43h-8.145v-1.358h10.86ZM44.003 65.185v9.734h-5.43V52.074L52.15 65.648v-9.733h5.43V78.76L44.002 65.185ZM75.226 61.344v-5.43h-16.29V74.92h16.29v-5.43h-10.86v-1.357h8.145v-5.43h-8.145v-1.358h10.86Z" fill="#070200"/><path fill-rule="evenodd" clip-rule="evenodd" d="M86.763 55.915c1.686 0 3.122.597 4.318 1.793 1.195 1.195 1.793 2.631 1.793 4.317 0 1.682-.598 3.123-1.793 4.314a6.186 6.186 0 0 1-1.71 1.237l7.343 7.343h-7.681l-7.02-7.020v7.020h-5.429V55.915h10.179Zm-4.75 5.430v1.357h4.75c.19 0 .352-.065.481-.195a.65.65 0 0 0 .2-.482.644.644 0 0 0-.2-.482.644.644 0 0 0-.481-.199h-4.75Z" fill="#070200"/><path d="m119.934 36.988-1.679 1.992L78.32 20.288 26.521 44.414v8.077H23.99v-9.69l54.321-25.3c7.148 3.333 14.585 6.82 22.006 10.3 6.625 3.107 13.237 6.208 19.618 9.187ZM132.522 79.448v15.757H23.989V79.448h2.532v13.224H129.99V79.448h2.532ZM128.085 42.566l9.26.01-15.894 15.876 7.489-15.5h-9.139l16.193-19.044-7.909 18.658ZM0 120h160v24H0z" fill="#F1A000"/><path d="M13.131 136v-9.191h3.185c1.014 0 1.807.251 2.379.754.572.494.858 1.261.858 2.301 0 .529-.095.992-.286 1.391a2.624 2.624 0 0 1-.767.988 3.1 3.1 0 0 1-1.04.533c-.416.13-.875.195-1.378.195h-1.82V136h-1.131Zm1.131-4.056h1.768c.33 0 .65-.039.962-.117a1.855 1.855 0 0 0 1.235-1.04c.113-.251.169-.576.169-.975 0-1.317-.71-1.976-2.132-1.976h-2.002v4.108ZM25.38 135.129c-.147.199-.316.36-.507.481a3.001 3.001 0 0 1-1.209.429c-.2.026-.399.039-.598.039-.32 0-.624-.039-.91-.117a2.333 2.333 0 0 1-.78-.377 1.987 1.987 0 0 1-.546-.65 1.95 1.95 0 0 1-.195-.884c0-.39.07-.715.208-.975.147-.269.342-.485.585-.65.243-.165.52-.277.832-.338a4.81 4.81 0 0 1 1.014-.104h2.015c0-.581-.126-1.04-.377-1.378-.251-.347-.676-.529-1.274-.546-.364 0-.685.061-.962.182a1.023 1.023 0 0 0-.572.598h-1.183a1.720 1.720 0 0 1 .364-.793c.182-.225.399-.407.65-.546.251-.147.524-.256.819-.325.295-.069.59-.104.884-.104.511 0 .94.087 1.287.26.355.165.641.386.858.663.217.269.368.598.455.988.087.39.13.828.13 1.313V136h-.923l-.065-.871Zm-1.3-2.223c-.208 0-.45.004-.728.013-.269 0-.529.026-.78.078a1.13 1.13 0 0 0-.611.325c-.147.165-.221.381-.221.65 0 .199.039.368.117.507.078.139.182.256.312.351.139.095.295.165.468.208.173.043.351.065.533.065.65 0 1.161-.156 1.534-.468.381-.321.576-.784.585-1.391v-.338H24.08ZM28.912 130.696c.13-.182.282-.334.455-.455.173-.13.36-.238.559-.325a2.83 2.83 0 0 1 .624-.182c.217-.043.425-.065.624-.065.468 0 .88.074 1.235.221.364.147.667.36.91.637.251.269.442.594.572.975.13.381.195.806.195 1.274 0 .468-.07.906-.208 1.313a2.975 2.975 0 0 1-.611 1.04c-.26.295-.585.529-.975.702-.381.165-.823.247-1.326.247-.572 0-1.053-.1-1.443-.299a2.726 2.726 0 0 1-.949-.819 3.712 3.712 0 0 1-.52-1.235 6.637 6.637 0 0 1-.182-1.404 8.324 8.324 0 0 1-.026-.832c.009-.425.03-.806.065-1.144.035-.347.091-.68.169-1.001.087-.329.204-.62.351-.871.234-.416.529-.724.884-.923a3.93 3.93 0 0 1 1.248-.416c.147-.026.477-.074.988-.143.52-.078.875-.13 1.066-.156.165-.017.342-.039.533-.065.2-.035.394-.069.585-.104v1.014c-.13.043-.29.082-.481.117-.19.026-.407.052-.65.078-.173.026-.355.052-.546.078-.182.017-.373.039-.572.065-.19.017-.485.056-.884.117a1.847 1.847 0 0 0-.728.247 1.812 1.812 0 0 0-.481.481 2.56 2.56 0 0 0-.364.884c-.07.338-.108.654-.117.949Zm2.08 4.407c.32 0 .602-.061.845-.182.251-.121.46-.286.624-.494.173-.208.303-.451.39-.728.087-.277.13-.572.13-.884 0-.303-.048-.585-.143-.845a1.962 1.962 0 0 0-.377-.689 1.623 1.623 0 0 0-.598-.455c-.234-.113-.52-.169-.858-.169-.312.009-.59.069-.832.182-.243.113-.45.273-.624.481a1.977 1.977 0 0 0-.39.702c-.087.26-.134.533-.143.819 0 .303.039.594.117.871.087.269.212.507.377.715.165.208.368.373.611.494.251.121.542.182.871.182ZM38.586 129.071c.546 0 1.019.087 1.417.26.399.173.733.416 1.001.728.278.312.481.685.611 1.118.139.425.208.893.208 1.404 0 .511-.07.984-.208 1.417-.13.425-.334.793-.61 1.105a2.79 2.79 0 0 1-1.015.715c-.407.173-.884.26-1.43.26-.546 0-1.023-.087-1.43-.26a2.945 2.945 0 0 1-1.014-.715 3.185 3.185 0 0 1-.61-1.105 4.913 4.913 0 0 1-.196-1.417c0-.511.065-.979.195-1.404.139-.433.342-.806.611-1.118.278-.312.62-.555 1.027-.728.407-.173.889-.26 1.443-.26Zm-.026 6.032c.373 0 .694-.065.962-.195.278-.13.503-.308.676-.533.182-.234.312-.503.39-.806.087-.303.13-.633.13-.988a3.53 3.53 0 0 0-.13-.975 2.055 2.055 0 0 0-.39-.806 1.748 1.748 0 0 0-.676-.546c-.268-.13-.59-.195-.962-.195-.373 0-.693.065-.962.195-.268.13-.494.312-.676.546a2.326 2.326 0 0 0-.39.806 3.9 3.9 0 0 0-.117.975c0 .355.04.685.117.988.087.303.217.572.39.806.182.225.408.403.676.533.269.13.59.195.962.195ZM48.359 129.149v.975h-2.353V136H44.9v-5.876h-2.353v-.975h5.81ZM53.856 135.129c-.148.199-.317.36-.507.481a3.001 3.001 0 0 1-1.209.429c-.2.026-.4.039-.598.039-.321 0-.624-.039-.91-.117a2.333 2.333 0 0 1-.78-.377 1.987 1.987 0 0 1-.546-.65 1.95 1.95 0 0 1-.195-.884c0-.39.069-.715.208-.975a1.84 1.84 0 0 1 .585-.65c.242-.165.52-.277.832-.338a4.81 4.81 0 0 1 1.014-.104h2.015c0-.581-.126-1.04-.377-1.378-.252-.347-.676-.529-1.274-.546-.364 0-.685.061-.962.182a1.023 1.023 0 0 0-.572.598h-1.183a1.720 1.720 0 0 1 .364-.793c.182-.225.398-.407.65-.546a2.94 2.94 0 0 1 .819-.325c.294-.069.589-.104.884-.104.51 0 .94.087 1.287.26.355.165.64.386.858.663.216.269.368.598.455.988.086.39.13.828.13 1.313V136h-.923l-.065-.871Zm-1.3-2.223c-.208 0-.451.004-.728.013a3.840 3.840 0 0 0-.78.078 1.13 1.13 0 0 0-.611.325c-.148.165-.221.381-.221.65 0 .199.039.368.117.507.078.139.182.256.312.351.138.095.294.165.468.208.173.043.35.065.533.065.65 0 1.16-.156 1.534-.468.38-.321.576-.784.585-1.391v-.338h-1.21ZM57.414 132.984c.026.303.086.585.182.845.104.251.242.472.416.663.173.191.385.342.637.455.26.104.559.156.897.156.164 0 .333-.013.507-.039.182-.035.35-.087.507-.156.156-.078.294-.178.416-.299.12-.121.212-.269.273-.442h1.130a2.188 2.188 0 0 1-.402.858 2.296 2.296 0 0 1-.663.598 2.946 2.946 0 0 1-.845.351 4.383 4.383 0 0 1-.95.104c-.545 0-1.022-.087-1.43-.26a2.814 2.814 0 0 1-1-.715 3.026 3.026 0 0 1-.598-1.105 4.913 4.913 0 0 1-.195-1.417c0-.511.069-.979.208-1.404a3.34 3.34 0 0 1 .624-1.118c.268-.312.598-.555.988-.728.39-.173.853-.26 1.39-.26.547 0 1.019.108 1.418.325.398.217.719.503.962.858.242.347.411.724.507 1.131.104.407.147.784.13 1.131 0 .078-.005.156-.013.234 0 .078-.005.156-.013.234h-5.083Zm3.99-.962c-.017-.581-.199-1.053-.545-1.417-.347-.364-.81-.546-1.391-.546-.321 0-.603.052-.845.156a1.729 1.729 0 0 0-.611.429 2.06 2.06 0 0 0-.39.637 2.65 2.65 0 0 0-.182.741h3.965ZM64.008 129.149h1.482l2.223 3.432 2.184-3.432h1.456V136H70.26v-5.629l-2.418 3.874h-.312l-2.431-3.874V136h-1.092v-6.851ZM79.591 134.479c.347 0 .62-.082.82-.247.207-.165.333-.351.376-.559h1.924c-.06.442-.186.815-.376 1.118-.191.303-.43.555-.715.754a2.72 2.72 0 0 1-.95.429 4.63 4.63 0 0 1-1.105.13c-.572 0-1.07-.078-1.495-.234a2.768 2.768 0 0 1-1.04-.702 3.222 3.222 0 0 1-.636-1.118 4.937 4.937 0 0 1-.209-1.482c0-.529.078-1.014.234-1.456.157-.442.377-.819.663-1.131a2.91 2.91 0 0 1 1.08-.715c.424-.173.91-.26 1.456-.26.398 0 .77.048 1.118.143.355.095.667.243.935.442.278.199.503.455.676.767.183.303.304.667.365 1.092h-1.925c-.043-.208-.173-.394-.39-.559-.208-.165-.48-.247-.819-.247a1.64 1.64 0 0 0-.74.156c-.2.104-.364.247-.494.429-.122.182-.209.39-.26.624a3.408 3.408 0 0 0-.079.741c0 .555.118 1.01.352 1.365.242.347.654.52 1.234.52ZM89.38 132.334c.207-.173.415-.36.623-.559.217-.199.425-.407.624-.624.2-.199.369-.416.507-.65.148-.234.226-.494.234-.78.018-.459-.104-.802-.364-1.027-.26-.225-.606-.334-1.04-.325-.39.009-.706.1-.949.273-.234.173-.372.425-.416.754h-1.755c.018-.511.139-.953.364-1.326a2.65 2.65 0 0 1 .923-.91 2.95 2.95 0 0 1 .91-.351 4.5 4.5 0 0 1 1.04-.117c.98-.017 1.751.243 2.314.78.243.225.438.507.585.845.148.329.221.719.221 1.17 0 .329-.034.641-.104.936a2.54 2.54 0 0 1-.35.819 3.952 3.952 0 0 1-.339.481c-.112.139-.23.269-.35.39a5.050 5.050 0 0 1-.378.364c-.13.121-.277.256-.442.403-.32.277-.628.533-.923.767a38.750 38.750 0 0 0-.819.689h3.601V136H86.91v-1.534l2.47-2.132ZM97.893 126.679c.529 0 1.014.091 1.456.273.451.182.832.468 1.144.858.321.381.568.867.741 1.456.182.589.273 1.291.273 2.106 0 .823-.086 1.53-.26 2.119-.173.589-.416 1.075-.728 1.456a2.825 2.825 0 0 1-1.144.845 3.859 3.859 0 0 1-1.482.273 3.958 3.958 0 0 1-1.495-.273 2.948 2.948 0 0 1-1.144-.845c-.312-.381-.554-.867-.728-1.456-.164-.589-.247-1.296-.247-2.119 0-.815.087-1.517.26-2.106.174-.589.42-1.075.741-1.456.321-.39.702-.676 1.144-.858a3.823 3.823 0 0 1 1.47-.273Zm0 7.722c.555 0 .988-.234 1.3-.702.312-.468.468-1.244.468-2.327 0-1.075-.156-1.846-.468-2.314-.312-.477-.745-.715-1.3-.715-.563 0-1 .238-1.313.715-.303.468-.455 1.239-.455 2.314 0 1.083.152 1.859.455 2.327.312.468.75.702 1.313.702ZM106.012 136h-1.898v-6.773h-1.872v-1.3c.278 0 .533-.022.767-.065.243-.052.468-.13.676-.234.182-.095.356-.212.52-.351.165-.147.295-.308.39-.481h1.417V136ZM108.033 132.048l.585-5.252h5.59v1.638h-4.069l-.26 1.898a3.86 3.86 0 0 1 .832-.312c.269-.069.576-.1.923-.091.451.009.858.082 1.222.221.373.139.689.338.949.598.26.26.459.572.598.936.139.355.208.758.208 1.209 0 .503-.087.953-.26 1.352a2.939 2.939 0 0 1-.715 1.014 3.276 3.276 0 0 1-1.092.624 4.18 4.18 0 0 1-1.378.208c-.945 0-1.699-.217-2.262-.65-.563-.433-.897-1.14-1.001-2.119h1.859c.078.373.243.641.494.806.26.165.55.256.871.273.459.017.836-.091 1.131-.325.295-.234.446-.602.455-1.105.009-.494-.134-.867-.429-1.118-.295-.251-.667-.368-1.118-.351a2.18 2.18 0 0 0-.754.156 1.968 1.968 0 0 0-.598.39h-1.781ZM124.555 129.149v1.586h-3.328V136h-1.833v-6.851h5.161ZM128.609 136.104c-1.109 0-1.963-.312-2.561-.936-.598-.633-.897-1.508-.897-2.626 0-.537.078-1.023.234-1.456.165-.442.39-.819.676-1.131a2.784 2.784 0 0 1 1.079-.702 4.107 4.107 0 0 1 1.469-.247c.538 0 1.019.082 1.443.247.434.156.798.39 1.092.702.304.312.533.689.689 1.131.165.433.247.919.247 1.456 0 1.127-.303 2.002-.91 2.626-.598.624-1.451.936-2.561.936Zm0-5.46c-.554 0-.97.182-1.248.546-.268.364-.403.819-.403 1.365 0 .555.135 1.014.403 1.378.278.364.694.546 1.248.546.555 0 .962-.182 1.222-.546.269-.364.403-.823.403-1.378 0-.546-.134-1.001-.403-1.365-.26-.364-.667-.546-1.222-.546ZM139.67 129.149v5.265h.897v3.471h-1.833V136h-4.329v1.885h-1.846v-3.471h.26c.217 0 .381-.056.494-.169.113-.121.204-.273.273-.455.078-.208.134-.429.169-.663.035-.234.061-.429.078-.585.061-.581.091-1.144.091-1.69.009-.555.022-1.122.039-1.703h5.707Zm-1.846 5.265v-3.679h-2.158c0 .269-.009.542-.026.819a28.940 28.940 0 0 1-.039.832c-.017.329-.052.68-.104 1.053-.052.364-.16.689-.325.975h2.652ZM145.774 135.155c-.26.347-.581.594-.962.741a3.320 3.320 0 0 1-1.287.208c-.633-.017-1.161-.195-1.586-.533a2.127 2.127 0 0 1-.533-.676 2.295 2.295 0 0 1-.182-.949 2.140 2.140 0 0 1 .247-.988c.165-.295.412-.537.741-.728.277-.147.589-.251.936-.312a6.848 6.848 0 0 1 1.157-.091h1.404c.026-.425-.074-.741-.299-.949-.217-.217-.524-.329-.923-.338-.13 0-.264.009-.403.026a1.419 1.419 0 0 0-.39.104.930.930 0 0 0-.299.221.673.673 0 0 0-.156.325h-1.885c.043-.416.156-.763.338-1.04.191-.286.429-.516.715-.689.286-.173.602-.295.949-.364a5.074 5.074 0 0 1 1.729-.078c.217.017.429.061.637.13.208.061.403.147.585.26.191.104.368.243.533.416.295.338.477.728.546 1.17.078.433.113.858.104 1.274V136h-1.677l-.039-.845Zm-.065-2.184h-1.339c-.13 0-.277.013-.442.039a1.254 1.254 0 0 0-.429.143c-.121.069-.225.16-.312.273a.713.713 0 0 0-.117.416c0 .139.026.26.078.364a.921.921 0 0 0 .221.26c.095.069.208.126.338.169.13.035.26.052.39.052.251.009.485-.035.702-.13.225-.095.42-.23.585-.403a1.490 1.490 0 0 0 .234-.468c.061-.182.091-.42.091-.715Z" fill="#fff"/></g></svg></a>
+      <nav class="nav"><span>Услуги</span><span>Работы</span><span>Расчёт</span><span>Команда</span><span>Отзывы</span><span>Контакты</span></nav>
+      <div class="conn">
+        <div class="ph"><b>+7 (843) 297-12-12</b><button type="button" data-open>Заказать звонок</button></div>
+        <div class="soc">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="#070200" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1.2-1.6-2.1-1-1 .8a5 5 0 0 1-2.8-2.8l.8-1-1-2.1z"/></svg>WhatsApp</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="#070200" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4 3 11l6 2.2L19 7l-7.6 7.6.4 5.4 3-3.5 4.2 3.2z"/></svg>Telegram</span>
+        </div>
+      </div>
+      <button class="burger" type="button" aria-label="Меню"><i></i><i></i><i></i></button>
+    </div>
+  </header>
+  <div class="hbody wrap">
+    <div class="htxt">
+      <div class="labels"><span class="alt">Весь ремонт в одних руках</span><span>От проекта до навески портьер</span></div>
+      <h1>Ремонт квартир и домов <em>под ключ без стресса</em> в Казани</h1>
+      <button class="btn-b" type="button" data-open>Получить примерный расчёт</button>
+    </div>
+  </div>
+</section>
+
+<section class="offer">
+  <div class="wrap"><div class="in">
+    <h2>Где сайт сейчас <em>теряет клиентов</em></h2>
+    <p class="lead">Всё ниже проверено на ck-energy.ru. Слева то, что видит клиент сейчас. Справа то, что он получит с Алиной.</p>
+    <div class="loss">
+      <div class="lrow"><div class="now"><small>Сейчас</small>Цен на сайте нет: ни стоимости за м², ни бюджета у проектов. Единственный путь к цифрам на первом экране это форма «Получи примерный расчёт и консультацию», и для неё нужны имя и номер телефона.</div><div class="ai"><small>С Алиной</small>Клиент сразу в чате рассказывает про объект и работы, видит ваш проект похожей площади и записывается на замер. Дадите ориентир цены за м², и Алина будет называть вилку под площадь клиента.</div></div>
+      <div class="lrow"><div class="now"><small>Сейчас</small>Пункт меню «Расчёт» ведёт к калькулятору, но блок калькулятора в коде страницы закомментирован. Клиент нажимает «Расчёт», и ничего не происходит.</div><div class="ai"><small>С Алиной</small>Вопросы вашего калькулятора (объект, площадь, комнаты, санузлы, потолок, стены, пол, дизайн-проект, сроки) Алина задаёт в живом диалоге, без формы с телефоном в начале.</div></div>
+      <div class="lrow"><div class="now"><small>Сейчас</small>Часов работы на сайте нет. После заявки клиент видит «В ближайшее время мы свяжемся с Вами» и не знает, позвонят ему сегодня вечером или завтра.</div><div class="ai"><small>С Алиной</small>Ответ прямо на сайте, в 23:41 так же, как днём. Утром менеджер получает готовую карточку клиента и время замера.</div></div>
+    </div>
+
+    <div class="why">
+      <div>
+        <h2>5 причин, почему это <em>приведёт вам клиентов</em></h2>
+        <div class="reasons">
+          <div class="reason"><div><b>Ответ сразу, без звонка</b><span>Клиент ремонта сравнивает несколько компаний. Кто первым ответил и записал на замер, к тому он и приходит.</span></div></div>
+          <div class="reason"><div><b>Работает, когда офис закрыт</b><span>Алина отвечает вечером и ночью, задаёт вопросы вашего калькулятора и записывает на замер на ближайшие дни.</span></div></div>
+          <div class="reason"><div><b>Продаёт вашими аргументами</b><span>Весь ремонт в одних руках: закупаете черновой материал, организуете доставку, подъём и вынос мусора, помогаете с чистовыми материалами и мебелью, составляете понятную смету и заключаете договор.</span></div></div>
+          <div class="reason"><div><b>Показывает ваши работы</b><span>ЖК «21 Век», ул. Комсомольская, ЖК Столичный, посёлок «Зелёный Бор», дизайн-проекты в ЖК «Казан Су» и на Чистопольской. Алина подбирает проект под объект и площадь клиента.</span></div></div>
+          <div class="reason"><div><b>Менеджер получает готового клиента</b><span>Объект, площадь, комнаты, санузлы, потолок, стены, пол, дизайн-проект, сроки и время замера уже в карточке. Не нужно перезванивать и выяснять.</span></div></div>
+        </div>
+      </div>
+      <div class="sample"><p class="cap">Так выглядит заявка в Telegram менеджера</p><div class="m" id="sampleCard"></div></div>
+    </div>
+
+    <div class="final">
+      <div><h3>Алина на вашем сайте</h3><p>Настрою консультанта по вашему калькулятору, проектам и этапам работ и покажу, как заявки приходят менеджеру. Ответьте на письмо или напишите мне.</p></div>
+      <button type="button" data-mail>Написать Екатерине</button>
+    </div>
+  </div></div>
+  <p class="fine wrap">Демо подготовлено LACIFRA (Екатерина). Это не сайт компании «Energy»: логотип, фото, вопросы калькулятора и тексты взяты с сайта ck-energy.ru только для демонстрации. Фото консультанта стоковое. Заявки из демо никуда не отправляются.</p>
+</section>
+
+<div class="teaser" id="teaser" hidden><b>Алина, Energy</b>Добрый вечер! Помогу с расчётом ремонта и запишу на замер.</div>
+<button class="launch" id="launch" type="button" aria-label="Открыть чат с консультантом"></button>
+
+<div class="widget" id="widget" hidden aria-live="polite">
+  <div class="wh"><div class="av"></div><div><b>Алина, Energy</b><small>ИИ-консультант, онлайн 24/7</small></div><button class="x" type="button" id="close" aria-label="Свернуть чат">×</button></div>
+  <div class="msgs" id="msgs"></div>
+  <div class="qr" id="qr"></div>
+  <div class="inp"><input id="txt" placeholder="Напишите сообщение" autocomplete="off"><button type="button" id="sendTxt" aria-label="Отправить">→</button></div>
+</div>
+
+<div class="mgr" id="mgr" hidden>
+  <div class="mbox">
+    <div class="phn"><div class="scr">
+      <div class="th"><div class="lg">E</div><div><b>Заявки Energy</b><small>бот в Telegram, для менеджера</small></div></div>
+      <div class="chat"><div class="m" id="mcard"></div></div>
+    </div></div>
+    <div class="mside">
+      <h3>Утром менеджер видит <em>готового клиента</em></h3>
+      <p id="mtext">Анна написала в 23:41, когда офис уже закрыт. Алина сразу ответила, показала ваш проект и записала на замер.</p>
+      <ul><li>Не нужно перезванивать и выяснять объект, площадь и состав работ</li><li>Время замера известно до первого звонка</li><li>Клиент не ушёл к другой компании, пока ждал ответа</li></ul>
+      <div class="mbtns"><button type="button" class="btn-r" data-mail>Написать Екатерине</button><button type="button" class="btn-l" id="closeMgr">Вернуться к сайту</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="mcard" role="dialog" aria-label="Контакт Екатерины">
+    <button class="cl" type="button" id="mclose" aria-label="Закрыть">×</button>
+    <h4>Екатерина, LACIFRA</h4>
+    <p>Напишите, и я покажу, как Алина будет работать на сайте «Energy».</p>
+    <div class="mail">katerina@lacifra.co</div>
+    <div class="mrow"><a href="mailto:katerina@lacifra.co?subject=%D0%90%D0%BB%D0%B8%D0%BD%D0%B0%20%D0%B4%D0%BB%D1%8F%20%C2%ABEnergy%C2%BB">Написать на почту</a><button class="cp" type="button" id="copy">Скопировать адрес</button></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var NAME="Energy",SITE="https://www.ck-energy.ru/",IMG=SITE+"img/projects/";
+  // калькулятор «Ремонт» из кода ck-energy.ru (блок #calc), вопросы и варианты по порядку
+  var OBJ=["Квартира","Дом/коттедж","Коммерческое помещение"];
+  var AREA=[["До 50 м²",45],["50-80 м²",65],["80-120 м²",100],["120-200 м²",160],["Больше 200 м²",250]];
+  var ROOMS=["1","2","3","4 и больше"],BATH=["1","2","3 и больше"];
+  var CEIL=["Натяжной","Гипсокартон","Комбинированный"];
+  var WALLS=["Обои","Покраска","Декоративная штукатурка","Комбинированные"];
+  var FLOOR=["Ламинат","Паркет","Плитка","Комбинированные"];
+  var PROJ=["Да, есть","Пока нет"];
+  var WHEN=["Как можно скорее","В этом месяце","В течение 3-х месяцев"];
+  // раздел «Наши работы»: подпись, название, площадь, помещения
+  var PR=[
+    {k:"ЖК «21 Век», 78 м²",l:"Отделка 3к квартиры",t:"ЖК «21 Век»",a:78,h:0,r:"прихожая, 2 с/у, спальня, детская, прачечная, кухня-гостиная, балкон",ph:IMG+"decoration/century__01.jpg"},
+    {k:"ул. Комсомольская, 75 м²",l:"Отделка 2к квартиры",t:"ул. Комсомольская",a:75,h:0,r:"прихожая, 2 с/у, спальня, кухня-гостиная, балкон",ph:IMG+"decoration/komsomolskaya__20.jpg"},
+    {k:"ЖК Столичный, 70 м²",l:"Отделка 2к квартиры",t:"ЖК Столичный",a:70,h:0,r:"прихожая, 2 гардеробные, санузел, спальня, кухня-гостиная, балкон",ph:IMG+"decoration/stolichny__16.jpg"},
+    {k:"Дом в «Зелёном Бору», 140 м²",l:"Отделка 2эт дома",t:"Посёлок «Зелёный Бор»",a:140,h:1,r:"детская ванная комната, мастер санузел, инженерная доска",ph:IMG+"decoration/bor__01.jpg"},
+    {k:"Дизайн-проект, ЖК «Казан Су»",l:"Дизайн-проект 2к квартиры с перепланировкой",t:"ЖК «Казан Су»",a:77,h:0,r:"прихожая, 2 с/у, кухня-студия, спальня, балкон",ph:IMG+"design/su__01.jpg"},
+    {k:"Дизайн-проект, Чистопольская",l:"Дизайн-проект",t:"Квартира по улице Чистопольская",a:99,h:0,r:"кухня-гостиная, спальня, спальня-кабинет, детская, ванная комната",ph:IMG+"design/chistopol__01.jpg"}];
+  var HOUSE={l:"Дизайн-проект",t:"Дом для большой семьи в посёлке Высокая гора",a:120,h:1,r:"кухня-гостиная, 3 детские, спальня, 2 с/у",ph:IMG+"design/gora__01.jpg"};
+  var SAME="Покажите похожий по площади";
+  var MEAS=["Выезд специалиста на замер","Сначала пришлю планировку"];
+  function nb(s){return s.replace(/(\d) (?=\d{3})/g,"$1 ").replace(/ м²/g," м²")}
+  var msgs=$("msgs"),qr=$("qr"),clock=[23,41],started=false,done=false,L={},cur=null,nMe=0;
+  function t(adv){if(adv)clock[1]++;if(clock[1]>59){clock[1]=0;clock[0]=(clock[0]+1)%24}return ("0"+clock[0]).slice(-2)+":"+("0"+clock[1]).slice(-2)}
+  function scroll(){msgs.scrollTop=msgs.scrollHeight}
+  function add(el){msgs.appendChild(el);scroll()}
+  function me(text,file){var d=document.createElement("div");d.className="b me"+(file?" file":"");d.innerHTML=file?"<span class='ic'>PDF</span><span>"+text+"</span>":text+"<span class='t'>"+t((++nMe)%2===0)+"</span>";add(d)}
+  function typing(cb){var ty=document.createElement("div");ty.className="typing";ty.innerHTML="<i></i><i></i><i></i>";add(ty);setTimeout(function(){ty.remove();cb()},800)}
+  // items: строки или {proj:...}/{end:1}; opts: строки или [текст, картинка]
+  function bot(items,opts,next){qr.innerHTML="";qr.className="qr";cur=null;if(typeof items==="string")items=[items];var i=0;
+    (function step(){if(i>=items.length){(opts||[]).forEach(function(o){var bt=document.createElement("button");bt.type="button";
+          if(typeof o==="string"){bt.textContent=nb(o)}else{qr.className="qr pics";bt.innerHTML=(o[1]?"<img src='"+o[1]+"' alt='' referrerpolicy='no-referrer'>":"")+"<span>"+o[0]+"</span>"}
+          bt.onclick=function(){answer(typeof o==="string"?nb(o):o[0],next)};qr.appendChild(bt)});cur=next;scroll();return}
+      var it=items[i++];typing(function(){
+        if(typeof it==="string"){var d=document.createElement("div");d.className="b bot";d.innerHTML=nb(it)+"<span class='t'>"+t()+"</span>";add(d)}
+        else if(it.proj){var p=it.proj,g=document.createElement("div");g.className="proj";
+          g.innerHTML="<img src='"+p.ph+"' alt='"+p.t+"' referrerpolicy='no-referrer'>"+
+            "<div class='pi'><small>"+p.l+"</small><b>"+p.t+"</b><div class='kv'><span>Площадь</span><span>"+p.a+" м²</span><span>Помещения</span><span>"+p.r+"</span></div>"+
+            "<a href='"+SITE+"#works' target='_blank' rel='noopener'>Смотреть в разделе «Наши работы»</a></div>";
+          g.querySelector("img").onload=scroll;add(g)}
+        else if(it.end){var e=document.createElement("div");e.className="endplate";e.innerHTML="<b>Конец демо.</b> Так Алина может работать на вашем сайте круглосуточно.<button type='button' id='toMgr'>Что увидит менеджер</button>";add(e);$("toMgr").onclick=showMgr}
+        step()})})()}
+  function answer(o,next){qr.innerHTML="";me(o);if(next)setTimeout(function(){next(o)},350)}
+  $("sendTxt").onclick=function(){var v=$("txt").value.trim();if(!v||!cur)return;$("txt").value="";answer(v,cur)};
+  $("txt").addEventListener("keydown",function(e){if(e.key==="Enter")$("sendTxt").click()});
+
+  var DN=["Вс","Пн","Вт","Ср","Чт","Пт","Сб"],MN=["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
+  function slots(){var r=[],d=new Date();while(r.length<2){d.setDate(d.getDate()+1);if(d.getDay()!==0)r.push(DN[d.getDay()]+" "+d.getDate()+" "+MN[d.getMonth()])}
+    return [r[0]+", 10:00",r[0]+", 16:00",r[1]+", 12:00"]}
+  function near(a,h){var list=PR.concat([HOUSE]).filter(function(x){return x.h===h});return list.sort(function(x,y){return Math.abs(x.a-a)-Math.abs(y.a-a)})[0]}
+  function low(s){return String(s).toLowerCase()}
+
+  function s1(){bot("Добрый вечер! Я Алина, консультант «"+NAME+"». Помогу рассчитать стоимость ремонта. Ремонт какого объекта вас интересует?",OBJ,s2)}
+  function s2(v){L.obj=v;L.house=v==="Дом/коттедж"?1:0;var a=v==="Коммерческое помещение"?"Ремонт коммерческих помещений мы тоже делаем: магазины в БЦ «Урбан» и на ул. Щапова, логистический комплекс «Шатэ-м». ":"";
+    bot(a+"Какая площадь объекта?",AREA.map(function(x){return x[0]}),s3)}
+  function s3(v){var f=AREA.filter(function(x){return nb(x[0])===v})[0];L.area=f?f[0]:v;L.mid=f?f[1]:(parseInt(String(v).replace(/[^\d]/g,""),10)||70);
+    if(L.obj==="Коммерческое помещение"){L.rooms="";L.bath="";return bot("Какие стены нужны?",WALLS,s6)}
+    bot("Сколько комнат?",ROOMS,s4)}
+  function s4(v){L.rooms=v;bot("А санузлов?",BATH,s5)}
+  function s5(v){L.bath=v;bot("Теперь по отделке. Какие стены хотите?",WALLS,s6)}
+  function s6(v){L.walls=v;bot("Пол?",FLOOR,s7)}
+  function s7(v){L.floor=v;bot("И потолок?",CEIL,s8)}
+  function s8(v){L.ceil=v;bot("Вот наши работы в Казани. Какая вам ближе?",PR.map(function(p){return [p.k,p.ph]}).concat([[SAME,""]]),s9)}
+  function s9(v){var items=[],p=PR.filter(function(x){return x.k===v})[0];
+    if(p){L.proj=p.t;items.push("Хороший выбор. Вот этот проект:")}else{p=near(L.mid,L.house);L.proj=p.t+" (похожий)";items.push("Вот наш проект близкой площади:")}
+    items.push({proj:p});
+    items.push("Весь ремонт у нас в одних руках, от проекта до навески портьер. Мы сами закупаем весь черновой материал, организуем доставку, подъём и вынос мусора, помогаем подобрать чистовой материал и мебель.");
+    items.push("По вашему объекту записала: "+low(L.obj)+", <b>"+L.area+"</b>"+(L.rooms?", комнат "+L.rooms+", санузлов "+L.bath:"")+"; стены "+low(L.walls)+", пол "+low(L.floor)+", потолок "+low(L.ceil)+". Точную стоимость назовём после замера: замер и составление сметы у нас первый этап, смету составляем всем понятную и заключаем договор.");
+    items.push("У вас есть дизайн-проект?");bot(items,PROJ,s10)}
+  function s10(v){L.design=v;var a=v==="Пока нет"?"Не страшно, дизайн-проекты мы создаём сами: например, квартира в ЖК «Савин Хаус» на 48 м² или дом с баней в экопоселке Эстачи на 200 м². Обсудим это на замере. ":"Отлично, тогда возьмём его за основу сметы. ";
+    bot(a+"Когда планируете начать ремонт?",WHEN,s11)}
+  function s11(v){L.when=v;bot("Давайте запишу вас на замер: специалист посмотрит объект, и мы составим смету. Как удобнее?",MEAS,s12)}
+  function s12(v){if(v===MEAS[1]){L.plan=true;qr.innerHTML="";setTimeout(function(){me("планировка.pdf",true);setTimeout(function(){bot(["Получила планировку, утром передам специалисту, он посмотрит её до замера.","Выберите удобное время замера:"],slots(),s13)},350)},300)}
+    else{L.plan=false;bot("Выберите удобное время замера:",slots(),s13)}}
+  function s13(v){L.slot=v;bot("Как к вам обращаться и где удобно получить подтверждение?",["Анна, в WhatsApp","Анна, в Telegram","Анна, позвоните"],s14)}
+  function s14(v){L.contact=v;done=true;var ch=["WhatsApp","Telegram"].filter(function(x){return v.indexOf(x)>0})[0];
+    bot(["Готово, Анна! Записала на замер: <b>"+L.slot+"</b>. "+(ch?"Подтверждение пришлю в "+ch+".":"Утром менеджер позвонит и подтвердит время.")+(L.plan?" Планировку передаю специалисту.":"")+" Если появятся вопросы, пишите сюда в любое время.",{end:1}],[],null);
+    setTimeout(function(){if($("mgr").hidden)showMgr()},800*2+3000)}
+
+  function cardHTML(d){return "<span class='tm'>23:"+(d.min||"49")+"</span><b>Новый клиент от Алины</b><div class='kv'>"+
+    "<span>Клиент</span><span>"+d.contact+"</span><span>Объект</span><span>"+low(d.obj)+", "+d.area+"</span>"+
+    (d.rooms?"<span>Комнаты</span><span>"+d.rooms+", санузлов "+d.bath+"</span>":"")+
+    "<span>Стены</span><span>"+low(d.walls)+"</span><span>Пол</span><span>"+low(d.floor)+"</span><span>Потолок</span><span>"+low(d.ceil)+"</span>"+
+    "<span>Нравится</span><span>"+d.proj+"</span><span>Дизайн</span><span>"+(d.design==="Да, есть"?"проект есть":"проекта пока нет")+"</span>"+
+    "<span>Старт</span><span>"+low(d.when)+"</span><span>Замер</span><span>"+d.slot+"</span><span>План</span><span>"+(d.plan?"PDF приложен":"нет")+"</span></div><div class='mb'>Открыть диалог</div>"}
+  var DEMO={obj:"Квартира",area:"50-80 м²",rooms:"2",bath:"2",walls:"Покраска",floor:"Ламинат",ceil:"Натяжной",proj:PR[0].t,design:"Пока нет",when:WHEN[1],slot:slots()[0],plan:true,contact:"Анна, WhatsApp"};
+  $("sampleCard").innerHTML=nb(cardHTML(DEMO));
+  function showMgr(){var d;
+    if(!done){d=DEMO;$("mtext").textContent="Так выглядит карточка клиента после разговора с Алиной. Пройдите диалог в чате справа внизу, чтобы увидеть, как она её собирает."}
+    else{d={};for(var k in L)d[k]=L[k];var ch=["WhatsApp","Telegram"].filter(function(x){return L.contact.indexOf(x)>0})[0];
+      d.contact=ch?"Анна, "+ch:"Анна, позвонить утром";d.min=("0"+clock[1]).slice(-2);
+      $("mtext").textContent="Анна написала в 23:41, когда офис уже закрыт. Алина сразу ответила, задала вопросы вашего калькулятора, показала ваш проект и записала на замер."}
+    $("mcard").innerHTML=nb(cardHTML(d));$("mgr").hidden=false}
+  function open(){$("teaser").hidden=true;$("widget").hidden=false;if(!started){started=true;s1()}}
+  function hide(){$("widget").hidden=true}
+  $("launch").onclick=function(){if($("widget").hidden)open();else hide()};
+  $("teaser").onclick=open;$("close").onclick=hide;
+  document.querySelectorAll("[data-open]").forEach(function(b){b.onclick=open});
+  $("closeMgr").onclick=function(){$("mgr").hidden=true};
+  document.querySelectorAll("[data-mail]").forEach(function(b){b.onclick=function(){$("modal").hidden=false}});
+  $("mclose").onclick=function(){$("modal").hidden=true};
+  $("modal").onclick=function(e){if(e.target===this)this.hidden=true};
+  $("copy").onclick=function(){var b=this;function ok(){b.textContent="Скопировано"}
+    try{navigator.clipboard.writeText("katerina@lacifra.co").then(ok,fb)}catch(e){fb()}
+    function fb(){var i=document.createElement("input");i.value="katerina@lacifra.co";document.body.appendChild(i);i.select();try{document.execCommand("copy");ok()}catch(e){}i.remove()}};
+  setTimeout(function(){if(!started)$("teaser").hidden=false},window.innerWidth<600?4000:2000);
+})();
+</script>
+</body>
+</html>
