@@ -1,0 +1,336 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Ремонт квартир в Санкт-Петербурге под ключ, Прораб НЕВА</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#ffffff;--text:#222;--mute:#6f6f6f;--line:rgba(0,0,0,.1);
+  --dark:#2b2b2b;--head:#2b2b2b;--acc:#ff6a13;--blue:#1f8ef1;--accl:#f1f5f9;--ok:#3CB55A;
+  --f:"Open Sans",Arial,sans-serif;--t:"Montserrat",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text);font-family:var(--f);font-size:16px;line-height:1.5;overflow-x:hidden}
+button,input{font:inherit}
+img{max-width:100%}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+
+/* first screen in their style */
+.site{position:relative;overflow:hidden;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;background:#555}
+.bgimg{position:absolute;inset:0;background:url(https://www.prorabneva.ru/frontend/gimages/home-banner/banner_big_img.webp) center/cover no-repeat;animation:zoom 30s ease-in-out infinite alternate}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,20,20,.72) 0%,rgba(20,20,20,.45) 55%,rgba(20,20,20,.1) 100%)}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.12)}}
+.promo{position:relative;z-index:3;background:var(--blue);color:#fff}
+.promo .in{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:34px;padding:12px clamp(16px,4vw,56px);font-family:var(--t);font-weight:700;font-size:16px}
+.promo button{background:transparent;color:#fff;border:1px solid #fff;border-radius:6px;padding:10px 34px;font-family:var(--t);font-weight:700;font-size:14px;cursor:pointer}
+.top{position:relative;z-index:3;background:#fff}
+.top .in{max-width:1300px;margin:0 auto;height:100px;display:flex;align-items:center;gap:clamp(16px,3vw,44px);padding-inline:clamp(16px,4vw,56px)}
+.logo{display:block;line-height:0}
+.logo img{height:56px;width:auto}
+.menu{display:flex;gap:clamp(18px,3vw,46px);margin-left:clamp(10px,2vw,30px);font-family:var(--t);font-weight:600;font-size:15px;color:#222}
+.menu span{cursor:default}
+.call{margin-left:auto;display:flex;gap:28px;align-items:center}
+.wa{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:13px;color:#777}
+.wa svg{display:block}
+.btn{border:0;background:var(--acc);color:#fff;font-family:var(--t);font-weight:800;font-size:15px;letter-spacing:.03em;text-transform:uppercase;padding:17px 42px;border-radius:6px;cursor:pointer}
+.btn:hover{background:#f05c06}
+.hero{position:relative;z-index:1;width:100%;max-width:1300px;margin:0 auto;flex:1;display:flex;flex-direction:column;justify-content:center;padding-inline:clamp(16px,4vw,56px);padding-top:50px;padding-bottom:clamp(50px,9vh,100px);color:#fff}
+.hero h1{margin:0;font-family:var(--t);font-weight:900;font-size:clamp(34px,4.2vw,60px);line-height:1.15;max-width:12em;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.hero ul{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:12px;font-size:clamp(16px,1.4vw,19px);text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.hero li{display:flex;gap:14px;align-items:center}
+.hero li::before{content:"✓";flex:none;width:20px;height:20px;border:2px solid #fff;border-radius:4px;display:grid;place-items:center;font-size:14px;font-weight:700;line-height:1}
+.hero .go{align-self:flex-start;margin-top:clamp(28px,5vh,48px);text-transform:none;font-size:16px;padding:20px 42px}
+@media (max-width:1100px){.menu{display:none}}
+@media (max-width:700px){.promo .in{font-size:13px;gap:12px;padding:8px 14px}.promo button{display:none}.top .in{height:72px}.logo img{height:42px}.wa{display:none}.top .btn{padding:12px 14px;font-size:12px}}
+@media (max-width:560px){.hero .go{align-self:stretch}.hero{justify-content:flex-end}}
+
+/* below first screen */
+.about{padding:56px clamp(16px,4vw,56px) 28px;max-width:860px;margin:0 auto}
+.about h2{margin:0 0 16px;font-family:var(--t);font-weight:800;font-size:clamp(22px,2.2vw,28px)}
+.about p{margin:6px 0;font-size:16.5px;color:#333}
+.sign{max-width:860px;margin:0 auto;padding:18px clamp(16px,4vw,56px) 110px;font-size:12.5px;color:var(--mute)}
+
+/* chat widget */
+.launch{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:40;width:66px;height:66px;border-radius:50%;border:3px solid #fff;background:#ddd url(https://images.unsplash.com/photo-1580489944761-15a19d654956?w=240&h=240&fit=crop&crop=faces&facepad=2.5) center/cover;box-shadow:0 12px 30px rgba(0,0,0,.35);cursor:pointer;padding:0}
+.launch::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--acc);opacity:.7;animation:ring 1.8s infinite}
+.launch::after{content:"";position:absolute;right:1px;bottom:1px;width:13px;height:13px;border-radius:50%;background:var(--ok);border:2px solid #fff}
+@keyframes ring{0%{transform:scale(.92);opacity:.8}100%{transform:scale(1.25);opacity:0}}
+.teaser{position:fixed;right:100px;bottom:calc(34px + env(safe-area-inset-bottom,0px));z-index:40;background:#fff;color:var(--text);border-radius:14px 14px 4px 14px;padding:10px 14px;font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:240px;cursor:pointer;animation:in .4s ease-out}
+.widget{position:fixed;right:22px;bottom:calc(100px + env(safe-area-inset-bottom,0px));z-index:45;width:min(390px,calc(100vw - 32px));height:min(620px,calc(100vh - 150px));background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 24px 60px rgba(0,0,0,.35);display:flex;flex-direction:column;overflow:hidden;animation:in .3s ease-out;color:var(--text)}
+@media (max-width:560px){.widget{right:12px;left:12px;width:auto;bottom:calc(96px + env(safe-area-inset-bottom,0px));height:calc(100svh - 120px)}}
+.wh{background:var(--acc);color:#fff;padding:12px 16px;display:flex;gap:10px;align-items:center}
+.wh .av{width:40px;height:40px;border-radius:50%;background:#ddd url(https://images.unsplash.com/photo-1580489944761-15a19d654956?w=160&h=160&fit=crop&crop=faces&facepad=2.5) center/cover;position:relative;flex:none}
+.wh .av::after{content:"";position:absolute;right:0;bottom:0;width:10px;height:10px;border-radius:50%;background:var(--ok);border:2px solid var(--acc)}
+.wh b{display:block;font-size:15px;font-weight:700;font-family:var(--t)}.wh small{color:#ffe7d8;font-size:12px}
+.wh .x{margin-left:auto;background:none;border:0;color:#fff;font-size:24px;cursor:pointer;line-height:1}
+.msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:9px;background:var(--accl)}
+.b{max-width:86%;padding:10px 13px;border-radius:10px;font-size:14px;line-height:1.45;animation:in .3s ease-out}
+.b.bot{background:#fff;border:1px solid var(--line);border-bottom-left-radius:3px;align-self:flex-start}
+.b.me{background:var(--acc);color:#fff;border-bottom-right-radius:3px;align-self:flex-end}
+.b b{color:#111}.b.me b{color:#fff}
+.b .t{display:block;font-size:11px;opacity:.55;margin-top:3px;text-align:right}
+.b.file{display:flex;gap:10px;align-items:center}
+.b.file .ic{width:30px;height:36px;border-radius:4px;background:rgba(255,255,255,.25);display:grid;place-items:center;font-size:10px;font-weight:700}
+.pj{display:flex;gap:8px;overflow-x:auto;margin:8px 0 2px;padding-bottom:4px}
+.pj div{flex:0 0 156px;border:1px solid var(--line);background:#fff;overflow:hidden;border-radius:6px}
+.pj img{display:block;width:100%;height:96px;object-fit:cover}
+.pj span{display:block;font-size:12.5px;line-height:1.3;color:var(--text);padding:6px 8px 8px}
+.pc{margin-top:8px;border:1px solid var(--line);overflow:hidden;background:#fff;border-radius:6px}
+.pc img{display:block;width:100%;height:170px;object-fit:cover}
+.pc div{padding:8px 10px 10px;font-size:13.5px;line-height:1.4}
+.pc a{color:var(--acc);font-weight:700}
+.pr{margin-top:8px;padding:10px 12px;background:var(--accl);border-left:4px solid var(--acc);font-size:13.5px}
+.pr big{display:block;font-size:18px;font-weight:700;color:var(--dark)}
+.endp{align-self:stretch;background:#fff;border:1px solid #ddd;border-radius:6px;padding:12px 14px;font-size:14px;text-align:center;animation:in .3s ease-out}
+.endp button{margin-top:10px;border:0;background:var(--acc);color:#fff;padding:10px 18px;cursor:pointer;font-size:13px;font-weight:700;border-radius:6px}
+.typing{align-self:flex-start;background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 13px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#999;animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{50%{opacity:.25}}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.qr{display:flex;flex-wrap:wrap;gap:7px;padding:10px 14px;border-top:1px solid var(--line);min-height:56px;background:#fff}
+.qr button{border:1px solid var(--acc);color:#111;background:#fff;padding:7px 12px;font-size:13px;cursor:pointer;border-radius:6px}
+.qr button:hover{background:var(--acc);color:#fff}
+.inp{display:flex;gap:8px;padding:0 14px 14px;background:#fff}
+.inp input{flex:1;background:#fff;border:1px solid var(--line);color:var(--text);padding:10px 14px;font-size:14px;border-radius:6px}
+.inp button{border:0;width:42px;background:var(--acc);color:#fff;cursor:pointer;font-weight:700;border-radius:6px}
+
+/* manager view */
+.mgr{position:fixed;inset:0;z-index:60;background:rgba(30,30,30,.96);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;animation:in .3s ease-out;color:#f2f2f2;overflow-y:auto}
+.mbox{display:grid;grid-template-columns:auto minmax(0,340px);gap:28px;align-items:center;max-width:820px;width:100%}
+@media (max-width:760px){.mbox{grid-template-columns:1fr}.mside{order:-1}}
+.phonebox{background:#0d0d0d;border-radius:34px;padding:9px;width:min(340px,100%);margin:0 auto;box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.scr{background:#DCE6EE;border-radius:26px;display:flex;flex-direction:column;overflow:hidden;color:#16202A;font-family:"Helvetica Neue",Arial,sans-serif}
+.th{background:#fff;padding:11px 14px;display:flex;gap:10px;align-items:center;font-size:13.5px;border-bottom:1px solid #D5DEE6}
+.th .av{width:30px;height:30px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px}
+.th small{display:block;color:#76766E;font-size:11.5px}
+.chat{flex:1;padding:26px 12px 14px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;overflow:hidden}
+.m{background:#fff;border-radius:14px 14px 14px 4px;padding:10px 12px;font-size:13px;line-height:1.4;border-left:4px solid #2E8B57;animation:in .35s ease-out}
+.m .tm{float:right;color:#76766E;font-size:11px;margin-left:8px}
+.m .kv{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin-top:6px}
+.m .kv span:nth-child(odd){color:#76766E}
+.m button{margin-top:8px;width:100%;border:0;border-radius:10px;padding:9px;background:var(--acc);color:#fff;font-weight:700}
+.mside h3{margin:0;font-family:var(--t);font-weight:800;font-size:clamp(22px,2.8vw,28px);line-height:1.2}
+.mside p{color:#ddd;margin:12px 0 0;font-size:15px}
+.mside ul{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:14.5px}
+.mside li{display:flex;gap:10px}.mside li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--acc);margin-top:8px;flex:none}
+.mside .cta{margin-top:22px;font-weight:700;font-size:16.5px}
+.mside .wr{margin-top:14px;border:0;background:var(--acc);color:#fff;padding:12px 20px;cursor:pointer;font-weight:700;border-radius:6px}
+.mside .bk{margin-top:14px;margin-left:8px;border:1px solid rgba(255,255,255,.4);background:transparent;color:#f2f2f2;padding:11px 16px;cursor:pointer;border-radius:6px}
+
+/* contact modal */
+.cm{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.6);display:grid;place-items:center;padding:16px}
+.cmb{background:#fff;color:var(--text);max-width:420px;width:100%;padding:26px 24px;border-radius:8px;text-align:center}
+.cmb p{margin:0;color:var(--mute);font-size:14.5px}
+.cmb .em{display:block;margin:10px 0 18px;font-size:clamp(20px,5vw,26px);font-weight:700;word-break:break-all}
+.cmb a,.cmb button{display:block;width:100%;margin-top:8px;padding:12px;font-size:15px;cursor:pointer;text-decoration:none;border:1px solid var(--acc);border-radius:6px}
+.cmb a{background:var(--acc);color:#fff;font-weight:700}
+.cmb button{background:#fff;color:#111}
+.cmb .cl{border:0;color:var(--mute);margin-top:4px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head><body>
+
+<div class="site">
+  <div class="bgimg" aria-hidden="true"></div><div class="shade" aria-hidden="true"></div>
+  <div class="promo"><div class="in"><span>Акция: Скидка 11% + ТехДизайн + Проект мебели</span><button type="button" data-open>Узнать подробнее</button></div></div>
+  <header class="top">
+    <div class="in">
+      <a class="logo" href="#" onclick="return false" aria-label="Прораб НЕВА"><img src="https://www.prorabneva.ru/frontend/images_new/logo.png" referrerpolicy="no-referrer" alt="Прораб НЕВА"></a>
+      <nav class="menu"><span>УСЛУГИ</span><span>ПОРТФОЛИО</span><span>ЦЕНЫ</span><span>О НАС</span></nav>
+      <div class="call">
+        <div class="wa"><svg width="38" height="38" viewBox="0 0 24 24" aria-label="WhatsApp"><path fill="#111" d="M.1 11.89c0 2.1.55 4.14 1.6 5.95L0 24l6.33-1.65c1.75.95 3.72 1.45 5.72 1.45C18.64 23.79 24 18.46 24 11.9c0-3.18-1.24-6.16-3.5-8.41C18.25 1.24 15.25 0 12.05 0 5.46 0 .1 5.34.1 11.89Zm3.77 5.64-.24-.38a9.8 9.8 0 0 1-1.51-5.26c0-5.45 4.46-9.88 9.94-9.88 2.65 0 5.15 1.03 7.02 2.9a9.8 9.8 0 0 1 2.91 6.99c0 5.45-4.46 9.88-9.94 9.88a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.76.98 1-3.65Z"/><path fill="#111" fill-rule="evenodd" d="M9.08 6.94c-.22-.5-.46-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.88 1.22 3.08c.15.2 2.06 3.3 5.1 4.5 2.52.99 3.03.79 3.58.74.55-.05 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.53.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.65-1.62-.92-2.21Z"/></svg><span>с 9:00 до 19:00 (Пн-Сб)</span></div>
+        <button class="btn" type="button" data-open>Заказать звонок</button>
+      </div>
+    </div>
+  </header>
+  <section class="hero">
+    <h1>Ремонт квартир в Санкт-Петербурге</h1>
+    <ul><li>От разработки проекта ремонта до изготовления мебели</li><li>Менее 2% гарантийных случаев за 20+ лет работы</li><li>Гарантия оптимальной цены на комплексный ремонт</li></ul>
+    <button class="btn go" type="button" data-open>Заказать расчет сметы</button>
+  </section>
+</div>
+
+<section class="about">
+  <h2>Что это за демо и как попробовать</h2>
+  <p>Так ИИ-консультант Алина может отвечать на сайте «Прораб НЕВА» в любое время, в том числе вечером и в воскресенье.</p>
+  <p>Нажмите на кнопку с фото Алины справа внизу и пройдите диалог как клиент.</p>
+  <p>В конце откроется экран менеджера: так утром выглядит готовая заявка.</p>
+</section>
+<div class="sign">Демо подготовлено LACIFRA. Это не сайт компании: логотип, фото проектов, цены и тексты взяты с prorabneva.ru.</div>
+
+<div class="teaser" id="teaser" hidden>Добрый вечер! Подсказать стоимость ремонта вашей квартиры?</div>
+<button class="launch" id="launch" type="button" aria-label="Открыть чат"></button>
+
+<div class="widget" id="widget" hidden aria-live="polite">
+  <div class="wh"><div class="av" id="wav"></div><div><b id="wname">Алина, Прораб НЕВА</b><small>ИИ-консультант, онлайн 24/7</small></div><button class="x" type="button" id="close" aria-label="Свернуть чат">×</button></div>
+  <div class="msgs" id="msgs"></div>
+  <div class="qr" id="qr"></div>
+  <div class="inp"><input id="txt" placeholder="Напишите сообщение…" autocomplete="off"><button type="button" id="sendTxt" aria-label="Отправить">→</button></div>
+</div>
+
+<div class="mgr" id="mgr" hidden>
+  <div class="mbox">
+    <div class="phonebox"><div class="scr">
+      <div class="th"><div class="av">П</div><div><b id="bot">Заявки Прораб НЕВА</b><small>Telegram, менеджер</small></div></div>
+      <div class="chat" id="mchat"></div>
+    </div></div>
+    <div class="mside">
+      <h3>А утром менеджер видит готового клиента</h3>
+      <p id="mtext">Клиент написал ночью, когда офис был закрыт. Алина ответила сразу, посчитала ремонт по вашим ценам и записала на замер.</p>
+      <ul><li>Не нужно перезванивать и выяснять квартиру, площадь и вид ремонта</li><li>Клиент уже знает примерный бюджет и сроки</li><li>Клиент получил ответ сразу и не ушёл искать другую компанию</li></ul>
+      <div class="cta">Хотите так же на своём сайте?</div>
+      <button type="button" class="wr" id="writeK">Написать Екатерине</button><button type="button" class="bk" id="closeMgr">Вернуться к сайту</button>
+    </div>
+  </div>
+</div>
+
+<div class="cm" id="cm" hidden>
+  <div class="cmb" role="dialog" aria-label="Контакт Екатерины">
+    <p>Екатерина, LACIFRA</p>
+    <span class="em">katerina@lacifra.co</span>
+    <a href="mailto:katerina@lacifra.co?subject=%D0%94%D0%B5%D0%BC%D0%BE%20%D0%B4%D0%BB%D1%8F%20prorabneva.ru">Написать на почту</a>
+    <button type="button" id="copyE">Скопировать адрес</button>
+    <button type="button" class="cl" id="closeCm">Закрыть</button>
+  </div>
+</div>
+
+<script>
+var METRIKA_ID = 0;
+var IMG="https://www.prorabneva.ru/storage/repairs/";
+/* вид ремонта с главной («Стоимость ремонта квартиры под ключ»): [кнопка, руб./м², срок, подарок] */
+var W=[["Косметический ремонт",8000,"от 20 дней","Техдизайн в подарок"],["Капитальный ремонт",12400,"от 45 дней","Клининг в подарок"],["Дизайнерский ремонт",16500,"от 70 дней",""]];
+/* тип квартиры как в их калькуляторе */
+var Q=[["Новостройка"],["Вторичка"],["Другой объект"]];
+function objTxt(o){return o==="Новостройка"?"Квартира в новостройке":o==="Вторичка"?"Квартира во вторичке":"Объект"}
+/* проекты с главной и /portfolio: [название, площадь и срок, фото, итоговая сумма] */
+var P=[
+ ["Ремонт под ключ в ЖК «Приморский квартал»","43 м², 95 дней","July2024/IOo5TVp4P2mf6Q9n6KAG.webp","886 177 ₽"],
+ ["Ремонт евротрешки в стиле минимализм","95 м², 165 дней","January2025/aQl43L2VXVmGyCWSUlxK.webp","2 456 177 ₽"],
+ ["Ремонт квартиры в стиле неоклассика","72 м², 87 дней","August2023/FpGUGxHti7RcfV29HxZf.webp","1 399 329 ₽"],
+ ["Дизайнерский ремонт в ЖК «Классика. Дом для Души»","129 м², 190 дней","March2024/xZIbs0l8Y41VV5OjO8mC.webp","2 326 240 ₽"]
+];
+var EX=W;
+var C={
+ prorabneva:{n:"Прораб НЕВА",t:W}
+};
+(function(){
+  var qs=new URLSearchParams(location.search);
+  var k="prorabneva";
+  var cfg=C[k], T=cfg.t||EX;
+  var $=function(i){return document.getElementById(i)};
+  function goal(g){try{if(METRIKA_ID&&window.ym)ym(METRIKA_ID,"reachGoal",g,{company:k})}catch(e){}}
+
+  var msgs=$("msgs"),qr=$("qr"),clock=[23,41],started=false,done=false,L={},cur=null;
+  var nMe=0;function t(adv){if(adv)clock[1]++;if(clock[1]>59){clock[1]=0;clock[0]=(clock[0]+1)%24}return ("0"+clock[0]).slice(-2)+":"+("0"+clock[1]).slice(-2)}
+  function scroll(){msgs.scrollTop=msgs.scrollHeight}
+  function me(text,file){var d=document.createElement("div");d.className="b me"+(file?" file":"");d.innerHTML=file?"<span class='ic'>PDF</span><span>"+text+"</span>":text+"<span class='t'>"+t((++nMe)%2===0)+"</span>";msgs.appendChild(d);scroll()}
+  function bot(text,opts,next){qr.innerHTML="";var ty=document.createElement("div");ty.className="typing";ty.innerHTML="<i></i><i></i><i></i>";msgs.appendChild(ty);scroll();
+    setTimeout(function(){ty.remove();var d=document.createElement("div");d.className="b bot";d.innerHTML=text+"<span class='t'>"+t()+"</span>";msgs.appendChild(d);scroll();
+      (opts||[]).forEach(function(o){var bt=document.createElement("button");bt.type="button";bt.textContent=o;bt.onclick=function(){answer(o,next)};qr.appendChild(bt)});cur=next;},850)}
+  function answer(o,next){qr.innerHTML="";me(o);if(next)setTimeout(function(){next(o)},350)}
+  $("sendTxt").onclick=function(){var v=$("txt").value.trim();if(!v||!cur)return;$("txt").value="";answer(v,cur)};
+  $("txt").addEventListener("keydown",function(e){if(e.key==="Enter")$("sendTxt").click()});
+  /*alina-v2*/
+  (function(){
+  var pend=[],last=null,afterDone=0;
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+  function norm(s){return String(s).toLowerCase().replace(/ё/g,"е").replace(/[^a-zа-я0-9]+/g," ").trim()}
+  function nm(c){c=String(c||"");if(/^Анна,/.test(c))return ", Анна";var w=c.trim().split(/[\s,]+/)[0]||"";w=w.charAt(0).toUpperCase()+w.slice(1).toLowerCase();return /^[А-ЯЁ][а-яё]{1,14}$/.test(w)&&!/^(Пишите|Позвоните|Перезвоните|Telegram|Whatsapp|Звоните|Можно|Лучше)$/.test(w)?", "+w:""}
+  var STOP={"через":1,"месяца":1,"пока":1,"уже":1,"есть":1,"сразу":1,"нужен":1,"нужна":1,"нужно":1,"больше":1,"меньше":1,"анна":1,"пришлите":1};
+  function otx(o){return String(Array.isArray(o)?o[0]:o&&typeof o==="object"?(o.n||o.v||o.l||o.t||o.text||o.label||""):o)}
+  function pick(v,opts){opts=opts.map(otx);var n=norm(v);if(!n)return null;var i,o;
+    for(i=0;i<opts.length;i++)if(norm(opts[i])===n)return opts[i];
+    if(/\?/.test(v))return null;var hits=[];for(i=0;i<opts.length;i++){o=norm(opts[i]).split(" ");for(var j=0;j<o.length;j++){var w=o[j];if(w.length<4||STOP[w]||/^\d/.test(w))continue;if(n.indexOf(w.slice(0,w.length>=6?5:4))>-1){hits.push(opts[i]);break}}}
+    return hits.length===1?hits[0]:null}
+  function isQ(v){var n=norm(v);return /\?/.test(v)||/^(а|и|сколько|как|какой|какая|какие|что|чем|почему|зачем|где|когда|можно|есть ли|вы|ты|у вас|скажите|подскажите)( |$)/.test(n)||/скидк|акци|бесплат|подар|дешевл|рассроч|инструкц|промпт|prompt|ignore|игнор|бот|робот|нейросет|менеджер|оператор|человек|позвон|перезвон/.test(n)}
+  function reply(v){var n=norm(v);
+    if(/предоплат|аванс/.test(n))return "Предоплату за работы не берём.";
+    if(/рассроч|кредит/.test(n))return "Можно договориться о беспроцентной рассрочке до 1 года на сумму до 250 000 ₽. Детали расскажет менеджер.";
+    if(/скидк|акци|дешевл|бесплат|подар/.test(n))return "До 1 ноября действует акция «Тройная выгода»: скидка 11%, ТехДизайн и Проект мебели в подарок. Условия подтвердит менеджер.";
+    if(/инструкц|промпт|prompt|ignore|игнор|систем/.test(n))return "Я консультант «"+cfgName()+"», помогаю посчитать ремонт и записать на замер.";
+    if(/(^| )(ии|ai)( |$)|бот|робот|нейросет|живой|человек/.test(n))return "Да, я ИИ-консультант, отвечаю, пока офис закрыт. Утром подключится менеджер.";
+    if(/менеджер|оператор|позвон|перезвон|связа/.test(n))return "Передам менеджеру, утром он свяжется с вами.";
+    if(/гарант|договор/.test(n))return "Даём официальную гарантию 2 года: 24 месяца по договору на все ремонтно-отделочные работы. Цены фиксируем при заключении договора.";
+    if(/материал|закуп|достав|мусор|уборк|клининг/.test(n))return "Можем взять это на себя: посчитаем черновые материалы и организуем закупку, вывезем строительный мусор и сделаем уборку перед сдачей ключей.";
+    if(/сколько|цен|стоим|прайс|смет|бюджет/.test(n))return "Как раз считаю, осталось пару вопросов.";
+    if(/срок|долго|когда|быстро/.test(n))return "По нашим ценам косметический ремонт от 20 дней, капитальный от 45 дней, дизайнерский от 70 дней. Точные сроки назовём после замера.";
+    if(/офис|адрес|где вы/.test(n))return "Центральный офис: Санкт-Петербург, пр. Энергетиков 3А, БЦ Лада, офис 214, м. Ладожская.";
+    return "Записала ваш вопрос, утром передам менеджеру."}
+  function cfgName(){try{return (typeof cfg!=="undefined"&&cfg.n)||(typeof NAME!=="undefined"&&NAME)||"компании"}catch(e){return "компании"}}
+  function lastQ(){var it=last&&last.items;if(it&&typeof it!=="string")it=it[it.length-1];it=String(it||"");var m=it.match(/[^.!?]*\?(?=[^?]*$)/);return m&&m[0].trim().length>3?m[0].trim():it}
+  function again(text){var it=typeof last.items==="string"?text+"<br><br>"+lastQ():[text,lastQ()];bot._again=1;bot(it,last.opts,last.next)}
+  function go(nx,v){qr.innerHTML="";cur=null;setTimeout(function(){nx(String(v).replace(/ /g," "))},350)}
+  var _me=me;me=function(text,file){_me(esc(text),file)};
+  var _bot=bot;bot=function(items,opts,next){if(!bot._again)last={items:items,opts:opts||[],next:next};bot._again=0;cur=null;return _bot.apply(this,arguments)};
+  function handle(v){var nx=cur,o=(last&&last.opts)||[],m=pick(v,o);
+    if(m){go(nx,m);return}
+    var q=isQ(v),all=o.map(otx).join(" ");
+    if(!q&&/Анна/.test(all)&&(v.replace(/\D/g,"").length>=6||/telegram|whatsapp|телеграм|ватсап|вотсап|вацап|звон|почт|@|тг( |$)/i.test(v)||/^[А-ЯЁA-Z]?[а-яёa-z]{2,14}$/i.test((v.trim().split(/[\s,]+/)[0]||""))&&!/^(не|нет|да|ээ|эээ|хз|ну|ок)$/i.test(v.trim().split(/[\s,]+/)[0]))){go(nx,v);return}
+    if(!q&&/м²|м2/.test(all)){var d=(v.match(/\d{2,4}/)||[])[0];if(d&&+d>=10&&+d<=2000){go(nx,d+" м²");return}}
+    (L.q=L.q||[]).push(v);
+    again(q?reply(v):"Пока выберите вариант кнопкой ниже, а ваш комментарий я передам менеджеру.")}
+  $("sendTxt").onclick=function(){var v=$("txt").value.trim().slice(0,400);if(!v)return;$("txt").value="";if(!started)return;me(v);pend.push(v)};
+  setInterval(function(){if(!pend.length)return;if(cur){handle(pend.shift());return}
+    if(done&&!(last&&last.next)&&!afterDone){pend=[];afterDone=1;bot._again=1;bot("Спасибо, передам менеджеру, утром он ответит здесь же.",[],null)}
+    else if(afterDone)pend=[]},250);
+  if(typeof card==="function"){var _card=card;card=function(){_card.apply(this,arguments);try{if(L.q&&L.q.length){var c=$("mchat"),x=document.createElement("div");x.className="m";x.innerHTML="<b>Вопросы клиента</b><div>"+L.q.map(esc).join("<br>")+"</div>";c.appendChild(x)}}catch(e){}}}
+  window.esc=window.esc||esc;window.a2nm=nm;
+  })();
+
+
+  /* площадь: [мин, макс] м² */
+  var AREAS={"до 40 м²":[30,40],"40–70 м²":[40,70],"70–100 м²":[70,100],"больше 100 м²":[100,100]};
+  function fmt(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g," ")}
+  function works(){return "<div class='pj'>"+P.slice(0,3).map(function(x){return "<div><img src='"+IMG+x[2]+"' referrerpolicy='no-referrer' alt=''><span>"+x[0]+", "+x[1]+"</span></div>"}).join("")+"</div>"}
+  function proj(x){return "<div class='pc'><img src='"+IMG+x[2]+"' referrerpolicy='no-referrer' alt=''><div><b>"+x[0]+"</b><br>"+x[1]+", "+x[3]+"<br><a href='https://www.prorabneva.ru/portfolio' target='_blank' rel='noopener'>Смотреть в портфолио</a></div></div>"}
+  function s1(){bot("Добрый вечер! Я Алина, консультант «"+cfg.n+"». Помогу рассчитать стоимость ремонта. Ремонт какой квартиры вас интересует?",Q.map(function(x){return x[0]}),s2)}
+  function s2(v){L.obj=v;bot("Какая площадь помещения?",Object.keys(AREAS),s3)}
+  function s3(v){L.areaTxt=v;bot("Какой ремонт нужен?",T.map(function(x){return x[0]}).concat(["Не знаю, нужна консультация"]),s4)}
+  function s4(v){var w=W.filter(function(x){return x[0]===v})[0],a=AREAS[L.areaTxt]||[40,70];
+    L.tar=w?w[0]:"нужна консультация";var ww=w||W[1],m=ww[1];
+    var lo=a[0]*m,hi=a[1]*m;
+    L.calc=lo===hi?"от "+fmt(lo)+" ₽":"от "+fmt(lo)+" до "+fmt(hi)+" ₽";
+    var txt=(w?"":"Пока посчитала по капитальному ремонту, вид ремонта поможет выбрать специалист на замере. ")+objTxt(L.obj)+", "+L.areaTxt+":<div class='pr'><big>"+L.calc+"</big>"+ww[0].toLowerCase()+" от "+fmt(ww[1])+" ₽/м², срок "+ww[2]+(ww[3]?". "+ww[3]:"")+"</div>";
+    txt+="Это средние цены по нашим ремонтам. Точную смету пришлём на следующий день после замера.";
+    txt+="<br><br>До 1 ноября действует акция «Тройная выгода»: скидка 11%, ТехДизайн и Проект мебели в подарок.";
+    bot(txt,[],null);
+    setTimeout(function(){bot("Вот несколько наших готовых ремонтов:"+works()+"Дизайн интерьера делаем от 1 500 ₽/м², в команде дипломированные дизайнеры. Как у вас с дизайн-проектом?",["Нужен дизайн-проект","Уже есть","Пока не знаю"],s5)},1900)}
+  function s5(v){L.design=v;var x=v==="Уже есть"?P[2]:v==="Нужен дизайн-проект"?P[3]:P[1];
+    var pre=v==="Нужен дизайн-проект"?"Хорошо, дизайнер и ремонт в одной компании. Например, этот проект:"+proj(x):v==="Уже есть"?"Отлично, специалист посмотрит ваш проект на замере. Вот один из наших объектов:"+proj(x):"Ничего страшного, обсудим на замере, с чего начать. Для вдохновения наш проект:"+proj(x);
+    bot(pre+"<br>Когда планируете начать ремонт?",["В ближайший месяц","Через 1–3 месяца","Пока присматриваюсь"],s6)}
+  function s6(v){L.when=v;bot("Следующий шаг: замер. К вам приедет специалист, снимет замеры и проконсультирует по отделке, а на следующий день мы пришлём подробную смету. Если уже делали расчёт в другой компании, пришлите смету: посчитаем по нашему прайсу и проверим на ошибки.",["Вызвать замерщика","Сначала пришлю планировку","Пришлю свою смету"],s7)}
+  function s7(v){var q="Выберите удобное время:",sl=["Пн 11:00","Ср 16:00","Сб 12:00"];
+    if(v==="Сначала пришлю планировку"||v==="Пришлю свою смету"){L.plan=v==="Сначала пришлю планировку"?"планировка":"смета другой компании";L.meet="замер";qr.innerHTML="";me(v==="Пришлю свою смету"?"смета.pdf":"планировка.pdf",true);setTimeout(function(){bot((L.plan==="планировка"?"Получила планировку":"Получила смету, специалист посчитает её по нашему прайсу")+", утром передам. Давайте заодно запишу на замер. "+q,sl,s8)},350)}
+    else{L.plan="";L.meet="замер";bot(q,sl,s8)}}
+  function s8(v){L.slot=v;bot("Как к вам обращаться и как удобнее подтвердить время?",["Анна, в WhatsApp","Анна, позвоните"],s9)}
+  function s9(v){L.contact=v;bot("Готово"+a2nm(L.contact)+". Замер: <b>"+L.slot+"</b>. Утром менеджер подтвердит время."+(L.plan?" Файл уже передан.":"")+" Если появятся вопросы, пишите сюда в любое время.",[],null);
+    done=true;goal("done");
+    setTimeout(function(){var e=document.createElement("div");e.className="endp";e.innerHTML="Конец демо. Так Алина может работать на вашем сайте круглосуточно.<br><button type='button' id='endMgr'>Что увидит менеджер</button>";msgs.appendChild(e);scroll();$("endMgr").onclick=showMgr},1200);
+    setTimeout(function(){if($("mgr").hidden)showMgr()},4200)}
+  function card(){var c=$("mchat");c.innerHTML="";var m=document.createElement("div");m.className="m";
+    m.innerHTML="<span class='tm'>09:00</span><b>Новый клиент от Алины</b><div class='kv'>"+
+    "<span>Клиент</span><span>"+esc(L.contact)+"</span><span>Объект</span><span>"+esc(objTxt(L.obj)).toLowerCase()+", "+esc(L.areaTxt)+"</span><span>Ремонт</span><span>"+esc(L.tar).toLowerCase()+"</span>"+
+    "<span>Расчёт</span><span>"+esc(L.calc)+"</span><span>Дизайн</span><span>"+esc(L.design).toLowerCase()+"</span><span>Сроки</span><span>"+esc(L.when).toLowerCase()+"</span><span>Файл</span><span>"+(L.plan?esc(L.plan):"нет")+"</span><span>Встреча</span><span>"+esc(L.meet)+", "+esc(L.slot)+"</span>"+
+    "<span>Итог</span><span>написала в 23:41, ответила на все вопросы, диалог "+(done?Math.max(1,clock[1]-41):3)+" мин</span></div><button type='button'>Открыть диалог</button>";c.appendChild(m)}
+  function showMgr(){if(!done){L={obj:"Вторичка",areaTxt:"40–70 м²",tar:"Капитальный ремонт",calc:"от 496 000 до 868 000 ₽",design:"Нужен дизайн-проект",when:"Через 1–3 месяца",plan:"планировка",meet:"замер",slot:"Пн 11:00",contact:"Анна, в WhatsApp"};
+      $("mtext").textContent="Так выглядит карточка клиента после разговора с Алиной. Пройдите диалог в чате справа внизу, чтобы увидеть, как она её собирает.";}
+    else{$("mtext").textContent="Анна написала в 23:41, когда офис был закрыт. Алина ответила сразу, посчитала ремонт по вашим ценам, показала ваши проекты и записала на замер."}
+    card();$("mgr").hidden=false;goal("mgr")}
+  function open(){$("teaser").hidden=true;$("widget").hidden=false;if(!started){started=true;goal("open");s1()}}
+  $("launch").onclick=function(){if($("widget").hidden)open();else $("widget").hidden=true};
+  $("teaser").onclick=open;$("close").onclick=function(){$("widget").hidden=true};
+  document.querySelectorAll("[data-open]").forEach(function(b){b.onclick=open});
+  $("closeMgr").onclick=function(){$("mgr").hidden=true};
+  $("writeK").onclick=function(){$("cm").hidden=false};
+  $("closeCm").onclick=function(){$("cm").hidden=true};
+  $("copyE").onclick=function(){var b=this;function ok(){b.textContent="Адрес скопирован"}try{navigator.clipboard.writeText("katerina@lacifra.co").then(ok,function(){prompt("Адрес:","katerina@lacifra.co")})}catch(e){prompt("Адрес:","katerina@lacifra.co")}};
+  window.showMgr=showMgr;
+  setTimeout(function(){if(!started)$("teaser").hidden=false},window.innerWidth<560?4000:2000);
+})();
+</script>
+
+</body></html>
